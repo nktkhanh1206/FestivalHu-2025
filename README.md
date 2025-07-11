@@ -1,1 +1,0 @@
-# FestivalHu-2025
