@@ -91,14 +91,15 @@
         }
 
         .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: flex; /* Sử dụng flexbox để căn chỉnh */
+            justify-content: space-between; /* Đẩy logo và nút/menu ra hai phía */
+            align-items: center; /* Căn giữa theo chiều dọc */
         }
 
         .logo {
             display: flex;
             align-items: center;
+            flex-shrink: 0; /* Đảm bảo logo không bị co lại */
         }
 
         .logo img {
@@ -111,12 +112,13 @@
             font-weight: 700;
         }
 
-        nav ul {
-            display: flex;
+        /* Menu điều hướng chính (cho desktop) */
+        nav.menu ul { /* Thêm .menu vào selector để rõ ràng hơn */
+            display: flex; /* Hiển thị ngang hàng trên desktop */
             list-style: none;
         }
 
-        nav ul li a {
+        nav.menu ul li a {
             color: white;
             text-decoration: none;
             font-weight: 500;
@@ -125,17 +127,19 @@
             transition: all 0.3s ease;
         }
 
-        nav ul li a:hover, nav ul li a.active {
+        nav.menu ul li a:hover, nav.menu ul li a.active {
             background-color: rgba(255, 255, 255, 0.2);
         }
 
+        /* Nút Mobile Menu (Hamburger) */
         .mobile-menu-btn {
-            display: none;
+            display: none; /* Mặc định ẩn trên desktop */
             background: none;
             border: none;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem; /* Tăng kích thước để dễ nhìn hơn */
             cursor: pointer;
+            z-index: 1001; /* Đảm bảo nút nằm trên menu khi mở */
         }
 
         main {
@@ -703,12 +707,12 @@
                 left: 0;
             }
 
-            /* Mobile menu */
-            nav ul {
-                display: none; /* Ẩn menu mặc định */
+            /* Ẩn menu điều hướng chính trên mobile */
+            nav.menu { /* Thêm .menu vào selector */
+                display: none; /* Ẩn toàn bộ nav trên mobile */
                 flex-direction: column;
                 position: absolute;
-                top: 100%;
+                top: 100%; /* Đặt menu ngay dưới header */
                 left: 0;
                 width: 100%;
                 background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
@@ -717,17 +721,31 @@
                 transition: all 0.3s ease;
             }
 
-            nav ul.active {
-                display: flex; /* Hiện menu khi active */
+            /* Hiển thị menu khi có class 'active' */
+            nav.menu.active { /* Thêm .menu vào selector */
+                display: flex; /* Hiển thị menu dưới dạng cột */
             }
 
-            nav ul li {
+            nav.menu ul { /* Thêm .menu vào selector */
+                flex-direction: column; /* Các mục menu xếp dọc */
+                width: 100%;
+            }
+
+            nav.menu ul li { /* Thêm .menu vào selector */
                 margin: 0.5rem 0;
                 text-align: center;
             }
 
+            /* Hiển thị nút mobile menu trên mobile */
             .mobile-menu-btn {
-                display: block;
+                display: block; /* Hiển thị nút hamburger */
+            }
+
+            /* Điều chỉnh header-content trên mobile để logo và nút hamburger luôn nằm ngang */
+            .header-content {
+                flex-direction: row; /* Đảm bảo logo và nút nằm ngang */
+                justify-content: space-between; /* Đẩy chúng ra hai phía */
+                width: 100%; /* Đảm bảo chiếm đủ chiều rộng */
             }
         }
 
@@ -740,18 +758,17 @@
                 font-size: 2.2rem;
             }
             
+            /* Đảm bảo header-content vẫn giữ nguyên flex-direction: row */
             .header-content {
-                flex-direction: column;
-                text-align: center;
+                flex-direction: row; 
+                justify-content: space-between;
+                align-items: center;
             }
             
-            nav ul {
-                margin-top: 1.5rem;
-            }
-            
-            .mobile-menu-btn {
-                position: static; /* Đặt lại vị trí nút mobile menu */
-            }
+            /* Các thuộc tính này không cần thiết nếu justify-content: space-between đã xử lý */
+            /* .mobile-menu-btn {
+                position: static;
+            } */
         }
 
         @media (max-width: 576px) {
@@ -804,7 +821,9 @@
                     <img src="https://placehold.co/100x100" alt="Logo Festival Huế 2025 với biểu tượng quen thuộc của thành phố Huế kết hợp với các yếu tố truyền thống và hiện đại">
                     <h1>Festival Huế 2025</h1>
                 </div>
+                <!-- Nút mobile menu -->
                 <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+                <!-- Menu điều hướng -->
                 <nav class="menu" id="mainMenu">
                     <ul>
                         <li><a href="#" data-page="home" class="active">Trang chủ</a></li>
