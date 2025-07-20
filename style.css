@@ -412,7 +412,7 @@
         }
 
         .left::after {
-            right: -12px;
+            right: -16px;
         }
 
         .right {
@@ -420,7 +420,7 @@
         }
 
         .right::after {
-            left: -12px;
+            left: -16px;
         }
 
         .timeline-content {
