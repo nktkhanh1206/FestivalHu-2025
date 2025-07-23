@@ -799,3 +799,83 @@
         .seasonal-timeline-section .timeline {
             margin-top: 2rem;
         }
+.attractions-filter-tabs {
+    text-align: center;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0 1.5rem; /* Add padding for smaller screens */
+}
+
+.attractions-filter-tabs .filter-btn {
+    background-color: #f0f0f0;
+    color: var(--dark-color);
+    border: 1px solid #ddd;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.attractions-filter-tabs .filter-btn:hover {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.attractions-filter-tabs .filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for attraction categories */
+.attraction-category {
+    display: block; /* Default to block, will be controlled by JS */
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.attraction-category.hidden {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Responsive adjustments for filter tabs */
+@media (max-width: 768px) {
+    .attractions-filter-tabs .filter-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .attractions-filter-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+    .attractions-filter-tabs .filter-btn {
+        width: 80%; /* Make buttons wider on very small screens */
+        margin-bottom: 0.5rem;
+    }
+}
+        .attraction-detail-section {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .attraction-detail-section.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
