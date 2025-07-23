@@ -291,6 +291,31 @@
         document.addEventListener('DOMContentLoaded', () => {
             const schedulePage = document.getElementById('schedule');
             const attractionsPage = document.getElementById('attractions');
+            const viewButtons = document.querySelectorAll('.view-season-btn');
+const seasonSections = document.querySelectorAll('.seasonal-timeline-section');
+const backBtn = document.querySelector('.back-to-seasons-btn');
+const seasonCards = document.querySelectorAll('.season-card');
+
+viewButtons.forEach(btn => {
+    btn.addEventListener('click', e => {
+        e.preventDefault();
+        const season = btn.getAttribute('data-season');
+        seasonSections.forEach(sec => sec.classList.remove('active'));
+        const target = document.getElementById(`${season}-timeline`);
+        if (target) target.classList.add('active');
+        seasonCards.forEach(card => card.style.display = 'none');
+        if (backBtn) backBtn.style.display = 'inline-block';
+    });
+});
+
+if (backBtn) {
+    backBtn.addEventListener('click', e => {
+        e.preventDefault();
+        seasonSections.forEach(sec => sec.classList.remove('active'));
+        seasonCards.forEach(card => card.style.display = 'block');
+        backBtn.style.display = 'none';
+    });
+}
 
             // Handle "Xem chi tiết" buttons for seasonal timelines
             document.querySelectorAll('.view-season-btn').forEach(button => {
