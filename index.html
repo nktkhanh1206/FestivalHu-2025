@@ -3,944 +3,1468 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Festival Huế 2025 - Di sản văn hóa với hội nhập và phát triển</title>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
-<link rel="stylesheet" href="style.css">
+    <title>Festival Huế 2025 - Di sản Văn hóa Cố đô</title>
+    <style>
+        :root {
+            --primary-color: #a00b28;
+            --secondary-color: #f8e5d6;
+            --accent-color: #d4af37;
+            --text-color: #333;
+            --light-text: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f5f0;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('img/MAIN.jpg') center/cover no-repeat;
+            color: var(--light-text);
+            text-align: center;
+            padding: 5rem 1rem;
+            margin-bottom: 3rem;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Navbar Styles */
+        nav {
+            background-color: var(--primary-color);
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 4rem 0 2rem;
+            position: relative;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 0.5rem auto;
+        }
+
+        .scroll-container {
+            position: relative;
+            margin: 2rem 0 4rem;
+            overflow-x: hidden;
+        }
+
+        .card-wrapper {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .card-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        .card {
+            min-width: 280px;
+            max-width: 280px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            scroll-snap-align: start;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-image {
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .card-content p {
+            color: #555;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            display: inline-block;
+            color: var(--accent-color);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            cursor: pointer; /* Add cursor pointer to indicate it's clickable */
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .scroll-container:hover .scroll-btn {
+            opacity: 1;
+        }
+
+        .scroll-btn.prev {
+            left: 10px;
+        }
+
+        .scroll-btn.next {
+            right: 10px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 100; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 700px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+            animation-name: animatetop;
+            animation-duration: 0.4s
+        }
+
+        /* Add Animation */
+        @keyframes animatetop {
+            from {top: -300px; opacity: 0}
+            to {top: 0; opacity: 1}
+        }
+
+        /* New: Fade In Up Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            opacity: 0; /* Start hidden */
+            transform: translateY(20px); /* Start slightly below */
+            animation: fadeInUp 1.6s ease-out forwards; /* Apply animation - Changed from 0.6s to 1.6s */
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-title {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .modal-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        /* Masonry Grid for Attractions */
+        .masonry-grid {
+            column-count: 4; /* Number of columns - Changed to 4 */
+            column-gap: 1.5rem; /* Gap between columns */
+            margin: 2rem 0 4rem;
+        }
+
+        .masonry-grid .card {
+            width: 100%; /* Card takes full width of its column */
+            margin-bottom: 1.5rem; /* Space below each card */
+            break-inside: avoid-column; /* Prevent card from breaking across columns */
+            min-width: unset; /* Override min-width from card-wrapper */
+            max-width: unset; /* Override max-width from card-wrapper */
+            cursor: pointer; /* Indicate clickable */
+        }
+
+        /* Define different heights for cards to create varied shapes */
+        .masonry-grid .card.card-tall-1 .card-image {
+            height: 220px; /* Taller image */
+        }
+        .masonry-grid .card.card-tall-2 .card-image {
+            height: 250px; /* Even taller image */
+        }
+        .masonry-grid .card.card-tall-3 .card-image {
+            height: 150px; /* Shorter image */
+        }
+        .masonry-grid .card.card-tall-4 .card-image {
+            height: 200px; /* Medium image */
+        }
+        /* Add more as needed */
+
+
+        /* Hide card-content for attraction cards */
+        #attraction-section .card-content {
+            display: none; /* Hide the text content */
+        }
+
+        /* Circular Gallery specific styles (mostly handled by JS, but good to have a class) */
+        .circular-gallery-wrapper {
+            /* No specific CSS changes needed here beyond existing card-wrapper styles */
+        }
+
+        /* New styles for centered card in scroll-container */
+        /* .card-wrapper.village-scroll {
+            scroll-snap-type: x mandatory;
+            justify-content: center;
+            padding: 1rem 50%; 
+        }
+        .card-wrapper.village-scroll .card {
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .card-wrapper.village-scroll .card.centered {
+            min-width: 350px; 
+            max-width: 350px;
+            transform: scale(1.15);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+
+        .card-wrapper.village-scroll .card.centered .card-image {
+            height: 240px;
+        }
+        
+        .card-wrapper.village-scroll .card:not(.centered) {
+            margin: 0 -40px;
+            transform: scale(0.9);
+            opacity: 0.8;
+            z-index: 1;
+        } */
+
+        @media (max-width: 1200px) { /* Adjust breakpoint for 3 columns */
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+
+        @media (max-width: 992px) { /* Adjust breakpoint for 2 columns */
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            nav ul li a {
+                font-size: 1rem;
+                padding: 0.3rem 0.5rem;
+            }
+
+            .card {
+                min-width: 220px;
+                max-width: 220px;
+            }
+            
+            .scroll-btn {
+                opacity: 1;
+            }
+
+            .modal-content {
+                width: 95%;
+                padding: 20px;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
+            }
+
+            .modal-body {
+                font-size: 1rem;
+            }
+
+            .masonry-grid {
+                column-count: 1;
+            }
+            .masonry-grid .card {
+                min-width: 280px; /* Re-apply min-width for mobile if desired */
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            /* Reset specific card heights for single column on mobile */
+            .masonry-grid .card.card-tall-1 .card-image,
+            .masonry-grid .card.card-tall-2 .card-image,
+            .masonry-grid .card.card-tall-3 .card-image,
+            .masonry-grid .card.card-tall-4 .card-image {
+                height: 180px; /* Default height */
+            }
+
+            /* Responsive for schedule cards */
+            .schedule-card {
+                min-width: unset;
+                max-width: 100%;
+            }
+
+            /* .card-wrapper.village-scroll .card.centered {
+                min-width: 250px; 
+                max-width: 250px;
+            }
+            .card-wrapper.village-scroll .card.centered .card-image {
+                height: 180px; 
+            } */
+        }
+
+        /* New styles for the "Giới thiệu" section */
+        .hero {
+            position: relative;
+            height: 400px; /* Adjust as needed */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .hero-bg-parallax {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect */
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            padding: 0 1rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            align-items: flex-start;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .about-text h3 {
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.5rem;
+        }
+
+        .about-text ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+
+        .about-text ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 4rem;
+        }
+
+        .card-container .card {
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card-container .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-container .card-image {
+            height: 200px; /* Adjust image height for these cards */
+        }
+
+        .card-container .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-container .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-container .card-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .card-container .card-content p {
+            color: #555;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .about-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .about-image {
+                min-width: unset;
+                width: 100%;
+            }
+            .about-text {
+                min-width: unset;
+                width: 100%;
+            }
+            .card-container .card {
+                min-width: unset;
+                width: 100%;
+            }
+        }
+
+        /* New styles for Schedule Section */
+        .schedule-card .card-image {
+            position: relative; /* Để overlay có thể định vị tương đối */
+            height: 200px; /* Chiều cao cố định cho ảnh lịch trình */
+        }
+
+        .schedule-card .card-image img {
+            filter: brightness(0.7); /* Làm tối ảnh để chữ dễ đọc hơn */
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent; /* Đặt trong suốt ban đầu */
+            color: var(--light-text);
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            pointer-events: none; /* Đảm bảo click xuyên qua overlay đến card */
+            transition: background-color 0.3s ease, border 0.3s ease; /* Thêm transition cho border */
+        }
+
+        .card-overlay h3 {
+            border: 3px solid var(--light-text); /* Viền trắng */
+            padding: 0.5rem 1rem; /* Khoảng đệm bên trong viền */
+            background-color: rgba(0, 0, 0, 0.4); /* Nền đen mờ cho chữ */
+            border-radius: 5px; /* Bo góc nhẹ cho ô vuông */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .schedule-card:hover .card-overlay {
+            background-color: rgba(0, 0, 0, 0.2); /* Lớp phủ nhẹ hơn khi hover */
+        }
+
+        .schedule-card:hover .card-overlay h3 {
+            background-color: rgba(0, 0, 0, 0.6); /* Nền đen mờ đậm hơn khi hover */
+            transform: scale(1.05); /* Phóng to chữ nhẹ khi hover */
+        }
+
+        /* Village section layout */
+        .village-layout-container {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            margin-bottom: 4rem;
+            /* Đảm bảo các cột nằm ngang hàng */
+            flex-direction: row; 
+        }
+
+        .village-cards-column {
+            flex: 2;
+            min-width: 60%;
+            position: relative;
+            order: 2;
+            overflow: hidden;
+        }
+
+        .village-text-column {
+            flex: 1; /* Cột chữ chiếm 1 phần */
+            min-width: 30%; /* Đảm bảo cột chữ có đủ không gian */
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Đặt cột văn bản ở bên trái */
+            order: 1; 
+        }
+
+        .village-text-column .village-text-title {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .village-text-column p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .village-text-column ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-bottom: 1rem;
+        }
+
+        .village-text-column ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Adjustments for village-scroll card-wrapper */
+        .card-wrapper.village-scroll {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .card-wrapper.village-scroll .card {
+            flex-shrink: 0;
+            scroll-snap-align: center;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+        }
+
+        .card-wrapper.village-scroll .card.centered {
+            min-width: 320px;
+            max-width: 320px;
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 2;
+        }
+
+        .card-wrapper.village-scroll .card.centered .card-image {
+            height: 220px;
+        }
+        
+        .card-wrapper.village-scroll .card:not(.centered) {
+            min-width: 240px;
+            max-width: 240px;
+            transform: scale(0.9);
+            opacity: 0.85;
+        }
+
+        /* Responsive adjustments for the new layout */
+        @media (max-width: 992px) {
+            .village-layout-container {
+                flex-direction: column; /* Chuyển sang bố cục cột trên màn hình nhỏ hơn */
+                align-items: center;
+            }
+            .village-cards-column,
+            .village-text-column {
+                flex: none; /* Bỏ flex để chúng chiếm toàn bộ chiều rộng */
+                width: 100%;
+                min-width: unset;
+                /* Đặt lại order về mặc định để văn bản ở trên card trên mobile */
+                order: unset; 
+            }
+            .village-cards-column {
+                padding-bottom: 2rem; /* Thêm khoảng cách dưới cột card */
+            }
+            .card-wrapper.village-scroll {
+                padding: 1rem calc(50% - 125px); /* Điều chỉnh padding để căn giữa 3 card trên mobile */
+            }
+            .card-wrapper.village-scroll .card.centered {
+                min-width: 250px;
+                max-width: 250px;
+            }
+            .card-wrapper.village-scroll .card.centered .card-image {
+                height: 180px;
+            }
+            .card-wrapper.village-scroll .card:not(.centered) {
+                min-width: 220px;
+                max-width: 220px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .card-wrapper.village-scroll {
+                padding: 1rem calc(50% - 125px); /* Giữ nguyên padding cho mobile */
+            }
+        }
+
+        /* Thêm scroll-margin-top cho tất cả các section có ID tương ứng với nav */
+        #about,
+        #attraction-section,
+        #village-section,
+        #food-section,
+        #art-section,
+        #schedule-section {
+            scroll-margin-top: 80px; /* Điều chỉnh giá trị này tùy thuộc vào chiều cao của navbar */
+        }
+    </style>
 </head>
 <body>
-    <!-- Loading Screen HTML -->
-    <div class="loader" id="loader">
-        <div class="loader-spinner"></div>
-    </div>
-
+    <nav>
+        <ul>
+            <li><a href="#about">Giới thiệu</a></li>
+            <li><a href="#attraction-section">Điểm tham quan</a></li>
+            <li><a href="#village-section">Làng nghề</a></li>
+            <li><a href="#food-section">Ẩm thực</a></li>
+            <li><a href="#art-section">Nghệ thuật</a></li>
+            <li><a href="#schedule-section">Lịch trình</a></li> <!-- THÊM DÒNG NÀY -->
+        </ul>
+    </nav>
+    
     <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <img src="img/logo.png" alt="Logo Festival Huế 2025 với biểu tượng quen thuộc của thành phố Huế kết hợp với các yếu tố truyền thống và hiện đại">
-                    <h1>Festival Huế 2025</h1>
-                </div>
-                <!-- Nút mobile menu -->
-                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-                <!-- Menu điều hướng -->
-                <nav class="menu" id="mainMenu">
-                    <ul>
-                        <li><a href="#" data-page="home" class="active">Trang chủ</a></li>
-                        <li><a href="#" data-page="about">Giới thiệu</a></li>
-                        <li><a href="#" data-page="schedule">Lịch trình</a></li>
-                        <li><a href="#" data-page="attractions">Khám phá Huế</a></li>
-                        <li><a href="#" data-page="tickets">Vé tham dự</a></li>
-                        <li><a href="#" data-page="contact">Liên hệ</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
+        <h1>Festival Huế 2025</h1>
+        <p>Kế thừa và phát huy giá trị di sản văn hóa cung đình Huế - Nơi hội tụ tinh hoa văn hóa Việt Nam</p>
     </header>
 
-    <main>
-        <!-- Trang chủ -->
-        <div class="page active" id="home">
-            <section class="hero">
-                <div class="hero-bg-parallax" style="background-image: url('img/MAIN.jpg');"></div>
-                <h1>Chào mừng đến với Festival Huế 2025</h1>
-                <p>Khám phá vẻ đẹp văn hóa, lịch sử và ẩm thực độc đáo của Cố đô Huế qua hàng loạt sự kiện đặc sắc diễn ra từ 01/01/2025 đến 31/12/2025</p>
-                 <a href="#" class="btn" data-page="schedule">Xem lịch trình</a> 
-            </section>
-
-            <section class="container">
-                <div class="section-title">
-                    <h2>Sự kiện nổi bật</h2>
-                </div>
-                <div class="card-container">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="img/Le_Khai_Mac.jpg" alt="Buổi khai mạc Festival Huế với hàng ngàn người tham dự, pháo hoa rực rỡ trên bầu trời sông Hương">
-                        </div>
-                        <div class="card-content">
-                            <h3>Lễ khai mạc hoành tráng</h3>
-                            <p>Chương trình nghệ thuật đặc sắc kết hợp công nghệ trình chiếu 3D mapping trên di sản.</p>
-                            <a href="#" class="btn" data-page="schedule" data-season="spring">Chi tiết</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="img/Nhac_SH.webp" alt="Đêm thơ nhạc trên sông Hương với các nghệ sĩ biểu diễn trên thuyền rồng lung linh ánh đèn">
-                        </div>
-                        <div class="card-content">
-                            <h3>Đêm thơ nhạc sông Hương</h3>
-                            <p>Tái hiện không gian thơ ca, âm nhạc truyền thống Huế trong đêm trăng.</p>
-                            <a href="#" class="btn" data-page="schedule" data-season="summer">Chi tiết</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="img/Am_Thuc.webp" alt="Các món ăn cung đình Huế được bày biện tinh tế trên bàn tiệc cổ kính">
-                        </div>
-                        <div class="card-content">
-                            <h3>Hội chợ ẩm thực cung đình</h3>
-                            <p>Trải nghiệm ẩm thực cung đình Huế với các món ăn được phục dựng từ thời nhà Nguyễn.</p>
-                            <a href="#" class="btn" data-page="schedule" data-season="autumn">Chi tiết</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
+    <div class="container">
         <!-- Giới thiệu -->
-        <div class="page" id="about">
-            <section class="hero">
-                <div class="hero-bg-parallax" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/Gioi_Thieu.jpg');"></div>
-                <h1>Giới thiệu Festival Huế 2025 - Di sản văn hóa với hội nhập và phát triển</h1>
-                <p>Festival Huế 2025 với chủ đề "Di sản văn hóa với hội nhập và phát triển" hứa hẹn sẽ là sự kiện văn hóa lớn nhất năm, kéo dài xuyên suốt 365 ngày</p>
-            </section>
-
-            <section class="container">
-                <div class="section-title">
-                    <h2>Về Festival Huế</h2>
-                </div>
-                <div class="about-content">
-                    <div class="about-image">
-                        <img src="img/Gioi_Thieu02.webp" alt="Toàn cảnh quần thể di tích Cố đô Huế nhìn từ trên cao với sông Hương uốn lượn xung quanh">
-                    </div>
-                    <div class="about-text">
-                        <p>Festival Huế là sự kiện văn hóa lớn được tổ chức định kỳ tại thành phố Huế, tỉnh Thừa Thiên Huế, Việt Nam. Đây là dịp để quảng bá những giá trị văn hóa đặc sắc của Cố đô Huế cũng như giao lưu văn hóa với các nước trên thế giới.</p>
-                        <p>Năm 2025, Festival Huế sẽ diễn ra từ ngày 01/01/2025 đến ngày 31/12/2025 với chủ đề <b style="color:blueviolet">"Di sản văn hóa với hội nhập và phát triển"</b>. Sự kiện lần này sẽ kết hợp hài hòa giữa bảo tồn di sản và sáng tạo nghệ thuật đương đại, mang đến những trải nghiệm độc đáo và đa dạng cho du khách trong suốt cả năm.</p>
-                        <h3>Mục đích của Festival Huế 2025:</h3>
-                        <ul>
-                            <li style="list-style-type: none"><b style="color: blueviolet">Tôn vinh và quảng bá:</b> Giới thiệu những giá trị văn hóa, lịch sử, kiến trúc, nghệ thuật và ẩm thực đặc sắc của Huế đến với bạn bè trong nước và quốc tế.</li>
-                            <li style="list-style-type: none"><b style="color: blueviolet">Hội nhập và phát triển:</b> Thúc đẩy giao lưu văn hóa quốc tế, tạo cơ hội hợp tác và phát triển du lịch bền vững cho Thừa Thiên Huế.</li>
-                            <li style="list-style-type: none"><b style="color: blueviolet">Nâng tầm thương hiệu:</b> Khẳng định vị thế của Huế là thành phố Festival đặc trưng của Việt Nam, góp phần vào sự phát triển kinh tế - xã hội của địa phương.</li>
-                            <li style="list-style-type: none"><b style="color: blueviolet">Trải nghiệm đa dạng:</b> Mang đến cho du khách những trải nghiệm văn hóa phong phú, từ các lễ hội truyền thống, biểu diễn nghệ thuật đến khám phá ẩm thực và làng nghề.</li>
-                        </ul>
-                    </div>  
-                </div>
-                
-                <div class="section-title">
-                    <h2>Đặc điểm nổi bật</h2>
-                </div>
-                <div class="card-container">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="img/Ban_sac_vh.jpg" alt="Người dân Huế mặc trang phục áo dài truyền thống đi dạo quanh các công trình cổ">
-                        </div>
-                        <div class="card-content">
-                            <h3>Bản sắc văn hóa Huế</h3>
-                            <p>Tái hiện sinh động không gian văn hóa đặc trưng của vùng đất Cố đô từ kiến trúc, ẩm thực đến lễ nghi cung đình.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="img/Giao_luu.jpg" alt="Các nghệ sĩ quốc tế biểu diễn cùng nghệ nhân Việt Nam trên sân khấu lộng lẫy">
-                        </div>
-                        <div class="card-content">
-                            <h3>Giao lưu văn hóa quốc tế</h3>
-                            <p>Sự tham gia của nhiều đoàn nghệ thuật từ các nước châu Á, châu Âu, châu Mỹ tạo nên bức tranh đa văn hóa.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="img/Cn_Hien_Dai.jpg" alt="Công nghệ ánh sáng và trình chiếu 3D trên các bức tường thành cổ">
-                        </div>
-                        <div class="card-content">
-                            <h3>Kết hợp công nghệ hiện đại</h3>
-                            <p>Ứng dụng công nghệ trình chiếu 3D mapping, thực tế ảo để giới thiệu di sản một cách sống động và hấp dẫn.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Lịch trình -->
-        <div class="page" id="schedule">
-            <section class="hero">
-                <div class="hero-bg-parallax" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://placehold.co/1920x1080');"></div>
-                <h1>Lịch trình sự kiện Festival Huế 2025</h1>
-                <p>Các chương trình nghệ thuật và sự kiện văn hóa đặc sắc diễn ra xuyên suốt năm 2025 theo từng mùa</p>
-            </section>
-
-            <section class="container">
-                <div class="section-title">
-                    <h2>Lịch trình theo mùa</h2>
-                </div>
-                
-                <div class="card-container">
-                    <div class="card season-card" data-season-target="spring">
-                        <div class="card-image">
-                            <img src="img/mai.jpg" alt="Cảnh sắc mùa xuân ở Huế với hoa mai, hoa đào nở rộ">
-                        </div>
-                        <div class="card-content">
-                            <h3>Mùa Xuân - Xuân Cố Đô</h3>
-                            <p>Từ 01/01/2025 - 31/03/2025</p>
-                            <p>Các lễ hội truyền thống, không gian Tết xưa, và các hoạt động văn hóa dân gian.</p>
-                            <a href="#" class="btn view-season-btn" data-season="spring">Xem chi tiết</a>
-                        </div>
-                    </div>
-                    <div class="card season-card" data-season-target="summer">
-                        <div class="card-image">
-                            <img src="img/sen.jpg" alt="Kinh thành Huế lung linh dưới ánh đèn đêm mùa hè">
-                        </div>
-                        <div class="card-content">
-                            <h3>Mùa Hè - Kinh Thành Tỏa Sáng</h3>
-                            <p>Từ 01/04/2025 - 30/06/2025</p>
-                            <p>Các chương trình nghệ thuật cung đình, biểu diễn quốc tế và lễ hội đường phố sôi động.</p>
-                            <a href="#" class="btn view-season-btn" data-season="summer">Xem chi tiết</a>
-                        </div>
-                    </div>
-                    <div class="card season-card" data-season-target="autumn">
-                        <div class="card-image">
-                            <img src="img/cuc.jpg" alt="Huế vào thu với lá vàng rơi và không khí lãng mạn">
-                        </div>
-                        <div class="card-content">
-                            <h3>Mùa Thu - Huế Vào Thu</h3>
-                            <p>Từ 01/07/2025 - 30/09/2025</p>
-                            <p>Các hoạt động ẩm thực, lễ hội đèn lồng, và các chương trình nghệ thuật dân gian.</p>
-                            <a href="#" class="btn view-season-btn" data-season="autumn">Xem chi tiết</a>
-                        </div>
-                    </div>
-                    <div class="card season-card" data-season-target="winter">
-                        <div class="card-image">
-                            <img src="img/truc.jpg" alt="Cảnh sắc mùa đông ở Huế với sương mù và không khí trầm mặc">
-                        </div>
-                        <div class="card-content">
-                            <h3>Mùa Đông - Mùa Đông Xứ Huế</h3>
-                            <p>Từ 01/10/2025 - 31/12/2025</p>
-                            <p>Các hoạt động trải nghiệm văn hóa tâm linh, thiền định và các chương trình nghệ thuật đương đại.</p>
-                            <a href="#" class="btn view-season-btn" data-season="winter">Xem chi tiết</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Các nút điều hướng mới -->
-                <div class="schedule-navigation-buttons" style="text-align: center; margin-top: 3rem;">
-                    <a href="#" class="btn back-to-seasons-btn" style="display: none; margin-right: 1rem;">Quay lại đầu mùa</a>
-                    <a href="#" class="btn view-all-schedule-btn" style="display: none;">Xem toàn bộ lịch trình</a>
-                </div>
-                <!-- Seasonal Timeline Sections (Initially hidden) -->
-                <div id="spring-timeline" class="seasonal-timeline-section">
+        <section id="about">
+            <div class="page" id="about">
+                <section class="container">
                     <div class="section-title">
-                        <h2>Lịch trình Mùa Xuân - Xuân Cố Đô</h2>
-                        <p>01/01/2025 - 31/03/2025</p>
+                        <h2>Về Festival Huế</h2>
                     </div>
-                    <div class="timeline">
-                        <div class="timeline-item left">
-                            <div class="timeline-content">
-                                <div class="timeline-date">01/01/2025</div>
-                                <h3>Lễ chào cờ đầu năm và bắn pháo hoa nghệ thuật</h3>
-                                <p>Địa điểm: Kỳ Đài, Đại Nội Huế. Mở màn cho một năm Festival đầy hứa hẹn.</p>
-                            </div>
+                    <div class="about-content">
+                        <div class="about-image">
+                            <img src="img/Gioi_Thieu02.webp" alt="Toàn cảnh quần thể di tích Cố đô Huế nhìn từ trên cao với sông Hương uốn lượn xung quanh">
                         </div>
-                        <div class="timeline-item right">
-                            <div class="timeline-content">
-                                <div class="timeline-date">10/01 - 20/01/2025</div>
-                                <h3>Không gian Tết xưa và chợ hoa truyền thống</h3>
-                                <p>Địa điểm: Khu vực Đại Nội và công viên 3/2. Tái hiện không khí Tết cổ truyền Huế.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item left">
-                            <div class="timeline-content">
-                                <div class="timeline-date">25/01/2025 (Mùng 1 Tết Âm lịch)</div>
-                                <h3>Lễ tế Xã Tắc</h3>
-                                <p>Địa điểm: Đàn Xã Tắc. Nghi lễ cầu quốc thái dân an theo truyền thống triều Nguyễn.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item right">
-                            <div class="timeline-content">
-                                <div class="timeline-date">15/02 - 28/02/2025</div>
-                                <h3>Lễ hội Đền Huyền Trân Công Chúa</h3>
-                                <p>Địa điểm: Trung tâm Văn hóa Huyền Trân. Tôn vinh công lao của công chúa Huyền Trân.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item left">
-                            <div class="timeline-content">
-                                <div class="timeline-date">15/03 - 31/03/2025</div>
-                                <h3>Tuần lễ Áo dài Huế</h3>
-                                <p>Địa điểm: Các di tích lịch sử và đường phố Huế. Trình diễn và tôn vinh vẻ đẹp áo dài Huế.</p>
-                            </div>
-                        </div>
+                        <div class="about-text">
+                            <p>Festival Huế là sự kiện văn hóa lớn được tổ chức định kỳ tại thành phố Huế, tỉnh Thừa Thiên Huế, Việt Nam. Đây là dịp để quảng bá những giá trị văn hóa đặc sắc của Cố đô Huế cũng như giao lưu văn hóa với các nước trên thế giới.</p>
+                            <p>Năm 2025, Festival Huế sẽ diễn ra từ ngày 01/01/2025 đến ngày 31/12/2025 với chủ đề <b style="color:blueviolet">"Di sản văn hóa với hội nhập và phát triển"</b>. Sự kiện lần này sẽ kết hợp hài hòa giữa bảo tồn di sản và sáng tạo nghệ thuật đương đại, mang đến những trải nghiệm độc đáo và đa dạng cho du khách trong suốt cả năm.</p>
+                            <h3>Mục đích của Festival Huế 2025:</h3>
+                            <ul>
+                                <li style="list-style-type: none"><b style="color: blueviolet">Tôn vinh và quảng bá:</b> Giới thiệu những giá trị văn hóa, lịch sử, kiến trúc, nghệ thuật và ẩm thực đặc sắc của Huế đến với bạn bè trong nước và quốc tế.</li>
+                                <li style="list-style-type: none"><b style="color: blueviolet">Hội nhập và phát triển:</b> Thúc đẩy giao lưu văn hóa quốc tế, tạo cơ hội hợp tác và phát triển du lịch bền vững cho Thừa Thiên Huế.</li>
+                                <li style="list-style-type: none"><b style="color: blueviolet">Nâng tầm thương hiệu:</b> Khẳng định vị thế của Huế là thành phố Festival đặc trưng của Việt Nam, góp phần vào sự phát triển kinh tế - xã hội của địa phương.</li>
+                                <li style="list-style-type: none"><b style="color: blueviolet">Trải nghiệm đa dạng:</b> Mang đến cho du khách những trải nghiệm văn hóa phong phú, từ các lễ hội truyền thống, biểu diễn nghệ thuật đến khám phá ẩm thực và làng nghề.</li>
+                            </ul>
+                        </div>  
                     </div>
-                </div>
-
-                <div id="summer-timeline" class="seasonal-timeline-section">
-                    <div class="section-title">
-                        <h2>Lịch trình Mùa Hè - Kinh Thành Tỏa Sáng</h2>
-                        <p>01/04/2025 - 30/06/2025</p>
-                    </div>
-                    <div class="timeline">
-                        <div class="timeline-item left">
-                            <div class="timeline-content">
-                                <div class="timeline-date">01/04/2025</div>
-                                <h3>Lễ hội Khinh khí cầu Quốc tế Huế</h3>
-                                <p>Địa điểm: Sân Hàm Nghi, Đại Nội Huế. Màn trình diễn khinh khí cầu đầy màu sắc.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item right">
-                            <div class="timeline-content">
-                                <div class="timeline-date">15/04 - 30/04/2025</div>
-                                <h3>Festival Nghề truyền thống Huế</h3>
-                                <p>Địa điểm: Công viên Tứ Tượng, đường Lê Lợi. Giới thiệu và tôn vinh các làng nghề truyền thống.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item left">
-                            <div class="timeline-content">
-                                <div class="timeline-date">15/05 - 30/05/2025</div>
-                                <h3>Tuần lễ Văn hóa - Du lịch Biển Thuận An</h3>
-                                <p>Địa điểm: Bãi biển Thuận An. Các hoạt động thể thao biển, ẩm thực hải sản.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item right">
-                            <div class="timeline-content">
-                                <div class="timeline-date">01/06 - 07/06/2025</div>
-                                <h3>Tuần lễ Festival chính (Điểm nhấn)</h3>
-                                <p>Địa điểm: Toàn thành phố Huế. Bao gồm Lễ khai mạc, Đêm thơ nhạc sông Hương, Hội chợ ẩm thực cung đình, Lễ hội đường phố, Lễ bế mạc.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item left">
-                            <div class="timeline-content">
-                                <div class="timeline-date">20/06 - 30/06/2025</div>
-                                <h3>Liên hoan Hát Văn - Hát Chầu Văn</h3>
-                                <p>Địa điểm: Các đền, phủ, nhà hát truyền thống. Giới thiệu nghệ thuật Hát Văn đặc sắc.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="autumn-timeline" class="seasonal-timeline-section">
-                    <div class="section-title">
-                        <h2>Lịch trình Mùa Thu - Huế Vào Thu</h2>
-                        <p>01/07/2025 - 30/09/2025</p>
-                    </div>
-                    <div class="timeline">
-                        <div class="timeline-item left">
-                            <div class="timeline-content">
-                                <div class="timeline-date">15/07 - 31/07/2025</div>
-                                <h3>Lễ hội Sen Huế</h3>
-                                <p>Địa điểm: Hồ Tịnh Tâm, Tịnh Tâm Viên. Tôn vinh vẻ đẹp của hoa sen và các sản phẩm từ sen.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item right">
-                            <div class="timeline-content">
-                                <div class="timeline-date">01/08 - 15/08/2025</div>
-                                <h3>Tuần lễ Ẩm thực chay Huế</h3>
-                                <p>Địa điểm: Các nhà hàng chay, chùa. Giới thiệu sự đa dạng và tinh tế của ẩm thực chay Huế.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item left">
-                            <div class="timeline-content">
-                                <div class="timeline-date">15/09/2025 (Tết Trung Thu)</div>
-                                <h3>Đêm hội đèn lồng và múa lân truyền thống</h3>
-                                <p>Địa điểm: Phố đi bộ Nguyễn Đình Chiểu, cầu Trường Tiền. Không gian vui tươi, rực rỡ sắc màu.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item right">
-                            <div class="timeline-content">
-                                <div class="timeline-date">20/09 - 30/09/2025</div>
-                                <h3>Triển lãm ảnh nghệ thuật "Huế trong tôi"</h3>
-                                <p>Địa điểm: Bảo tàng Mỹ thuật Huế. Trưng bày các tác phẩm nhiếp ảnh về vẻ đẹp Huế.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="winter-timeline" class="seasonal-timeline-section">
-                    <div class="section-title">
-                        <h2>Lịch trình Mùa Đông - Mùa Đông Xứ Huế</h2>
-                        <p>01/10/2025 - 31/12/2025</p>
-                    </div>
-                    <div class="timeline">
-                        <div class="timeline-item left">
-                            <div class="timeline-content">
-                                <div class="timeline-date">15/10 - 31/10/2025</div>
-                                <h3>Tuần lễ Văn hóa Phật giáo Huế</h3>
-                                <p>Địa điểm: Các chùa cổ, trung tâm Phật giáo. Các hoạt động thiền định, pháp đàm, triển lãm.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item right">
-                            <div class="timeline-content">
-                                <div class="timeline-date">01/11 - 15/11/2025</div>
-                                <h3>Liên hoan Ca Huế thính phòng</h3>
-                                <p>Địa điểm: Duyệt Thị Đường, các nhà vườn. Giới thiệu nghệ thuật Ca Huế truyền thống.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item left">
-                            <div class="timeline-content">
-                                <div class="timeline-date">01/12 - 15/12/2025</div>
-                                <h3>Hội chợ sản phẩm OCOP và đặc sản Huế</h3>
-                                <p>Địa điểm: Trung tâm Văn hóa Thông tin. Giới thiệu các sản phẩm đặc trưng của Huế.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item right">
-                            <div class="timeline-content">
-                                <div class="timeline-date">31/12/2025</div>
-                                <h3>Chương trình Countdown chào năm mới 2026</h3>
-                                <p>Địa điểm: Quảng trường Ngọ Môn. Lễ bế mạc Festival Huế 2025 và chào đón năm mới.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Điểm tham quan -->
-        <div class="page" id="attractions">
-            <section class="hero">
-                <div class="hero-bg-parallax" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://placehold.co/1920x1080');"></div>
-                <h1>Khám phá Huế - Di sản, Làng nghề, Nghệ thuật và Ẩm thực</h1>
-                <p>Trải nghiệm trọn vẹn vẻ đẹp văn hóa và thiên nhiên của Cố đô Huế</p>
-            </section>
-            <!-- Thêm các nút filter/tab ở đây -->
-                <div class="attractions-filter-tabs">
-                    <button class="btn filter-btn active" data-filter="all">Tất cả</button>
-                    <button class="btn filter-btn" data-filter="di-tich">Di tích lịch sử</button>
-                    <button class="btn filter-btn" data-filter="lang-nghe">Làng nghề truyền thống</button>
-                    <button class="btn filter-btn" data-filter="nghe-thuat">Nghệ thuật Huế</button>
-                    <button class="btn filter-btn" data-filter="am-thuc">Ẩm thực Huế</button>
                     
-                </div>
-            <section class="container">
-                <div class="attraction-category" id="di-tich-category">
                     <div class="section-title">
-                        <h2>Di tích lịch sử</h2>
+                        <h2>Đặc điểm nổi bật</h2>
                     </div>
                     <div class="card-container">
                         <div class="card">
                             <div class="card-image">
-                                <img src="https://placehold.co/600x400" alt="Khuếch đại ảnh cung điện Đại Nội Huế với các công trình kiến trúc cổ kính">
+                                <img src="img/Ban_sac_vh.jpg" alt="Người dân Huế mặc trang phục áo dài truyền thống đi dạo quanh các công trình cổ">
                             </div>
                             <div class="card-content">
-                                <h3>Đại Nội Huế</h3>
-                                <p>Quần thể kiến trúc cung đình rộng lớn gồm Hoàng Thành và Tử Cấm Thành, từng là nơi ở và làm việc của vua chúa nhà Nguyễn.</p>
-                                <a href="#" class="btn view-detail-btn" data-detail-target="dai-noi">Chi tiết</a>
+                                <h3>Bản sắc văn hóa Huế</h3>
+                                <p>Tái hiện sinh động không gian văn hóa đặc trưng của vùng đất Cố đô từ kiến trúc, ẩm thực đến lễ nghi cung đình.</p>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-image">
-                                <img src="https://placehold.co/600x400" alt="Lăng Tự Đức ẩn mình giữa rừng thông xanh mát với hồ nước trong vắt">
+                                <img src="img/Giao_luu.jpg" alt="Các nghệ sĩ quốc tế biểu diễn cùng nghệ nhân Việt Nam trên sân khấu lộng lẫy">
                             </div>
                             <div class="card-content">
-                                <h3>Lăng Tự Đức</h3>
-                                <p>Một trong những lăng tẩm đẹp nhất của các vua nhà Nguyễn, kết hợp hài hòa kiến trúc và cảnh quan thiên nhiên.</p>
-                                <a href="#" class="btn view-detail-btn" data-detail-target="lang-tu-duc">Chi tiết</a>
+                                <h3>Giao lưu văn hóa quốc tế</h3>
+                                <p>Sự tham gia của nhiều đoàn nghệ thuật từ các nước châu Á, châu Âu, châu Mỹ tạo nên bức tranh đa văn hóa.</p>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-image">
-                                <img src="https://placehold.co/600x400" alt="Chùa Thiên Mụ cổ kính bên sông Hương với tháp Phước Duyên cao vút">
+                                <img src="img/Cn_Hien_Dai.jpg" alt="Công nghệ ánh sáng và trình chiếu 3D trên các bức tường thành cổ">
                             </div>
                             <div class="card-content">
-                                <h3>Chùa Thiên Mụ</h3>
-                                <p>Ngôi chùa cổ nhất và biểu tượng tâm linh của Huế với kiến trúc độc đáo nằm bên dòng sông Hương thơ mộng.</p>
-                                <a href="#" class="btn view-detail-btn" data-detail-target="chua-thien-mu">Chi tiết</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="attraction-category" id="lang-nghe-category">
-                    <div class="section-title">
-                        <h2>Làng nghề truyền thống</h2>
-                    </div>
-                    <div class="card-container">
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="https://placehold.co/600x400" alt="Nghệ nhân đang làm nón lá ở làng Chuông">
-                            </div>
-                            <div class="card-content">
-                                <h3>Làng nón lá Dạ Lê</h3>
-                                <p>Nơi sản xuất những chiếc nón lá Huế tinh xảo, biểu tượng của vẻ đẹp dịu dàng xứ Huế.</p>
-                                <a href="#" class="btn view-detail-btn" data-detail-target="lang-non-la">Chi tiết</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="https://placehold.co/600x400" alt="Nghệ nhân đang làm hương trầm ở làng Thủy Xuân">
-                            </div>
-                            <div class="card-content">
-                                <h3>Làng hương Thủy Xuân</h3>
-                                <p>Nổi tiếng với nghề làm hương trầm truyền thống, mang đến mùi hương thanh khiết cho các ngôi chùa và gia đình.</p>
-                                <a href="#" class="btn view-detail-btn" data-detail-target="lang-huong">Chi tiết</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="https://placehold.co/600x400" alt="Nghệ nhân đang làm hoa giấy Thanh Tiên">
-                            </div>
-                            <div class="card-content">
-                                <h3>Làng hoa giấy Thanh Tiên</h3>
-                                <p>Nghề làm hoa giấy thủ công độc đáo, thường được dùng trong các dịp lễ hội và thờ cúng.</p>
-                                <a href="#" class="btn view-detail-btn" data-detail-target="lang-hoa-giay">Chi tiết</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="attraction-category" id="nghe-thuat-category">
-                    <div class="section-title">
-                    <h2>Nghệ thuật Huế</h2>
-                    </div>
-                    <div class="card-container">
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="https://placehold.co/600x400" alt="Nghệ sĩ biểu diễn nhã nhạc cung đình Huế">
-                            </div>
-                            <div class="card-content">
-                                <h3>Nhã nhạc cung đình Huế</h3>
-                                <p>Di sản văn hóa phi vật thể được UNESCO công nhận, là âm nhạc cung đình độc đáo của triều Nguyễn.</p>
-                                <a href="#" class="btn view-detail-btn" data-detail-target="nha-nhac">Chi tiết</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="https://placehold.co/600x400" alt="Nghệ sĩ biểu diễn ca Huế trên sông Hương">
-                            </div>
-                            <div class="card-content">
-                                <h3>Ca Huế</h3>
-                                <p>Loại hình âm nhạc dân gian đặc trưng của Huế, thường được biểu diễn trên thuyền rồng sông Hương.</p>
-                                <a href="#" class="btn view-detail-btn" data-detail-target="ca-hue">Chi tiết</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="https://placehold.co/600x400" alt="Trình diễn múa cung đình Huế">
-                            </div>
-                            <div class="card-content">
-                                <h3>Múa cung đình</h3>
-                                <p>Các điệu múa uyển chuyển, tinh tế từng được biểu diễn trong cung đình triều Nguyễn.</p>
-                                <a href="#" class="btn view-detail-btn" data-detail-target="mua-cung-dinh">Chi tiết</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="attraction-category" id="am-thuc-category">
-                    <div class="section-title">
-                        <h2>Ẩm thực Huế</h2>
-                    </div>
-                    <div class="card-container">
-                        <div class="card">
-                        <div class="card-image">
-                            <img src="https://placehold.co/600x400" alt="Bún bò Huế nóng hổi với đầy đủ topping">
-                        </div>
-                        <div class="card-content">
-                            <h3>Bún bò Huế</h3>
-                            <p>Món ăn trứ danh với hương vị đậm đà, cay nồng, là tinh hoa ẩm thực đường phố Huế.</p>
-                            <a href="#" class="btn view-detail-btn" data-detail-target="bun-bo-hue">Chi tiết</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="https://placehold.co/600x400" alt="Các loại bánh Huế đa dạng như bánh bèo, nậm, lọc">
-                        </div>
-                        <div class="card-content">
-                            <h3>Các loại bánh Huế</h3>
-                            <p>Bánh bèo, bánh nậm, bánh lọc, bánh ram ít... những món ăn vặt tinh tế, đầy màu sắc.</p>
-                            <a href="#" class="btn view-detail-btn" data-detail-target="banh-hue">Chi tiết</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="https://placehold.co/600x400" alt="Chè hẻm Huế với nhiều loại chè khác nhau">
-                        </div>
-                        <div class="card-content">
-                            <h3>Chè hẻm</h3>
-                            <p>Thế giới chè đa dạng, phong phú với hàng chục loại chè ngọt ngào, thanh mát.</p>
-                            <a href="#" class="btn view-detail-btn" data-detail-target="che-hem">Chi tiết</a>
-                        </div>
-                    </div>
-                </div>
-                
-                
-                
-                <section id="attraction-detail">
-                <!-- Detail Sections (Initially hidden) -->
-                    <div id="dai-noi-detail" class="seasonal-timeline-section">
-                        <div class="section-title">
-                            <h2>Đại Nội Huế</h2>
-                        </div>
-                        <div class="about-content">
-                            <div class="about-image">
-                                <img src="https://placehold.co/800x600" alt="Cổng Ngọ Môn và Điện Thái Hòa trong Đại Nội Huế">
-                            </div>
-                            <div class="about-text">
-                                <p>Đại Nội Huế là quần thể di tích lịch sử văn hóa được UNESCO công nhận là Di sản Văn hóa Thế giới. Đây là nơi sinh sống và làm việc của 13 đời vua nhà Nguyễn cùng hoàng gia. Quần thể bao gồm Hoàng Thành (nơi đặt các cơ quan triều đình và miếu thờ) và Tử Cấm Thành (nơi ở của vua và hoàng gia).</p>
-                                <p>Du khách có thể khám phá các công trình kiến trúc độc đáo như Ngọ Môn, Điện Thái Hòa, Thế Miếu, Hiển Lâm Các, Cửu Đỉnh... Mỗi công trình đều mang đậm dấu ấn lịch sử và nghệ thuật kiến trúc cung đình Huế.</p>
-                                <a href="#" class="btn back-to-attractions">Quay lại Khám phá Huế</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="lang-tu-duc-detail" class="seasonal-timeline-section">
-                        <div class="section-title">
-                            <h2>Lăng Tự Đức</h2>
-                        </div>
-                        <div class="about-content">
-                            <div class="about-image">
-                                <img src="https://placehold.co/800x600" alt="Hồ Lưu Khiêm và Khiêm Cung Môn tại Lăng Tự Đức">
-                            </div>
-                            <div class="about-text">
-                                <p>Lăng Tự Đức (Khiêm Lăng) là một trong những công trình lăng tẩm đẹp nhất và thơ mộng nhất của các vua nhà Nguyễn. Lăng được xây dựng trong một thung lũng hẹp, bao quanh bởi rừng thông xanh mát và hồ nước trong vắt, tạo nên một không gian yên bình, hài hòa với thiên nhiên.</p>
-                                <p>Kiến trúc lăng được chia thành hai khu vực chính: khu vực tẩm điện (nơi vua Tự Đức sinh hoạt khi còn sống) và khu vực lăng mộ. Du khách sẽ được chiêm ngưỡng các công trình như Khiêm Cung Môn, Hồ Lưu Khiêm, Xung Khiêm Tạ, Dũ Khiêm Tạ, Hòa Khiêm Điện, Lương Khiêm Điện, Minh Khiêm Đường, và Bi Đình với tấm bia đá lớn nhất Việt Nam.</p>
-                                <a href="#" class="btn back-to-attractions">Quay lại Khám phá Huế</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="chua-thien-mu-detail" class="seasonal-timeline-section">
-                        <div class="section-title">
-                            <h2>Chùa Thiên Mụ</h2>
-                        </div>
-                        <div class="about-content">
-                            <div class="about-image">
-                                <img src="https://placehold.co/800x600" alt="Tháp Phước Duyên và cổng Tam Quan của chùa Thiên Mụ">
-                            </div>
-                            <div class="about-text">
-                                <p>Chùa Thiên Mụ (hay còn gọi là Linh Mụ Tự) là ngôi chùa cổ nhất và là biểu tượng tâm linh của Huế, nằm trên đồi Hà Khê, tả ngạn sông Hương. Chùa được xây dựng vào năm 1601 dưới thời chúa Nguyễn Hoàng.</p>
-                                <p>Điểm nhấn của chùa là Tháp Phước Duyên cao 21m với 7 tầng, mỗi tầng thờ một vị Phật. Ngoài ra, chùa còn có Đại Hồng Chung (chuông lớn), bia đá rùa, điện Đại Hùng và khu vườn cảnh quan tuyệt đẹp. Đến đây, du khách không chỉ được chiêm ngưỡng kiến trúc cổ kính mà còn cảm nhận được sự thanh tịnh, bình yên của chốn thiền môn.</p>
-                                <a href="#" class="btn back-to-attractions">Quay lại Khám phá Huế</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="lang-non-la-detail" class="seasonal-timeline-section">
-                        <div class="section-title">
-                            <h2>Làng nón lá Dạ Lê</h2>
-                        </div>
-                        <div class="about-content">
-                            <div class="about-image">
-                                <img src="https://placehold.co/800x600" alt="Nghệ nhân đang khâu nón lá với khung tre">
-                            </div>
-                            <div class="about-text">
-                                <p>Làng nón lá Dạ Lê, thuộc xã Thủy Thanh, thị xã Hương Thủy, là một trong những làng nghề truyền thống lâu đời nhất ở Huế, nổi tiếng với nghề làm nón lá. Nón lá Huế không chỉ là vật dụng che nắng che mưa mà còn là một tác phẩm nghệ thuật, biểu tượng của vẻ đẹp dịu dàng, thanh lịch của người phụ nữ Huế.</p>
-                                <p>Đến đây, du khách có thể tìm hiểu quy trình làm nón thủ công từ khâu chọn lá, làm khung, chằm nón đến trang trí. Đặc biệt, những chiếc nón bài thơ với hình ảnh sông Hương, núi Ngự và những câu thơ được lồng ghép khéo léo bên trong là món quà lưu niệm độc đáo.</p>
-                                <a href="#" class="btn back-to-attractions">Quay lại Khám phá Huế</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="lang-huong-detail" class="seasonal-timeline-section">
-                        <div class="section-title">
-                            <h2>Làng hương Thủy Xuân</h2>
-                        </div>
-                        <div class="about-content">
-                            <div class="about-image">
-                                <img src="https://placehold.co/800x600" alt="Những bó hương nhiều màu sắc được phơi khô">
-                            </div>
-                            <div class="about-text">
-                                <p>Làng hương Thủy Xuân nằm trên đường Huyền Trân Công Chúa, gần đồi Vọng Cảnh, là một điểm đến hấp dẫn với những bó hương đủ màu sắc được phơi khô rực rỡ. Đây là làng nghề truyền thống có tuổi đời hàng trăm năm, chuyên sản xuất hương trầm, hương vòng và các loại hương khác.</p>
-                                <p>Du khách có thể tham quan các cơ sở sản xuất, tìm hiểu quy trình làm hương thủ công từ việc chọn nguyên liệu (trầm, quế, thảo mộc) đến se hương, nhuộm màu và phơi khô. Bạn cũng có thể tự tay trải nghiệm làm hương và mua những sản phẩm hương thơm tự nhiên về làm quà.</p>
-                                <a href="#" class="btn back-to-attractions">Quay lại Khám phá Huế</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="lang-hoa-giay-detail" class="seasonal-timeline-section">
-                        <div class="section-title">
-                            <h2>Làng hoa giấy Thanh Tiên</h2>
-                        </div>
-                        <div class="about-content">
-                            <div class="about-image">
-                                <img src="https://placehold.co/800x600" alt="Các loại hoa giấy Thanh Tiên được trưng bày">
-                            </div>
-                            <div class="about-text">
-                                <p>Làng hoa giấy Thanh Tiên, thuộc xã Phú Mậu, huyện Phú Vang, là một làng nghề truyền thống độc đáo của Huế, nổi tiếng với nghề làm hoa giấy thờ cúng. Những bông hoa giấy được làm thủ công tinh xảo, mang ý nghĩa tâm linh sâu sắc, thường được dùng để trang trí bàn thờ trong các dịp lễ Tết và cúng bái.</p>
-                                <p>Nghệ nhân ở đây sử dụng giấy dó và các vật liệu tự nhiên để tạo ra những bông hoa sen, hoa cúc, hoa mai... sống động như thật. Du khách có thể ghé thăm các gia đình làm nghề, chiêm ngưỡng sự khéo léo của nghệ nhân và mua những sản phẩm hoa giấy độc đáo về làm quà hoặc trang trí.</p>
-                                <a href="#" class="btn back-to-attractions">Quay lại Khám phá Huế</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="bun-bo-hue-detail" class="seasonal-timeline-section">
-                        <div class="section-title">
-                            <h2>Bún bò Huế</h2>
-                        </div>
-                        <div class="about-content">
-                            <div class="about-image">
-                                <img src="https://placehold.co/800x600" alt="Tô bún bò Huế đầy đặn với thịt bò, chả, tiết và rau sống">
-                            </div>
-                            <div class="about-text">
-                                <p>Bún bò Huế là một trong những món ăn đặc trưng và nổi tiếng nhất của ẩm thực Huế. Món ăn này hấp dẫn thực khách bởi hương vị đậm đà, cay nồng của nước dùng được hầm từ xương bò, giò heo, cùng với sả, ớt, mắm ruốc đặc trưng.</p>
-                                <p>Một tô bún bò Huế chuẩn vị thường có thịt bò thái mỏng, chả cua, chả heo, tiết lợn, và ăn kèm với các loại rau sống như bắp chuối bào, rau muống chẻ, giá đỗ, rau thơm. Đây là món ăn không thể bỏ qua khi đến với Cố đô.</p>
-                                <a href="#" class="btn back-to-attractions">Quay lại Khám phá Huế</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="banh-hue-detail" class="seasonal-timeline-section">
-                        <div class="section-title">
-                            <h2>Các loại bánh Huế</h2>
-                        </div>
-                        <div class="about-content">
-                            <div class="about-image">
-                                <img src="https://placehold.co/800x600" alt="Đĩa bánh bèo, bánh nậm, bánh lọc được bày trí đẹp mắt">
-                            </div>
-                            <div class="about-text">
-                                <p>Ẩm thực Huế nổi tiếng với sự đa dạng và tinh tế của các loại bánh. Các món bánh như bánh bèo, bánh nậm, bánh lọc, bánh ram ít, bánh khoái... không chỉ là món ăn mà còn là một phần của văn hóa Huế.</p>
-                                <p>Mỗi loại bánh mang một hương vị và cách chế biến riêng biệt, từ bánh bèo mềm mịn ăn với tôm cháy, bánh nậm dẻo thơm gói trong lá dong, đến bánh lọc trong veo với nhân tôm thịt. Thưởng thức các loại bánh Huế là một trải nghiệm ẩm thực độc đáo, thể hiện sự khéo léo và tỉ mỉ của người dân xứ Huế.</p>
-                                <a href="#" class="btn back-to-attractions">Quay lại Khám phá Huế</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="che-hem-detail" class="seasonal-timeline-section">
-                        <div class="section-title">
-                            <h2>Chè hẻm</h2>
-                        </div>
-                        <div class="about-content">
-                            <div class="about-image">
-                                <img src="https://placehold.co/800x600" alt="Quán chè hẻm với nhiều nồi chè khác nhau">
-                            </div>
-                            <div class="about-text">
-                                <p>Chè hẻm là một nét văn hóa ẩm thực đặc trưng của Huế, với những quán chè nhỏ xinh nằm sâu trong các con hẻm. Nơi đây tập trung hàng chục loại chè khác nhau, từ chè đậu xanh, chè khoai môn, chè bắp, chè trôi nước đến các loại chè cung đình như chè hạt sen, chè long nhãn bọc hạt sen.</p>
-                                <p>Mỗi loại chè đều được chế biến tỉ mỉ, mang hương vị ngọt thanh, mát lành, phù hợp với khẩu vị của nhiều người. Thưởng thức chè hẻm không chỉ là ăn uống mà còn là trải nghiệm không gian bình dị, gần gũi của đời sống Huế.</p>
-                                <a href="#" class="btn back-to-attractions">Quay lại Khám phá Huế</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="nha-nhac-detail" class="seasonal-timeline-section">
-                        <div class="section-title">
-                            <h2>Nhã nhạc cung đình Huế</h2>
-                        </div>
-                        <div class="about-content">
-                            <div class="about-image">
-                                <img src="https://placehold.co/800x600" alt="Dàn nhạc nhã nhạc cung đình biểu diễn trong trang phục truyền thống">
-                            </div>
-                            <div class="about-text">
-                                <p>Nhã nhạc cung đình Huế là thể loại âm nhạc cung đình Việt Nam, được UNESCO công nhận là Kiệt tác truyền khẩu và Di sản phi vật thể của nhân loại vào năm 2003. Đây là loại hình âm nhạc được sử dụng trong các nghi lễ, lễ hội cung đình dưới triều Nguyễn.</p>
-                                <p>Nhã nhạc bao gồm nhiều thể loại như Đại nhạc, Tiểu nhạc, Nhạc tế giao, Nhạc tế miếu... với các nhạc cụ truyền thống như đàn tỳ bà, đàn nguyệt, đàn nhị, sáo, trống... Thưởng thức nhã nhạc là cách để du khách tìm hiểu sâu hơn về văn hóa và lịch sử triều Nguyễn.</p>
-                                <a href="#" class="btn back-to-attractions">Quay lại Khám phá Huế</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="ca-hue-detail" class="seasonal-timeline-section">
-                        <div class="section-title">
-                            <h2>Ca Huế</h2>
-                        </div>
-                        <div class="about-content">
-                            <div class="about-image">
-                                <img src="https://placehold.co/800x600" alt="Nghệ sĩ nữ mặc áo dài biểu diễn ca Huế trên thuyền rồng">
-                            </div>
-                            <div class="about-text">
-                                <p>Ca Huế là một loại hình âm nhạc dân gian đặc trưng của Huế, được hình thành và phát triển từ thế kỷ 17. Đây là sự kết hợp giữa âm nhạc cung đình và âm nhạc dân gian, mang đậm chất trữ tình, sâu lắng và tinh tế.</p>
-                                <p>Ca Huế thường được biểu diễn trên thuyền rồng trên sông Hương vào buổi tối, với các nhạc cụ như đàn tranh, đàn bầu, đàn nhị, sáo... Các bài ca Huế nổi tiếng như "Lý Hoài Nam", "Tứ Đại Cảnh", "Nam Ai", "Nam Bình"... đã đi vào lòng người và trở thành một phần không thể thiếu của du lịch Huế.</p>
-                                <a href="#" class="btn back-to-attractions">Quay lại Khám phá Huế</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="mua-cung-dinh-detail" class="seasonal-timeline-section">
-                        <div class="section-title">
-                            <h2>Múa cung đình</h2>
-                        </div>
-                        <div class="about-content">
-                            <div class="about-image">
-                                <img src="https://placehold.co/800x600" alt="Các vũ công trong trang phục cung đình biểu diễn múa">
-                            </div>
-                            <div class="about-text">
-                                <p>Múa cung đình Huế là một loại hình nghệ thuật biểu diễn độc đáo, từng được trình diễn trong các nghi lễ, yến tiệc và các sự kiện quan trọng của triều Nguyễn. Các điệu múa thường mang tính biểu tượng cao, thể hiện sự uy nghi, trang trọng của hoàng gia.</p>
-                                <p>Một số điệu múa cung đình nổi tiếng bao gồm "Lục Cúng Hoa Đăng", "Nữ Tướng Xuất Quân", "Đăng Đàn", "Long Hổ Hội"... Các vũ công trong trang phục lộng lẫy, với những động tác uyển chuyển, tinh tế, đã tái hiện lại không gian nghệ thuật cung đình xưa.</p>
-                                <a href="#" class="btn back-to-attractions">Quay lại Khám phá Huế</a>
+                                <h3>Kết hợp công nghệ hiện đại</h3>
+                                <p>Ứng dụng công nghệ trình chiếu 3D mapping, thực tế ảo để giới thiệu di sản một cách sống động và hấp dẫn.</p>
                             </div>
                         </div>
                     </div>
                 </section>
-            </section>
-        </div>
+            </div>
+        </section>
 
-        <!-- Vé tham dự -->
-        <div class="page" id="tickets">
-            <section class="hero">
-                <div class="hero-bg-parallax" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://placehold.co/1920x1080');"></div>
-                <h1>Thông tin vé tham dự</h1>
-                <p>Các loại vé và gói tham quan giúp bạn trải nghiệm trọn vẹn Festival Huế 2025</p>
-            </section>
-
-            <section class="container">
-                <div class="section-title">
-                    <h2>Gói vé Festival</h2>
-                </div>
-                <div class="pricing-cards">
-                    <div class="pricing-card">
-                        <h3>Vé cơ bản</h3>
-                        <div class="price">500.000<sup>đ</sup></div>
-                        <ul>
-                            <li>Vào cửa các chương trình ngoài trời</li>
-                            <li>Tham quan các triển lãm công cộng</li>
-                            <li>Bản đồ sự kiện chi tiết</li>
-                            <li>Giảm giá 10% tại các nhà hàng đối tác</li>
-                        </ul>
-                        <a href="#" class="btn">Đặt ngay</a>
+        <section id="attraction-section">
+            <h2 class="section-title">Điểm tham quan nổi bật</h2>
+            <div class="masonry-grid" id="attraction-cards">
+                <div class="card attraction-card card-tall-1" data-title="Đại Nội Huế" data-content="Đại Nội Huế là quần thể di tích lịch sử văn hóa được UNESCO công nhận là Di sản Thế giới. Đây là nơi ở và làm việc của 13 đời vua triều Nguyễn, với các công trình kiến trúc độc đáo như Ngọ Môn, Điện Thái Hòa, Tử Cấm Thành. Du khách có thể khám phá lịch sử, kiến trúc và văn hóa cung đình qua các tour tham quan và các buổi biểu diễn nghệ thuật truyền thống.">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/dai-noi-hue-1.png" alt="Cổng Ngọ Môn Đại Nội Huế" />
                     </div>
-                    <div class="pricing-card popular">
-                        <div class="popular-tag">Phổ biến</div>
-                        <h3>Gói tiêu chuẩn</h3>
-                        <div class="price">1.200.000<sup>đ</sup></div>
-                        <ul>
-                            <li>Tất cả quyền lợi gói cơ bản</li>
-                            <li>Vào cửa 3 chương trình nghệ thuật có bán vé</li>
-                            <li>Tham quan 2 di tích có hướng dẫn viên</li>
-                            <li>Bảo hiểm du lịch 7 ngày</li>
-                            <li>Giảm giá 20% tại các nhà hàng đối tác</li>
-                        </ul>
-                        <a href="#" class="btn">Đặt ngay</a>
-                    </div>
-                    <div class="pricing-card">
-                        <h3>Gói cao cấp</h3>
-                        <div class="price">3.000.000<sup>đ</sup></div>
-                        <ul>
-                            <li>Tất cả quyền lợi gói tiêu chuẩn</li>
-                            <li>Vé VIP tất cả các chương trình</li>
-                            <li>Ăn tối cung đình tại Đại Nội</li>
-                            <li>Du thuyền sông Hương đêm khai mạc</li>
-                            <li>Hướng dẫn viên riêng</li>
-                            <li>Miễn phí đón tiễn sân bay</li>
-                        </ul>
-                        <a href="#" class="btn">Đặt ngay</a>
+                    <div class="card-content">
+                        <!-- Nội dung chữ đã được loại bỏ -->
                     </div>
                 </div>
                 
-                <div class="section-title">
-                    <h2>Vé riêng lẻ</h2>
-                </div>
-                <div class="card-container">
-                    <div class="card">
-                        <div class="card-content">
-                            <h3>Chương trình khai mạc</h3>
-                            <p>Vé thường: 300.000đ</p>
-                            <p>Vé VIP: 1.000.000đ</p>
-                            <a href="#" class="btn">Mua vé</a>
-                        </div>
+                <div class="card attraction-card card-tall-2" data-title="Lăng Tự Đức" data-content="Lăng Tự Đức là một trong những lăng tẩm đẹp và thơ mộng nhất của các vị vua Nguyễn. Được xây dựng theo phong cách kiến trúc hài hòa với thiên nhiên, lăng là một tổng thể kiến trúc độc đáo với hồ nước, cây xanh và các công trình như Khiêm Cung, Hòa Khiêm Điện. Đây là nơi vua Tự Đức thường lui tới để ngâm thơ, thưởng ngoạn cảnh đẹp.">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/lang-tu-duc-1.png" alt="Toàn cảnh Lăng Tự Đức" />
                     </div>
-                    <div class="card">
-                        <div class="card-content">
-                            <h3>Đêm thơ nhạc sông Hương</h3>
-                            <p>Vé thường: 250.000đ</p>
-                            <p>Vé VIP: 800.000đ</p>
-                            <a href="#" class="btn">Mua vé</a>
-                        </div>
+                    <div class="card-content">
+                        <!-- Nội dung chữ đã được loại bỏ -->
                     </div>
-                    <div class="card">
-                        <div class="card-content">
-                            <h3>Chương trình áo dài</h3>
-                            <p>Vé thường: 200.000đ</p>
-                            <p>Vé VIP: 600.000đ</p>
-                            <a href="#" class="btn">Mua vé</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Liên hệ -->
-        <div class="page" id="contact">
-            <section class="hero">
-                <div class="hero-bg-parallax" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://placehold.co/1920x1080');"></div>
-                <h1>Liên hệ với chúng tôi</h1>
-                <p>Mọi thông tin cần hỗ trợ về Festival Huế 2025, xin vui lòng liên hệ qua các kênh sau</p>
-            </section>
-
-            <section class="container">
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Họ và tên</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Số điện thoại</label>
-                            <input type="tel" id="phone" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Chủ đề</label>
-                            <select id="subject" class="form-control" required>
-                                <option value="">-- Chọn chủ đề --</option>
-                                <option value="ticket">Thông tin vé</option>
-                                <option value="schedule">Lịch trình sự kiện</option>
-                                <option value="accommodation">Chỗ ở</option>
-                                <option value="other">Khác</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Nội dung</label>
-                            <textarea id="message" class="form-control" required></textarea>
-                        </div>
-                        <button type="submit" class="form-btn">Gửi liên hệ</button>
-                    </form>
                 </div>
                 
-                <div class="card-container">
+                <div class="card attraction-card card-tall-3" data-title="Chùa Thiên Mụ" data-content="Chùa Thiên Mụ, hay còn gọi là Linh Mụ Tự, là một trong những ngôi chùa cổ nhất và linh thiêng nhất ở Huế. Nằm trên đồi Hà Khê, bên bờ sông Hương, chùa nổi bật với tháp Phước Duyên 7 tầng cao vút. Đây không chỉ là một địa điểm tâm linh mà còn là một biểu tượng văn hóa và kiến trúc của Cố đô Huế.">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/chua-thien-mu-1.png" alt="Tháp Phước Duyên Chùa Thiên Mụ" />
+                    </div>
+                    <div class="card-content">
+                        <!-- Nội dung chữ đã được loại bỏ -->
+                    </div>
+                </div>
+                
+                <div class="card attraction-card card-tall-4" data-title="Sông Hương" data-content="Sông Hương là biểu tượng của sự thơ mộng và lãng mạn của Huế. Dòng sông êm đềm chảy qua thành phố, ôm trọn những di tích lịch sử và danh lam thắng cảnh. Trong Festival Huế, du khách có thể trải nghiệm nghe ca Huế trên thuyền rồng, ngắm cảnh hoàng hôn trên sông, hoặc tham gia các hoạt động văn hóa nghệ thuật diễn ra dọc hai bờ sông.">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/song-huong-1.png" alt="Sông Hương và cầu Tràng Tiền về đêm" />
+                    </div>
+                    <div class="card-content">
+                        <!-- Nội dung chữ đã được loại bỏ -->
+                    </div>
+                </div>
+                
+                <div class="card attraction-card card-tall-1" data-title="Cầu Trường Tiền" data-content="Cầu Trường Tiền, hay còn gọi là cầu Tràng Tiền, là một trong những cây cầu nổi tiếng nhất Việt Nam và là biểu tượng của Huế. Với kiến trúc thép uốn lượn độc đáo do người Pháp xây dựng, cầu trở nên lung linh và huyền ảo hơn vào ban đêm nhờ hệ thống chiếu sáng nghệ thuật đổi màu. Đây là điểm đến không thể bỏ qua khi khám phá Huế.">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/cau-truong-tien-1.png" alt="Cầu Trường Tiền với ánh đèn rực rỡ" />
+                    </div>
+                    <div class="card-content">
+                        <!-- Nội dung chữ đã được loại bỏ -->
+                    </div>
+                </div>
+                
+                <div class="card attraction-card card-tall-2" data-title="Chợ Đông Ba" data-content="Chợ Đông Ba là khu chợ lớn nhất và sầm uất nhất ở Huế, nơi du khách có thể tìm thấy mọi thứ từ đặc sản ẩm thực, đồ thủ công mỹ nghệ, đến các loại vải vóc truyền thống. Đây là một điểm đến lý tưởng để khám phá văn hóa địa phương, thưởng thức các món ăn đường phố và mua sắm quà lưu niệm.">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/cho-dong-ba-1.png" alt="Cổng Chợ Đông Ba" />
+                    </div>
+                    <div class="card-content">
+                        <!-- Nội dung chữ đã được loại bỏ -->
+                    </div>
+                </div>
+                
+                <div class="card attraction-card card-tall-3" data-title="Đồi Vọng Cảnh" data-content="Đồi Vọng Cảnh là một trong những địa điểm lý tưởng nhất để ngắm toàn cảnh thành phố Huế, đặc biệt là vào lúc bình minh hoặc hoàng hôn. Từ đây, du khách có thể chiêm ngưỡng vẻ đẹp thơ mộng của sông Hương uốn lượn, những ngọn núi trùng điệp và các công trình kiến trúc cổ kính của Huế.">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/doi-vong-canh-1.png" alt="Khung cảnh từ Đồi Vọng Cảnh" />
+                    </div>
+                    <div class="card-content">
+                        <!-- Nội dung chữ đã được loại bỏ -->
+                    </div>
+                </div>
+
+                <!-- Thêm 2 card mới tại đây -->
+                <div class="card attraction-card card-tall-4" data-title="Hồ Tịnh Tâm" data-content="Hồ Tịnh Tâm là một thắng cảnh nổi tiếng trong quần thể di tích cố đô Huế, được mệnh danh là 'đệ nhất hồ' dưới triều Nguyễn. Hồ nổi bật với kiến trúc tinh tế của các đình, tạ, cầu bắc qua hồ, cùng với những đóa sen hồng rực rỡ vào mùa hè. Đây là nơi lý tưởng để tản bộ, ngắm cảnh và cảm nhận sự yên bình của Huế.">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ho-tinh-tam.png" alt="Hồ Tịnh Tâm với kiến trúc đình tạ và sen" />
+                    </div>
+                    <div class="card-content">
+                        <!-- Nội dung chữ đã được loại bỏ -->
+                    </div>
+                </div>
+
+                <div class="card attraction-card card-tall-1" data-title="Cung An Định" data-content="Cung An Định là một công trình kiến trúc độc đáo, mang phong cách châu Âu kết hợp với nét kiến trúc truyền thống Việt Nam, từng là nơi ở của vua Khải Định và sau này là vua Bảo Đại cùng Hoàng hậu Nam Phương. Cung nổi bật với kiến trúc lộng lẫy, các bức bích họa tinh xảo và khu vườn rộng lớn, là một điểm đến thú vị để khám phá lịch sử cận đại của triều Nguyễn.">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/cung-an-dinh.png" alt="Cung An Định với kiến trúc Pháp cổ điển" />
+                    </div>
+                    <div class="card-content">
+                        <!-- Nội dung chữ đã được loại bỏ -->
+                    </div>
+                </div>
+                <!-- Kết thúc 2 card mới -->
+
+            </div>
+        </section>
+
+        <section id="village-section">
+            <h2 class="section-title">Làng nghề truyền thống</h2>
+            <div class="village-layout-container">
+                <!-- Cột chứa văn bản (sẽ nằm bên trái) -->
+                <div class="village-text-column">
+                    <h3 class="village-text-title">Làng nghề truyền thống Huế</h3>
+                    <p>Huế không chỉ nổi tiếng với các di tích lịch sử và ẩm thực cung đình mà còn là cái nôi của nhiều làng nghề truyền thống lâu đời. Những làng nghề này không chỉ tạo ra các sản phẩm thủ công tinh xảo mà còn là nơi lưu giữ và phát huy những giá trị văn hóa, tinh hoa của người dân xứ Huế.</p>
+                    <p>Du khách đến Festival Huế 2025 sẽ có cơ hội khám phá các làng nghề như:</p>
+                    <ul>
+                        <li>**Làng nón lá Tây Hồ:** Nơi ra đời những chiếc nón bài thơ duyên dáng.</li>
+                        <li>**Làng đúc đồng Phường Đúc:** Với các sản phẩm đồng mỹ nghệ tinh xảo.</li>
+                        <li>**Làng nghề thêu Phú Vang:** Nổi tiếng với nghệ thuật thêu cung đình.</li>
+                        <li>**Làng gốm Phước Tích:** Ngôi làng cổ với nghề gốm hơn 500 năm.</li>
+                        <li>**Làng tranh Sình:** Dòng tranh dân gian độc đáo.</li>
+                        <li>**Làng hương Thủy Xuân:** Nơi sản xuất hương trầm truyền thống.</li>
+                    </ul>
+                    <p>Mỗi làng nghề đều mang một câu chuyện riêng, một nét văn hóa đặc trưng, góp phần làm phong phú thêm bức tranh văn hóa của Cố đô Huế.</p>
+                </div>
+
+                <!-- Cột chứa các card (sẽ nằm bên phải) -->
+                <div class="village-cards-column">
+                    <div class="scroll-container village-scroll-container"> <!-- Thêm class mới để dễ dàng chọn trong JS -->
+                        <div class="scroll-btn prev">&larr;</div> <!-- Nút mũi tên trái -->
+                        <div class="card-wrapper village-scroll" id="village-cards">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/non-la-tay-ho.png" alt="Những chiếc nón lá Huế thanh thoát được làm thủ công" />
+                                </div>
+                                <div class="card-content">
+                                    <h3>Làng nón lá Tây Hồ</h3>
+                                    <p>Trải nghiệm làm nón bài thơ - biểu tượng duyên dáng của người con gái Huế</p>
+                                    <a href="#" class="read-more" data-target="modal-village" data-title="Làng nón lá Tây Hồ" data-content="Làng nón lá Tây Hồ là một trong những làng nghề truyền thống nổi tiếng nhất ở Huế, chuyên sản xuất nón lá, đặc biệt là nón bài thơ. Du khách có thể đến đây để tìm hiểu quy trình làm nón thủ công tinh xảo, từ việc chọn lá, phơi lá, đến khâu chằm nón và vẽ tranh, viết thơ ẩn dưới lớp lá.">Xem thêm</a>
+                                </div>
+                            </div>
+                            
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/duc-dong-phuong-duc.png" alt="Những sản phẩm đồ đồng mỹ nghệ tinh xảo được chế tác thủ công" />
+                                </div>
+                                <div class="card-content">
+                                    <h3>Làng đúc đồng Phường Đúc</h3>
+                                    <p>Khám phá nghề đúc đồng truyền thống với những sản phẩm tinh xảo</p>
+                                    <a href="#" class="read-more" data-target="modal-village" data-title="Làng đúc đồng Phường Đúc" data-content="Làng đúc đồng Phường Đúc là một làng nghề truyền thống lâu đời ở Huế, nổi tiếng với các sản phẩm đúc đồng tinh xảo như tượng Phật, chuông, lư hương, và các vật dụng thờ cúng. Du khách có thể chứng kiến quy trình đúc đồng thủ công, từ khâu tạo khuôn, nấu chảy đồng đến hoàn thiện sản phẩm, và mua sắm các món đồ đồng độc đáo làm quà lưu niệm.">Xem thêm</a>
+                                </div>
+                            </div>
+                            
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/theu-phu-vang.png" alt="Những tấm thêu tay tỉ mỉ với hoa văn cung đình Huế" />
+                                </div>
+                                <div class="card-content">
+                                    <h3>Làng nghề thêu Phú Vang</h3>
+                                    <p>Tái hiện nghệ thuật thêu cung đình Huế với những đường kim mũi chỉ tinh tế</p>
+                                    <a href="#" class="read-more" data-target="modal-village" data-title="Làng nghề thêu Phú Vang" data-content="Làng nghề thêu Phú Vang là nơi lưu giữ và phát triển nghệ thuật thêu cung đình Huế. Các sản phẩm thêu ở đây nổi tiếng với sự tỉ mỉ, tinh xảo trong từng đường kim mũi chỉ, tái hiện các hoa văn truyền thống, cảnh vật thiên nhiên và chân dung. Du khách có thể chiêm ngưỡng các tác phẩm thêu nghệ thuật và tìm hiểu về kỹ thuật thêu truyền thống.">Xem thêm</a>
+                                </div>
+                            </div>
+                            
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/gom-phuoc-tich.png" alt="Những sản phẩm gốm sứ có men màu đặc trưng của Huế" />
+                                </div>
+                                <div class="card-content">
+                                    <h3>Làng gốm Phước Tích</h3>
+                                    <p>Ngôi làng cổ với nghề làm gốm hơn 500 năm lịch sử</p>
+                                    <a href="#" class="read-more" data-target="modal-village" data-title="Làng gốm Phước Tích" data-content="Làng gốm Phước Tích là một ngôi làng cổ kính với lịch sử làm gốm hơn 500 năm. Các sản phẩm gốm Phước Tích nổi tiếng với chất liệu đất sét đặc trưng và kỹ thuật nung truyền thống, tạo ra những món đồ gốm mộc mạc, bền đẹp và mang đậm dấu ấn văn hóa Huế. Du khách có thể tham quan các lò gốm cổ và tự tay trải nghiệm làm gốm.">Xem thêm</a>
+                                </div>
+                            </div>
+                            
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/tranh-lang-sinh.png" alt="Những bức tranh làng Sình với màu sắc rực rỡ và họa tiết dân gian" />
+                                </div>
+                                <div class="card-content">
+                                    <h3>Tranh làng Sình</h3>
+                                    <p>Dòng tranh dân gian độc đáo gắn liền với tín ngưỡng dân gian xứ Huế</p>
+                                    <a href="#" class="read-more" data-target="modal-village" data-title="Tranh làng Sình" data-content="Tranh làng Sình là một dòng tranh dân gian độc đáo của Huế, gắn liền với tín ngưỡng thờ cúng và các lễ hội truyền thống. Những bức tranh được vẽ trên giấy dó bằng các màu sắc tự nhiên, với các họa tiết dân gian như ông Hổ, bà Chúa, các vị thần linh. Du khách có thể tìm hiểu về ý nghĩa của từng bức tranh và quy trình làm tranh thủ công.">Xem thêm</a>
+                                </div>
+                            </div>
+                            
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/quat-giay-hue.png" alt="Những chiếc quạt giấy nhiều màu sắc với họa tiết cung đình" />
+                                </div>
+                                <div class="card-content">
+                                    <h3>Làng nghề làm quạt</h3>
+                                    <p>Khám phá nghệ thuật làm quạt truyền thống của xứ Huế mộng mơ</p>
+                                    <a href="#" class="read-more" data-target="modal-village" data-title="Làng nghề làm quạt" data-content="Nghề làm quạt truyền thống ở Huế đã tồn tại từ lâu đời, tạo ra những chiếc quạt giấy, quạt lụa tinh xảo với nhiều kiểu dáng và họa tiết khác nhau. Quạt Huế không chỉ là vật dụng hàng ngày mà còn là một tác phẩm nghệ thuật, thể hiện sự khéo léo của người thợ thủ công. Du khách có thể mua những chiếc quạt đẹp làm quà lưu niệm hoặc tìm hiểu về quy trình làm quạt.">Xem thêm</a>
+                                </div>
+                            </div>
+                            
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/huong-thuy-xuan.png" alt="Những nguyên liệu tự nhiên để làm hương trầm truyền thống" />
+                                </div>
+                                <div class="card-content">
+                                    <h3>Làng hương Thủy Xuân</h3>
+                                    <p>Tìm hiểu quy trình làm hương trầm truyền thống với mùi thơm đặc trưng</p>
+                                    <a href="#" class="read-more" data-target="modal-village" data-title="Làng hương Thủy Xuân" data-content="Làng hương Thủy Xuân là một trong những làng nghề làm hương truyền thống nổi tiếng nhất ở Huế. Đến đây, du khách sẽ được chiêm ngưỡng những bó hương đủ màu sắc rực rỡ, tìm hiểu quy trình làm hương thủ công từ các nguyên liệu tự nhiên như trầm hương, quế, hồi. Hương Thủy Xuân không chỉ là sản phẩm tâm linh mà còn là một nét văn hóa đặc trưng của Huế.">Xem thêm</a>
+                                </div>
+                            </div>
+                            <!-- Add more cards as needed -->
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/44e6ea05-aa26-4382-b413-92e8a6f4e603.png" alt="Additional village card">
+                                </div>
+                                <div class="card-content">
+                                    <h3>Làng nghề mới</h3>
+                                    <p>Mô tả làng nghề mới</p>
+                                    <a href="#" class="read-more" data-target="modal-village" data-title="Làng nghề mới" data-content="Chi tiết về làng nghề mới">Xem thêm</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="scroll-btn next">&rarr;</div> <!-- Nút mũi tên phải -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="food-section">
+            <h2 class="section-title">Ẩm thực cố đô</h2>
+            <div class="scroll-container circular-gallery-container">
+                <div class="scroll-btn prev">&larr;</div>
+                <div class="card-wrapper circular-gallery-wrapper" id="food-cards">
                     <div class="card">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/bun-bo-hue.png" alt="Tô bún bò Huế đầy đặn với thịt bò, giò heo và chả cua" />
+                        </div>
                         <div class="card-content">
-                            <h3>Địa chỉ</h3>
-                            <p>Ban tổ chức Festival Huế 2025</p>
-                            <p>15 Lê Lợi, thành phố Huế</p>
+                            <h3>Bún bò Huế</h3>
+                            <p>Món ăn đặc sản nổi tiếng với hương vị đậm đà và nước dùng thơm ngon</p>
+                            <a href="#" class="read-more" data-target="modal-food" data-title="Bún bò Huế" data-content="Bún bò Huế là món ăn trứ danh của Cố đô, nổi tiếng với nước dùng đậm đà từ xương bò và giò heo, vị cay nồng của ớt, mùi thơm của sả và mắm ruốc. Tô bún thường có thịt bò thái mỏng, chả cua, giò heo, và ăn kèm với rau sống tươi ngon. Đây là món ăn nhất định phải thử khi đến Huế.">Xem thêm</a>
                         </div>
                     </div>
+                    
                     <div class="card">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/banh-beo.png" alt="Đĩa bánh bèo chén nhỏ với tôm cháy và tóp mỡ" />
+                        </div>
                         <div class="card-content">
-                            <h3>Điện thoại</h3>
-                            <p>Hỗ trợ khách hàng: 0234 888 9999</p>
-                            <p>Báo chí: 0234 888 8888</p>
+                            <h3>Bánh bèo</h3>
+                            <p>Món ăn nhẹ nhàng, được làm từ bột gạo, ăn kèm với tôm và hành phi</p>
+                            <a href="#" class="read-more" data-target="modal-food" data-title="Bánh bèo" data-content="Bánh bèo là món ăn vặt đặc trưng của Huế, được làm từ bột gạo hấp trong những chén nhỏ. Bánh thường được rắc tôm cháy, tóp mỡ, hành phi và ăn kèm với nước mắm chua ngọt đặc trưng. Vị mềm mại của bánh, giòn tan của tóp mỡ và vị đậm đà của tôm cháy tạo nên một hương vị khó quên.">Xem thêm</a>
                         </div>
                     </div>
+                    
                     <div class="card">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/banh-loc.png" alt="Bánh lọc trần và bánh lọc gói lá chuối với nhân tôm thịt" />
+                        </div>
                         <div class="card-content">
-                            <h3>Email</h3>
-                            <p>Thông tin chung: info@festivalhue2025.com</p>
-                            <p>Báo chí: press@festivalhue2025.com</p>
+                            <h3>Bánh lọc</h3>
+                            <p>Bánh trong, nhân tôm thịt, thường được ăn kèm với nước mắm chua ngọt</p>
+                            <a href="#" class="read-more" data-target="modal-food" data-title="Bánh lọc" data-content="Bánh lọc Huế có hai loại: bánh lọc trần và bánh lọc gói lá. Cả hai đều có vỏ bánh trong suốt làm từ bột năng, nhân tôm và thịt ba chỉ ướp đậm đà. Bánh lọc thường được hấp chín và ăn kèm với nước mắm ớt tỏi chua ngọt. Đây là món ăn được nhiều du khách yêu thích bởi hương vị độc đáo và sự dai ngon của vỏ bánh.">Xem thêm</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/com-hen.png" alt="Tô cơm hến đầy màu sắc với hến, rau sống, tóp mỡ và đậu phộng" />
+                        </div>
+                        <div class="card-content">
+                            <h3>Cơm hến</h3>
+                            <p>Món ăn dân dã, được làm từ cơm và hến, thường ăn kèm với rau sống</p>
+                            <a href="#" class="read-more" data-target="modal-food" data-title="Cơm hến" data-content="Cơm hến là món ăn dân dã nhưng lại rất nổi tiếng của Huế, đặc biệt vào những ngày hè nóng bức. Món ăn này bao gồm cơm nguội, hến xào, tóp mỡ, đậu phộng rang, rau sống thái nhỏ, bắp chuối, khế, và một chút mắm ruốc. Tất cả được trộn đều và chan thêm nước hến nóng hổi, tạo nên hương vị cay, mặn, ngọt, bùi rất đặc trưng.">Xem thêm</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/nem-lui.png" alt="Những xiên nem lụi nướng vàng ươm trên bếp than" />
+                        </div>
+                        <div class="card-content">
+                            <h3>Nem lụi</h3>
+                            <p>Món nem nướng thơm lừng, ăn kèm với bánh tráng, rau sống và nước chấm đặc biệt</p>
+                            <a href="#" class="read-more" data-target="modal-food" data-title="Nem lụi" data-content="Nem lụi là món ăn vặt được nhiều người yêu thích ở Huế. Nem được làm từ thịt heo xay nhuyễn, trộn với gia vị và quấn quanh cây sả hoặc tre, sau đó nướng trên bếp than hồng cho đến khi vàng ươm, thơm lừng. Nem lụi thường được ăn kèm với bánh tráng cuốn, rau sống, dưa chuột, và đặc biệt là nước chấm đậu phộng béo ngậy, đậm đà.">Xem thêm</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/che-hue.png" alt="Các loại chè Huế đa dạng màu sắc trong chén nhỏ" />
+                        </div>
+                        <div class="card-content">
+                            <h3>Chè Huế</h3>
+                            <p>Đa dạng các loại chè từ chè cung đình đến chè dân gian, ngọt ngào và thanh mát</p>
+                            <a href="#" class="read-more" data-target="modal-food" data-title="Chè Huế" data-content="Chè Huế nổi tiếng với sự đa dạng và tinh tế, từ các loại chè cung đình sang trọng đến chè dân gian bình dị. Một số loại chè phổ biến bao gồm chè hạt sen, chè khoai môn, chè đậu xanh, chè bắp, và đặc biệt là chè bột lọc heo quay độc đáo. Mỗi loại chè đều mang một hương vị riêng, ngọt ngào và thanh mát, rất thích hợp để thưởng thức sau bữa ăn.">Xem thêm</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/banh-khoai.png" alt="Bánh khoái vàng giòn với nhân tôm thịt và giá đỗ" />
+                        </div>
+                        <div class="card-content">
+                            <h3>Bánh khoái</h3>
+                            <p>Bánh xèo phiên bản Huế, giòn rụm, nhân tôm thịt, ăn kèm rau sống và nước lèo</p>
+                            <a href="#" class="read-more" data-target="modal-food" data-title="Bánh khoái" data-content="Bánh khoái là một loại bánh xèo đặc trưng của Huế, được chiên giòn rụm với lớp vỏ vàng ươm. Nhân bánh thường gồm tôm tươi, thịt ba chỉ, giá đỗ, và trứng. Bánh khoái được ăn kèm với nhiều loại rau sống như xà lách, rau thơm, chuối chát, khế chua, và đặc biệt là nước lèo (nước chấm) được chế biến công phu từ gan heo, thịt nạc, đậu phộng.">Xem thêm</a>
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
-    </main>
+                <div class="scroll-btn next">&rarr;</div>
+            </div>
+        </section>
+
+        <section id="art-section">
+            <h2 class="section-title">Nghệ thuật Huế</h2>
+            <div class="scroll-container">
+                <div class="scroll-btn prev">&larr;</div>
+                <div class="card-wrapper" id="art-cards">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ca-hue.png" alt="Nghệ sĩ biểu diễn ca Huế trên thuyền rồng sông Hương" />
+                        </div>
+                        <div class="card-content">
+                            <h3>Ca Huế trên sông Hương</h3>
+                            <p>Nghệ thuật ca nhạc truyền thống, biểu diễn trên sông Hương thơ mộng</p>
+                            <a href="#" class="read-more" data-target="modal-art" data-title="Ca Huế trên sông Hương" data-content="Ca Huế trên sông Hương là một trải nghiệm văn hóa độc đáo, nơi du khách được thưởng thức các làn điệu dân ca và ca nhạc cung đình Huế trên những chiếc thuyền rồng lướt nhẹ trên dòng sông Hương thơ mộng. Các nghệ sĩ trong trang phục truyền thống sẽ trình diễn các bài bản cổ truyền, mang đến không gian âm nhạc lãng mạn và sâu lắng.">Xem thêm</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/nha-nhac.png" alt="Đoàn nghệ thuật biểu diễn Nhã nhạc cung đình Huế" />
+                        </div>
+                        <div class="card-content">
+                            <h3>Nhã nhạc cung đình</h3>
+                            <p>Âm nhạc cung đình Huế, được UNESCO công nhận là di sản văn hóa phi vật thể</p>
+                            <a href="#" class="read-more" data-target="modal-art" data-title="Nhã nhạc cung đình Huế" data-content="Nhã nhạc cung đình Huế là thể loại âm nhạc cung đình truyền thống của Việt Nam, được UNESCO công nhận là Kiệt tác truyền khẩu và Di sản phi vật thể của con người. Đây là loại hình âm nhạc trang trọng, được sử dụng trong các nghi lễ, lễ hội cung đình. Các buổi biểu diễn Nhã nhạc thường diễn ra tại Đại Nội, mang đến cái nhìn sâu sắc về văn hóa và lịch sử triều Nguyễn.">Xem thêm</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/mua-cung-dinh.png" alt="Nghệ sĩ biểu diễn múa cung đình Huế với trang phục truyền thống" />
+                        </div>
+                        <div class="card-content">
+                            <h3>Múa cung đình</h3>
+                            <p>Các điệu múa truyền thống được biểu diễn trong cung đình xưa</p>
+                            <a href="#" class="read-more" data-target="modal-art" data-title="Múa cung đình Huế" data-content="Múa cung đình Huế là một loại hình nghệ thuật biểu diễn độc đáo, từng được trình diễn trong các nghi lễ và yến tiệc của triều Nguyễn. Các điệu múa thường mang ý nghĩa tượng trưng, thể hiện sự uy nghi, trang trọng của hoàng gia. Trang phục lộng lẫy, động tác uyển chuyển và âm nhạc truyền thống tạo nên một màn trình diễn mãn nhãn, đưa du khách trở về không gian cung đình xưa.">Xem thêm</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ao-dai-hue.png" alt="Người mẫu trình diễn áo dài Huế trên đường phố" />
+                        </div>
+                        <div class="card-content">
+                            <h3>Áo dài Huế</h3>
+                            <p>Biểu tượng của vẻ đẹp thanh lịch, duyên dáng của người phụ nữ Huế</p>
+                            <a href="#" class="read-more" data-target="modal-art" data-title="Áo dài Huế" data-content="Áo dài Huế không chỉ là trang phục truyền thống mà còn là biểu tượng của vẻ đẹp thanh lịch, duyên dáng của người phụ nữ Huế. Với thiết kế tinh tế, màu sắc trang nhã và chất liệu mềm mại, áo dài Huế mang một nét riêng biệt, thể hiện sự kín đáo nhưng vẫn gợi cảm. Trong Festival, du khách có thể chiêm ngưỡng các buổi trình diễn áo dài hoặc tự mình trải nghiệm mặc áo dài dải phố.">Xem thêm</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/hat-chau-van.png" alt="Nghệ sĩ biểu diễn hát chầu văn" />
+                        </div>
+                        <div class="card-content">
+                            <h3>Hát chầu văn</h3>
+                            <p>Nghệ thuật diễn xướng dân gian độc đáo, mang đậm yếu tố tâm linh</p>
+                            <a href="#" class="read-more" data-target="modal-art" data-title="Hát chầu văn" data-content="Hát chầu văn là một loại hình nghệ thuật diễn xướng dân gian độc đáo, gắn liền với tín ngưỡng thờ Mẫu Tam Phủ của người Việt. Với âm nhạc sôi động, lời ca bay bổng và các điệu múa uyển chuyển, hát chầu văn không chỉ là một buổi biểu diễn nghệ thuật mà còn là một nghi lễ tâm linh, mang đến không khí linh thiêng và huyền bí.">Xem thêm</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/roi-nuoc.png" alt="Sân khấu múa rối nước truyền thống" />
+                        </div>
+                        <div class="card-content">
+                            <h3>Múa rối nước</h3>
+                            <p>Nghệ thuật sân khấu truyền thống độc đáo của Việt Nam</p>
+                            <a href="#" class="read-more" data-target="modal-art" data-title="Múa rối nước" data-content="Múa rối nước là một loại hình nghệ thuật sân khấu truyền thống độc đáo của Việt Nam, được biểu diễn trên mặt nước với những con rối được điều khiển bởi các nghệ nhân ẩn mình sau tấm màn. Các vở diễn thường tái hiện cuộc sống sinh hoạt của người dân nông thôn, các câu chuyện cổ tích và truyền thuyết. Đây là một màn trình diễn hấp dẫn, thu hút cả trẻ em và người lớn.">Xem thêm</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/thu-phap.png" alt="Nghệ nhân viết thư pháp chữ Hán trên giấy" />
+                        </div>
+                        <div class="card-content">
+                            <h3>Thư pháp Huế</h3>
+                            <p>Nghệ thuật viết chữ đẹp, mang đậm nét văn hóa truyền thống</p>
+                            <a href="#" class="read-more" data-target="modal-art" data-title="Thư pháp Huế" data-content="Thư pháp Huế là một loại hình nghệ thuật truyền thống, nơi các nghệ nhân dùng bút lông và mực tàu để viết những câu đối, bài thơ hoặc chữ Hán trên giấy, lụa. Thư pháp không chỉ là viết chữ đẹp mà còn là sự thể hiện tâm hồn, triết lý sống của người viết. Du khách có thể đến các gian hàng thư pháp để chiêm ngưỡng tài năng của các nghệ nhân và xin chữ về làm kỷ niệm.">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-btn next">&rarr;</div>
+            </div>
+        </section>
+
+        <!-- NEW SCHEDULE SECTION -->
+        <section id="schedule-section">
+            <h2 class="section-title">Lịch trình Festival Huế 2025</h2>
+            <div class="scroll-container">
+                <div class="scroll-btn prev">&larr;</div>
+                <div class="card-wrapper" id="schedule-cards">
+                    <!-- Các card lịch trình sẽ được thêm vào đây -->
+                    <div class="card schedule-card" data-month="Tháng 1" data-schedule="
+                        <h3>Tháng 1: Khai mạc và Tết Nguyên Đán</h3>
+                        <ul>
+                            <li><b>01/01 - 05/01:</b> Tuần lễ khai mạc Festival Huế 2025 tại Đại Nội.</li>
+                            <li><b>15/01 - 25/01:</b> Chuỗi sự kiện chào đón Tết Nguyên Đán: Chợ hoa, biểu diễn nghệ thuật truyền thống.</li>
+                            <li><b>26/01:</b> Đêm giao thừa và bắn pháo hoa nghệ thuật tại Kỳ Đài.</li>
+                        </ul>
+                    ">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/schedule-jan.png" alt="Lịch trình Tháng 1" />
+                            <div class="card-overlay">
+                                <h3>Tháng 1</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card schedule-card" data-month="Tháng 2" data-schedule="
+                        <h3>Tháng 2: Lễ hội mùa xuân và ẩm thực</h3>
+                        <ul>
+                            <li><b>05/02 - 10/02:</b> Lễ hội ẩm thực cung đình và dân gian Huế.</li>
+                            <li><b>14/02:</b> Chương trình nghệ thuật 'Tình khúc sông Hương' mừng Valentine.</li>
+                            <li><b>20/02 - 28/02:</b> Triển lãm hoa xuân và cây cảnh nghệ thuật.</li>
+                        </ul>
+                    ">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/schedule-feb.png" alt="Lịch trình Tháng 2" />
+                            <div class="card-overlay">
+                                <h3>Tháng 2</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card schedule-card" data-month="Tháng 3" data-schedule="
+                        <h3>Tháng 3: Lễ hội áo dài và thơ ca</h3>
+                        <ul>
+                            <li><b>01/03 - 08/03:</b> Tuần lễ áo dài Huế: Trình diễn, triển lãm và cuộc thi thiết kế áo dài.</li>
+                            <li><b>15/03 - 22/03:</b> Liên hoan thơ ca Huế và các buổi ngâm thơ trên sông Hương.</li>
+                            <li><b>25/03 - 30/03:</b> Giao lưu văn hóa Việt - Hàn tại công viên 3/2.</li>
+                        </ul>
+                    ">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/schedule-mar.png" alt="Lịch trình Tháng 3" />
+                            <div class="card-overlay">
+                                <h3>Tháng 3</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card schedule-card" data-month="Tháng 4" data-schedule="
+                        <h3>Tháng 4: Lễ hội truyền thống và trò chơi dân gian</h3>
+                        <ul>
+                            <li><b>05/04 - 12/04:</b> Lễ hội đua ghe truyền thống trên sông Hương.</li>
+                            <li><b>15/04 - 20/04:</b> Trình diễn và trải nghiệm các trò chơi dân gian Huế.</li>
+                            <li><b>25/04 - 30/04:</b> Tuần lễ phim tài liệu và nghệ thuật Huế.</li>
+                        </ul>
+                    ">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/schedule-apr.png" alt="Lịch trình Tháng 4" />
+                            <div class="card-overlay">
+                                <h3>Tháng 4</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card schedule-card" data-month="Tháng 5" data-schedule="
+                        <h3>Tháng 5: Lễ hội nghề truyền thống và làng nghề</h3>
+                        <ul>
+                            <li><b>01/05 - 07/05:</b> Triển lãm và giới thiệu sản phẩm các làng nghề truyền thống Huế.</li>
+                            <li><b>10/05 - 18/05:</b> Hội thảo và trình diễn kỹ thuật thủ công mỹ nghệ.</li>
+                            <li><b>20/05 - 25/05:</b> Lễ hội đèn lồng và thả hoa đăng trên sông Hương.</li>
+                        </ul>
+                    ">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86g1-2a93ccde5887/image/schedule-may.png" alt="Lịch trình Tháng 5" />
+                            <div class="card-overlay">
+                                <h3>Tháng 5</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card schedule-card" data-month="Tháng 6" data-schedule="
+                        <h3>Tháng 6: Lễ hội sen và nghệ thuật sắp đặt</h3>
+                        <ul>
+                            <li><b>05/06 - 12/06:</b> Lễ hội sen Huế tại Hồ Tịnh Tâm và các khu vực trồng sen.</li>
+                            <li><b>15/06 - 22/06:</b> Triển lãm nghệ thuật sắp đặt và điêu khắc đương đại.</li>
+                            <li><b>25/06 - 30/06:</b> Chương trình giao lưu văn hóa Việt - Pháp.</li>
+                        </ul>
+                    ">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/schedule-jun.png" alt="Lịch trình Tháng 6" />
+                            <div class="card-overlay">
+                                <h3>Tháng 6</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card schedule-card" data-month="Tháng 7" data-schedule="
+                        <h3>Tháng 7: Lễ hội biển và du lịch sinh thái</h3>
+                        <ul>
+                            <li><b>01/07 - 07/07:</b> Tuần lễ du lịch biển Thuận An và Cảnh Dương.</li>
+                            <li><b>10/07 - 18/07:</b> Các hoạt động thể thao dưới nước và bảo vệ môi trường biển.</li>
+                            <li><b>20/07 - 28/07:</b> Khám phá vườn quốc gia Bạch Mã và các tour du lịch sinh thái.</li>
+                        </ul>
+                    ">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/schedule-jul.png" alt="Lịch trình Tháng 7" />
+                            <div class="card-overlay">
+                                <h3>Tháng 7</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card schedule-card" data-month="Tháng 8" data-schedule="
+                        <h3>Tháng 8: Lễ hội âm nhạc và biểu diễn đường phố</h3>
+                        <ul>
+                            <li><b>05/08 - 12/08:</b> Liên hoan âm nhạc truyền thống và hiện đại.</li>
+                            <li><b>15/08 - 22/08:</b> Các buổi biểu diễn nghệ thuật đường phố tại phố đi bộ Nguyễn Đình Chiểu.</li>
+                            <li><b>25/08 - 30/08:</b> Lễ hội bia và ẩm thực đường phố.</li>
+                        </ul>
+                    ">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/schedule-aug.png" alt="Lịch trình Tháng 8" />
+                            <div class="card-overlay">
+                                <h3>Tháng 8</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card schedule-card" data-month="Tháng 9" data-schedule="
+                        <h3>Tháng 9: Lễ hội đèn lồng và Trung thu</h3>
+                        <ul>
+                            <li><b>01/09 - 08/09:</b> Triển lãm đèn lồng truyền thống và hiện đại.</li>
+                            <li><b>10/09 - 17/09:</b> Các hoạt động vui chơi, giải trí và ẩm thực mừng Tết Trung thu.</li>
+                            <li><b>20/09 - 28/09:</b> Lễ hội diều Huế.</li>
+                        </ul>
+                    ">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/schedule-sep.png" alt="Lịch trình Tháng 9" />
+                            <div class="card-overlay">
+                                <h3>Tháng 9</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card schedule-card" data-month="Tháng 10" data-schedule="
+                        <h3>Tháng 10: Lễ hội văn hóa các dân tộc và di sản</h3>
+                        <ul>
+                            <li><b>05/10 - 12/10:</b> Trình diễn văn hóa, trang phục và ẩm thực các dân tộc thiểu số tại Thừa Thiên Huế.</li>
+                            <li><b>15/10 - 22/10:</b> Hội thảo quốc tế về bảo tồn và phát huy giá trị di sản.</li>
+                            <li><b>25/10 - 30/10:</b> Tuần lễ nghệ thuật sắp đặt và trình diễn ánh sáng tại các di tích.</li>
+                        </ul>
+                    ">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/schedule-oct.png" alt="Lịch trình Tháng 10" />
+                            <div class="card-overlay">
+                                <h3>Tháng 10</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card schedule-card" data-month="Tháng 11" data-schedule="
+                        <h3>Tháng 11: Lễ hội hoa và cây cảnh</h3>
+                        <ul>
+                            <li><b>01/11 - 08/11:</b> Triển lãm hoa và cây cảnh nghệ thuật tại công viên Thương Bạc.</li>
+                            <li><b>10/11 - 17/11:</b> Cuộc thi cắm hoa và trang trí tiểu cảnh.</li>
+                            <li><b>20/11 - 28/11:</b> Lễ hội ẩm thực chay và các món ăn truyền thống.</li>
+                        </ul>
+                    ">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/schedule-nov.png" alt="Lịch trình Tháng 11" />
+                            <div class="card-overlay">
+                                <h3>Tháng 11</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card schedule-card" data-month="Tháng 12" data-schedule="
+                        <h3>Tháng 12: Tổng kết Festival và chào đón năm mới</h3>
+                        <ul>
+                            <li><b>01/12 - 07/12:</b> Tuần lễ tổng kết các hoạt động Festival Huế 2025.</li>
+                            <li><b>10/12 - 18/12:</b> Triển lãm ảnh và tư liệu về Festival Huế 2025.</li>
+                            <li><b>25/12 - 31/12:</b> Chuỗi sự kiện chào đón năm mới 2026, đêm nghệ thuật bế mạc Festival.</li>
+                        </ul>
+                    ">
+                        <div class="card-image">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/schedule-dec.png" alt="Lịch trình Tháng 12" />
+                            <div class="card-overlay">
+                                <h3>Tháng 12</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-btn next">&rarr;</div>
+            </div>
+        </section>
+        <!-- END NEW SCHEDULE SECTION -->
+    </div>
 
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Về Festival Huế</h3>
-                    <p>Festival Huế là sự kiện văn hóa lớn được tổ chức định kỳ tại thành phố Huế, tỉnh Thừa Thiên Huế, Việt Nam.</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Liên kết nhanh</h3>
-                    <ul>
-                        <li><a href="#" data-page="home">Trang chủ</a></li>
-                        <li><a href="#" data-page="about">Giới thiệu</a></li>
-                        <li><a href="#" data-page="schedule">Lịch trình</a></li>
-                        <li><a href="#" data-page="attractions">Khám phá Huế</a></li>
-                        <li><a href="#" data-page="tickets">Vé tham dự</a></li>
-                        <li><a href="#" data-page="contact">Liên hệ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Kết nối với chúng tôi</h3>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    </div>
-                    <p style="margin-top: 1rem;">Đăng ký nhận tin từ chúng tôi</p>
-                    <form style="display: flex; margin-top: 0.5rem;">
-                        <input type="email" placeholder="Email của bạn" style="flex: 1; padding: 0.5rem; border: none; border-radius: 4px 0 0 4px;">
-                        <button type="submit" style="background-color: var(--accent-color); color: white; border: none; padding: 0 1rem; border-radius: 0 4px 4px 0; cursor: pointer;">Gửi</button>
-                    </form>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2024 Festival Huế 2025. Bảo lưu mọi quyền.</p>
-            </div>
+            <p>© 2024 Festival Huế 2025 - Bảo tồn và phát huy di sản văn hóa cố đô</p>
+            <p>Thông tin liên hệ: festivalhue@dhs.thuathienhue.gov.vn</p>
         </div>
     </footer>
 
-    <!-- Font Awesome for icons -->
-    
-    
-    
-<script src="script.js"></script>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 class="modal-title" id="modalTitle"></h3>
+            <p class="modal-body" id="modalBody"></p>
+        </div>
+    </div>
+
+    <script src="script.js">
+            </script>
 </body>
 </html>
