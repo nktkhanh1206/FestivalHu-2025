@@ -1,175 +1,470 @@
 :root {
-            --primary-color: #e53935;
-            --secondary-color: #d81b60;
-            --dark-color: #263238;
-            --light-color: #f5f5f5;
-            --accent-color: #ff9800;
+            --primary-color: #a00b28;
+            --secondary-color: #f8e5d6;
+            --accent-color: #d4af37;
+            --text-color: #333;
+            --light-text: #f8f9fa;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Be Vietnam Pro', sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth; /* Cho phép cuộn mượt */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: var(--light-color);
-            color: var(--dark-color);
+            background-color: #f9f5f0;
+            color: var(--text-color);
             line-height: 1.6;
-            opacity: 0; /* Ban đầu ẩn body */
-            transition: opacity 0.8s ease-in-out; /* Hiệu ứng fade-in */
-            overflow-x: hidden; /* Ngăn chặn scroll ngang */
-        }
-
-        body.loaded {
-            opacity: 1; /* Hiện body khi tải xong */
-        }
-
-        /* Loading Screen */
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            opacity: 1;
-            transition: opacity 0.8s ease-out;
-        }
-
-        .loader-spinner {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top: 4px solid #fff;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: padding 0.3s ease; /* Hiệu ứng thu nhỏ header khi cuộn */
-            
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('img/MAIN.jpg') center/cover no-repeat;
+            color: var(--light-text);
+            text-align: center;
+            padding: 5rem 1rem;
+            margin-bottom: 3rem;
         }
 
-        header.scrolled {
-            padding: 0.5rem 0;
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Navbar Styles */
+        nav {
+            background-color: var(--primary-color);
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 2rem;
         }
 
-        .header-content {
-            display: flex; /* Sử dụng flexbox để căn chỉnh */
-            justify-content: space-between; /* Đẩy logo và nút/menu ra hai phía */
-            align-items: center; /* Căn giữa theo chiều dọc */
+        .section-title {
+            text-align: center;
+            margin: 4rem 0 2rem;
+            position: relative;
+            font-size: 2rem;
+            color: var(--primary-color);
         }
 
-        .logo {
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 0.5rem auto;
+        }
+
+        .scroll-container {
+            position: relative;
+            margin: 2rem 0 4rem;
+            overflow-x: hidden;
+        }
+
+        .card-wrapper {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .card-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        .card {
+            min-width: 280px;
+            max-width: 280px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            scroll-snap-align: start;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-image {
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .card-content p {
+            color: #555;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            display: inline-block;
+            color: var(--accent-color);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            cursor: pointer; /* Add cursor pointer to indicate it's clickable */
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            flex-shrink: 0; /* Đảm bảo logo không bị co lại */
-        }
-
-        .logo img {
-            height: 50px;
-            margin-right: 1rem;
-        }
-
-        .logo h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        /* Menu điều hướng chính (cho desktop) */
-        nav.menu ul { /* Thêm .menu vào selector để rõ ràng hơn */
-            display: flex; /* Hiển thị ngang hàng trên desktop */
-            list-style: none;
-        }
-
-        nav.menu ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-
-        nav.menu ul li a:hover, nav.menu ul li a.active {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Nút Mobile Menu (Hamburger) */
-        .mobile-menu-btn {
-            display: none; /* Mặc định ẩn trên desktop */
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.8rem; /* Tăng kích thước để dễ nhìn hơn */
+            justify-content: center;
             cursor: pointer;
-            z-index: 1001; /* Đảm bảo nút nằm trên menu khi mở */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 1.5rem;
+            color: var(--primary-color);
         }
 
-        main {
-            margin-top: 80px;
-            min-height: calc(100vh - 160px);
+        .scroll-container:hover .scroll-btn {
+            opacity: 1;
         }
 
-        .page {
-            display: none;
-            opacity: 0; /* Ban đầu ẩn các trang */
-            transform: translateY(20px); /* Hiệu ứng trượt lên */
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        .scroll-btn.prev {
+            left: 10px;
         }
 
-        .page.active {
-            display: block;
-            opacity: 1; /* Hiện trang khi active */
-            transform: translateY(0);
+        .scroll-btn.next {
+            right: 10px;
         }
 
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 100; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 700px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+            animation-name: animatetop;
+            animation-duration: 0.4s
+        }
+
+        /* Add Animation */
+        @keyframes animatetop {
+            from {top: -300px; opacity: 0}
+            to {top: 0; opacity: 1}
+        }
+
+        /* New: Fade In Up Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            opacity: 0; /* Start hidden */
+            transform: translateY(20px); /* Start slightly below */
+            animation: fadeInUp 1.6s ease-out forwards; /* Apply animation - Changed from 0.6s to 1.6s */
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-title {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .modal-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        /* Masonry Grid for Attractions */
+        .masonry-grid {
+            column-count: 4; /* Number of columns - Changed to 4 */
+            column-gap: 1.5rem; /* Gap between columns */
+            margin: 2rem 0 4rem;
+        }
+
+        .masonry-grid .card {
+            width: 100%; /* Card takes full width of its column */
+            margin-bottom: 1.5rem; /* Space below each card */
+            break-inside: avoid-column; /* Prevent card from breaking across columns */
+            min-width: unset; /* Override min-width from card-wrapper */
+            max-width: unset; /* Override max-width from card-wrapper */
+            cursor: pointer; /* Indicate clickable */
+        }
+
+        /* Define different heights for cards to create varied shapes */
+        .masonry-grid .card.card-tall-1 .card-image {
+            height: 220px; /* Taller image */
+        }
+        .masonry-grid .card.card-tall-2 .card-image {
+            height: 250px; /* Even taller image */
+        }
+        .masonry-grid .card.card-tall-3 .card-image {
+            height: 150px; /* Shorter image */
+        }
+        .masonry-grid .card.card-tall-4 .card-image {
+            height: 200px; /* Medium image */
+        }
+        /* Add more as needed */
+
+
+        /* Hide card-content for attraction cards */
+        #attraction-section .card-content {
+            display: none; /* Hide the text content */
+        }
+
+        /* Circular Gallery specific styles (mostly handled by JS, but good to have a class) */
+        .circular-gallery-wrapper {
+            /* No specific CSS changes needed here beyond existing card-wrapper styles */
+        }
+
+        /* New styles for centered card in scroll-container */
+        /* .card-wrapper.village-scroll {
+            scroll-snap-type: x mandatory;
+            justify-content: center;
+            padding: 1rem 50%; 
+        }
+        .card-wrapper.village-scroll .card {
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .card-wrapper.village-scroll .card.centered {
+            min-width: 350px; 
+            max-width: 350px;
+            transform: scale(1.15);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+
+        .card-wrapper.village-scroll .card.centered .card-image {
+            height: 240px;
+        }
+        
+        .card-wrapper.village-scroll .card:not(.centered) {
+            margin: 0 -40px;
+            transform: scale(0.9);
+            opacity: 0.8;
+            z-index: 1;
+        } */
+
+        @media (max-width: 1200px) { /* Adjust breakpoint for 3 columns */
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+
+        @media (max-width: 992px) { /* Adjust breakpoint for 2 columns */
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            nav ul li a {
+                font-size: 1rem;
+                padding: 0.3rem 0.5rem;
+            }
+
+            .card {
+                min-width: 220px;
+                max-width: 220px;
+            }
+            
+            .scroll-btn {
+                opacity: 1;
+            }
+
+            .modal-content {
+                width: 95%;
+                padding: 20px;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
+            }
+
+            .modal-body {
+                font-size: 1rem;
+            }
+
+            .masonry-grid {
+                column-count: 1;
+            }
+            .masonry-grid .card {
+                min-width: 280px; /* Re-apply min-width for mobile if desired */
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            /* Reset specific card heights for single column on mobile */
+            .masonry-grid .card.card-tall-1 .card-image,
+            .masonry-grid .card.card-tall-2 .card-image,
+            .masonry-grid .card.card-tall-3 .card-image,
+            .masonry-grid .card.card-tall-4 .card-image {
+                height: 180px; /* Default height */
+            }
+
+            /* Responsive for schedule cards */
+            .schedule-card {
+                min-width: unset;
+                max-width: 100%;
+            }
+
+            /* .card-wrapper.village-scroll .card.centered {
+                min-width: 250px; 
+                max-width: 250px;
+            }
+            .card-wrapper.village-scroll .card.centered .card-image {
+                height: 180px; 
+            } */
+        }
+
+        /* New styles for the "Giới thiệu" section */
         .hero {
-            height: 70vh;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/Main.jpg');
-            background-size: cover;
-            background-position: center;
+            position: relative;
+            height: 400px; /* Adjust as needed */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
             color: white;
+            text-align: center;
+            overflow: hidden;
             margin-bottom: 3rem;
-            position: relative; /* Cần cho parallax */
-            overflow: hidden; /* Đảm bảo hình ảnh không tràn ra */
         }
 
-        .hero-bg-parallax { /* Lớp mới cho hiệu ứng parallax */
+        .hero-bg-parallax {
             position: absolute;
             top: 0;
             left: 0;
@@ -177,109 +472,38 @@
             height: 100%;
             background-size: cover;
             background-position: center;
+            background-attachment: fixed; /* Parallax effect */
             z-index: -1;
-            transition: transform 0.1s linear; /* Hiệu ứng di chuyển mượt */
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            opacity: 0; /* Ban đầu ẩn */
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             max-width: 800px;
-            margin-bottom: 2rem;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
-        }
-
-        .hero .btn {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out 0.4s, transform 0.6s ease-out 0.4s;
-        }
-
-        .hero.show-content h1,
-        .hero.show-content p,
-        .hero.show-content .btn {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-            opacity: 0; /* Ban đầu ẩn */
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .section-title.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            display: inline-block;
-            padding-bottom: 1rem;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--primary-color);
-            border-radius: 2px;
+            padding: 0 1rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .about-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 2rem;
             margin-bottom: 3rem;
+            align-items: flex-start;
         }
 
         .about-image {
-            border-radius: 8px;
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .about-image.show {
-            opacity: 1;
-            transform: translateY(0);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .about-image img {
@@ -289,513 +513,277 @@
         }
 
         .about-text {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
+            flex: 2;
+            min-width: 300px;
         }
 
-        .about-text.show {
-            opacity: 1;
-            transform: translateY(0);
+        .about-text h3 {
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.5rem;
+        }
+
+        .about-text ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+
+        .about-text ul li {
+            margin-bottom: 0.5rem;
         }
 
         .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 4rem;
         }
 
-        .card {
-            background-color: white;
-            border-radius: 8px;
+        .card-container .card {
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            background: white;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            opacity: 0; /* Ban đầu ẩn */
-            transform: translateY(20px);
-            /* Thêm cho hiệu ứng hover 3D */
-            perspective: 1000px; 
-            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
 
-        .card.show {
-            opacity: 1;
-            transform: translateY(0);
+        .card-container .card:hover {
+            transform: translateY(-5px);
         }
 
-        .card:hover {
-            transform: translateY(-10px) scale(1.03); /* Phóng to nhẹ khi hover */
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        .card-container .card-image {
+            height: 200px; /* Adjust image height for these cards */
         }
 
-        .card-image {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .card-image img {
+        .card-container .card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: all 0.5s ease;
         }
 
-        .card:hover .card-image img {
-            transform: scale(1.1);
-        }
-
-        .card-content {
+        .card-container .card-content {
             padding: 1.5rem;
         }
 
-        .card-content h3 {
+        .card-container .card-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
             font-size: 1.3rem;
-            margin-bottom: 0.7rem;
-            font-weight: 600;
         }
 
-        .card-content p {
-            margin-bottom: 1rem;
-            color: #666;
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto 3rem;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: var(--primary-color);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 3px;
-        }
-
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            opacity: 0; /* Ban đầu ẩn */
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .timeline-item.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            background-color: white;
-            border: 4px solid var(--primary-color);
-            border-radius: 50%;
-            top: 15px;
-            z-index: 1;
-        }
-
-        .left {
-            left: 0;
-        }
-
-        .left::after {
-            right: -16px;
-        }
-
-        .right {
-            left: 50%;
-        }
-
-        .right::after {
-            left: -16px;
-        }
-
-        .timeline-content {
-            padding: 1.5rem;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .timeline-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-        }
-
-        .timeline-content p {
-            color: #666;
-        }
-
-        .timeline-date {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--secondary-color);
-        }
-
-        .pricing-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .pricing-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            text-align: center;
-            padding: 2rem;
-            opacity: 0; /* Ban đầu ẩn */
-            transform: translateY(20px);
-            /* Thêm cho hiệu ứng hover 3D */
-            perspective: 1000px; 
-            transform-style: preserve-3d;
-        }
-
-        .pricing-card.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px) scale(1.03); /* Phóng to nhẹ khi hover */
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .pricing-card.popular {
-            border: 2px solid var(--accent-color);
-            position: relative;
-        }
-
-        .popular-tag {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-bottom-left-radius: 50px;
-            font-weight: 600;
-        }
-
-        .pricing-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .price {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--dark-color);
-        }
-
-        .price span {
+        .card-container .card-content p {
+            color: #555;
             font-size: 1rem;
-            color: #666;
         }
 
-        .pricing-card ul {
-            list-style: none;
-            margin-bottom: 2rem;
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .about-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .about-image {
+                min-width: unset;
+                width: 100%;
+            }
+            .about-text {
+                min-width: unset;
+                width: 100%;
+            }
+            .card-container .card {
+                min-width: unset;
+                width: 100%;
+            }
         }
 
-        .pricing-card ul li {
-            padding: 0.7rem 0;
-            border-bottom: 1px solid #eee;
+        /* New styles for Schedule Section */
+        .schedule-card .card-image {
+            position: relative; /* Để overlay có thể định vị tương đối */
+            height: 200px; /* Chiều cao cố định cho ảnh lịch trình */
         }
 
-        .contact-form {
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            opacity: 0; /* Ban đầu ẩn */
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        .schedule-card .card-image img {
+            filter: brightness(0.7); /* Làm tối ảnh để chữ dễ đọc hơn */
         }
 
-        .contact-form.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-            opacity: 0; /* Ban đầu ẩn */
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .form-group.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .form-control {
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent; /* Đặt trong suốt ban đầu */
+            color: var(--light-text);
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            pointer-events: none; /* Đảm bảo click xuyên qua overlay đến card */
+            transition: background-color 0.3s ease, border 0.3s ease; /* Thêm transition cho border */
         }
 
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.2);
+        .card-overlay h3 {
+            border: 3px solid var(--light-text); /* Viền trắng */
+            padding: 0.5rem 1rem; /* Khoảng đệm bên trong viền */
+            background-color: rgba(0, 0, 0, 0.4); /* Nền đen mờ cho chữ */
+            border-radius: 5px; /* Bo góc nhẹ cho ô vuông */
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
+        .schedule-card:hover .card-overlay {
+            background-color: rgba(0, 0, 0, 0.2); /* Lớp phủ nhẹ hơn khi hover */
         }
 
-        .form-btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .schedule-card:hover .card-overlay h3 {
+            background-color: rgba(0, 0, 0, 0.6); /* Nền đen mờ đậm hơn khi hover */
+            transform: scale(1.05); /* Phóng to chữ nhẹ khi hover */
         }
 
-        .form-btn:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        /* Village section layout */
+        .village-layout-container {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            margin-bottom: 4rem;
+            /* Đảm bảo các cột nằm ngang hàng */
+            flex-direction: row; 
         }
 
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 3rem 0 1.5rem;
+        .village-cards-column {
+            flex: 2;
+            min-width: 60%;
+            position: relative;
+            order: 2;
+            overflow: hidden;
+        }
+
+        .village-text-column {
+            flex: 1; /* Cột chữ chiếm 1 phần */
+            min-width: 30%; /* Đảm bảo cột chữ có đủ không gian */
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Đặt cột văn bản ở bên trái */
+            order: 1; 
+        }
+
+        .village-text-column .village-text-title {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
             text-align: center;
         }
 
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-            text-align: left;
+        .village-text-column p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
         }
 
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
+        .village-text-column ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-bottom: 1rem;
         }
 
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background-color: var(--accent-color);
-            border-radius: 1.5px;
+        .village-text-column ul li {
+            margin-bottom: 0.5rem;
         }
 
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 0.7rem;
-        }
-
-        .footer-column ul li a {
-            color: #bbb;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-column ul li a:hover {
-            color: white;
-            padding-left: 5px;
-        }
-
-        .social-links {
+        /* Adjustments for village-scroll card-wrapper */
+        .card-wrapper.village-scroll {
             display: flex;
             gap: 1rem;
-            margin-top: 1rem;
+            padding: 1rem 0;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
         }
 
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
+        .card-wrapper.village-scroll .card {
+            flex-shrink: 0;
+            scroll-snap-align: center;
             transition: all 0.3s ease;
+            margin-right: 1rem;
         }
 
-        .social-links a:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
+        .card-wrapper.village-scroll .card.centered {
+            min-width: 320px;
+            max-width: 320px;
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 2;
         }
 
-        .copyright {
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #bbb;
-            font-size: 0.9rem;
+        .card-wrapper.village-scroll .card.centered .card-image {
+            height: 220px;
+        }
+        
+        .card-wrapper.village-scroll .card:not(.centered) {
+            min-width: 240px;
+            max-width: 240px;
+            transform: scale(0.9);
+            opacity: 0.85;
         }
 
-        /* Responsive styles */
+        /* Responsive adjustments for the new layout */
         @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
+            .village-layout-container {
+                flex-direction: column; /* Chuyển sang bố cục cột trên màn hình nhỏ hơn */
+                align-items: center;
             }
-            
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
+            .village-cards-column,
+            .village-text-column {
+                flex: none; /* Bỏ flex để chúng chiếm toàn bộ chiều rộng */
                 width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
+                min-width: unset;
+                /* Đặt lại order về mặc định để văn bản ở trên card trên mobile */
+                order: unset; 
             }
-            
-            .timeline-item::after {
-                left: 18px;
+            .village-cards-column {
+                padding-bottom: 2rem; /* Thêm khoảng cách dưới cột card */
             }
-            
-            .left::after, .right::after {
-                left: 18px;
-                right: auto; /* Đảm bảo chấm tròn nằm bên trái */
+            .card-wrapper.village-scroll {
+                padding: 1rem calc(50% - 125px); /* Điều chỉnh padding để căn giữa 3 card trên mobile */
             }
-            
-            .right {
-                left: 0;
+            .card-wrapper.village-scroll .card.centered {
+                min-width: 250px;
+                max-width: 250px;
             }
-
-            /* Ẩn menu điều hướng chính trên mobile */
-            nav.menu { /* Thêm .menu vào selector */
-                display: none; /* Ẩn toàn bộ nav trên mobile */
-                flex-direction: column;
-                position: absolute;
-                top: 100%; /* Đặt menu ngay dưới header */
-                left: 0;
-                width: 100%;
-                background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-                padding: 1rem 0;
-                transition: all 0.3s ease;
+            .card-wrapper.village-scroll .card.centered .card-image {
+                height: 180px;
             }
-
-            /* Hiển thị menu khi có class 'active' */
-            nav.menu.active { /* Thêm .menu vào selector */
-                display: flex; /* Hiển thị menu dưới dạng cột */
-            }
-
-            nav.menu ul { /* Thêm .menu vào selector */
-                flex-direction: column; /* Các mục menu xếp dọc */
-                width: 100%;
-            }
-
-            nav.menu ul li { /* Thêm .menu vào selector */
-                margin: 0.5rem 0;
-                text-align: center;
-            }
-
-            /* Hiển thị nút mobile menu trên mobile */
-            .mobile-menu-btn {
-                display: block; /* Hiển thị nút hamburger */
-            }
-
-            /* Điều chỉnh header-content trên mobile để logo và nút hamburger luôn nằm ngang */
-            .header-content {
-                flex-direction: row; /* Đảm bảo logo và nút nằm ngang */
-                justify-content: space-between; /* Đẩy chúng ra hai phía */
-                width: 100%; /* Đảm bảo chiếm đủ chiều rộng */
+            .card-wrapper.village-scroll .card:not(.centered) {
+                min-width: 220px;
+                max-width: 220px;
             }
         }
 
         @media (max-width: 768px) {
-            .hero {
-                height: 60vh;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            /* Đảm bảo header-content vẫn giữ nguyên flex-direction: row */
-            .header-content {
-                flex-direction: row; 
-                justify-content: space-between;
-                align-items: center;
-            }
-            
-            /* Các thuộc tính này không cần thiết nếu justify-content: space-between đã xử lý */
-            /* .mobile-menu-btn {
-                position: static;
-            } */
-        }
-
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .btn {
-                padding: 0.6rem 1.5rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
+            .card-wrapper.village-scroll {
+                padding: 1rem calc(50% - 125px); /* Giữ nguyên padding cho mobile */
             }
         }
 
-        /* Styles for seasonal timeline sections */
-        .seasonal-timeline-section {
-            display: none; /* Hidden by default */
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .seasonal-timeline-section.active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .seasonal-timeline-section .timeline {
-            margin-top: 2rem;
+        /* Thêm scroll-margin-top cho tất cả các section có ID tương ứng với nav */
+        #about,
+        #attraction-section,
+        #village-section,
+        #food-section,
+        #art-section,
+        #schedule-section {
+            scroll-margin-top: 80px; /* Điều chỉnh giá trị này tùy thuộc vào chiều cao của navbar */
         }
