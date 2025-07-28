@@ -1,7 +1,7 @@
 :root {
-            --primary-color: #a00b28;
-            --secondary-color: #f8e5d6;
-            --accent-color: #d4af37;
+            --primary-color: #6A057F; /* Tím Huế đậm */
+            --secondary-color: #F0E6F6; /* Tím Lavender nhạt */
+            --accent-color: #FFD700; /* Vàng Gold */
             --text-color: #333;
             --light-text: #f8f9fa;
         }
@@ -14,7 +14,7 @@
         }
 
         body {
-            background-color: #f9f5f0;
+            background-color: var(--secondary-color); /* Sử dụng màu tím lavender nhạt làm nền */
             color: var(--text-color);
             line-height: 1.6;
         }
@@ -24,29 +24,29 @@
                         url('img/MAIN.jpg') center/cover no-repeat;
             color: var(--light-text);
             text-align: center;
-            padding: 5rem 1rem;
+            padding: 6rem 1rem; /* Tăng padding để tạo không gian */
             margin-bottom: 3rem;
         }
 
         header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-size: 4.5rem; /* Tăng kích thước chữ */
+            margin-bottom: 1.5rem; /* Tăng khoảng cách dưới */
             font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6); /* Tăng độ nổi bật của shadow */
         }
 
         header p {
-            font-size: 1.2rem;
-            max-width: 800px;
+            font-size: 1.4rem; /* Tăng kích thước chữ */
+            max-width: 900px; /* Tăng chiều rộng tối đa */
             margin: 0 auto;
         }
 
         /* Navbar Styles */
         nav {
             background-color: var(--primary-color);
-            padding: 1rem 0;
+            padding: 1.2rem 0; /* Tăng padding */
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Tăng shadow */
             position: sticky;
             top: 0;
             z-index: 50;
@@ -56,21 +56,22 @@
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 2.5rem; /* Tăng khoảng cách giữa các mục */
         }
 
         nav ul li a {
             color: var(--light-text);
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
-            padding: 0.5rem 1rem;
+            font-size: 1.2rem; /* Tăng kích thước chữ */
+            padding: 0.6rem 1.2rem; /* Tăng padding */
             border-radius: 5px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Thêm transform */
         }
 
         nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.3); /* Tăng độ trong suốt khi hover */
+            transform: translateY(-3px); /* Hiệu ứng nổi nhẹ */
         }
 
         .container {
@@ -81,19 +82,21 @@
 
         .section-title {
             text-align: center;
-            margin: 4rem 0 2rem;
+            margin: 5rem 0 2.5rem; /* Tăng khoảng cách */
             position: relative;
-            font-size: 2rem;
+            font-size: 2.5rem; /* Tăng kích thước chữ */
             color: var(--primary-color);
+            font-weight: 700; /* Làm đậm tiêu đề */
         }
 
         .section-title:after {
             content: "";
             display: block;
-            width: 80px;
-            height: 4px;
-            background-color: var(--accent-color);
-            margin: 0.5rem auto;
+            width: 100px; /* Tăng chiều rộng đường kẻ */
+            height: 5px; /* Tăng chiều cao đường kẻ */
+            background-color: var(--accent-color); /* Màu vàng gold */
+            margin: 0.8rem auto; /* Tăng khoảng cách */
+            border-radius: 2px; /* Bo góc nhẹ */
         }
 
         .scroll-container {
@@ -104,7 +107,7 @@
 
         .card-wrapper {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem; /* Tăng khoảng cách giữa các card */
             padding: 1rem 0;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
@@ -117,22 +120,23 @@
         }
 
         .card {
-            min-width: 280px;
-            max-width: 280px;
+            min-width: 300px; /* Tăng kích thước card */
+            max-width: 300px;
             background: white;
-            border-radius: 10px;
+            border-radius: 12px; /* Tăng bo góc */
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Tăng shadow */
             scroll-snap-align: start;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Thêm transition cho shadow */
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px); /* Tăng hiệu ứng nổi */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* Tăng shadow khi hover */
         }
 
         .card-image {
-            height: 180px;
+            height: 200px; /* Tăng chiều cao ảnh */
             overflow: hidden;
         }
 
@@ -144,76 +148,79 @@
         }
 
         .card:hover .card-image img {
-            transform: scale(1.05);
+            transform: scale(1.08); /* Tăng hiệu ứng zoom ảnh */
         }
 
         .card-content {
-            padding: 1.5rem;
+            padding: 1.8rem; /* Tăng padding */
         }
 
         .card-content h3 {
             color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
+            margin-bottom: 0.8rem; /* Tăng khoảng cách */
+            font-size: 1.4rem; /* Tăng kích thước chữ */
         }
 
         .card-content p {
             color: #555;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            font-size: 1rem; /* Tăng kích thước chữ */
+            margin-bottom: 1.2rem; /* Tăng khoảng cách */
         }
 
         .read-more {
             display: inline-block;
-            color: var(--accent-color);
-            font-weight: 600;
+            color: var(--primary-color); /* Đổi màu thành màu chính */
+            font-weight: 700; /* Làm đậm hơn */
             text-decoration: none;
-            font-size: 0.9rem;
-            cursor: pointer; /* Add cursor pointer to indicate it's clickable */
+            font-size: 1rem; /* Tăng kích thước chữ */
+            cursor: pointer;
+            transition: color 0.3s ease;
         }
 
         .read-more:hover {
             text-decoration: underline;
+            color: var(--accent-color); /* Đổi màu khi hover */
         }
 
         footer {
             background-color: var(--primary-color);
             color: var(--light-text);
             text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
+            padding: 2.5rem; /* Tăng padding */
+            margin-top: 4rem; /* Tăng khoảng cách trên */
         }
 
         .scroll-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.8);
+            width: 45px; /* Tăng kích thước nút */
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.9); /* Tăng độ trong suốt */
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25); /* Tăng shadow */
             z-index: 10;
             opacity: 0;
-            transition: opacity 0.3s;
-            font-size: 1.5rem;
+            transition: opacity 0.3s, transform 0.2s ease; /* Thêm transform */
+            font-size: 1.8rem; /* Tăng kích thước mũi tên */
             color: var(--primary-color);
         }
 
         .scroll-container:hover .scroll-btn {
             opacity: 1;
+            transform: translateY(-50%) scale(1.05); /* Hiệu ứng phóng to nhẹ */
         }
 
         .scroll-btn.prev {
-            left: 10px;
+            left: 15px; /* Tăng khoảng cách */
         }
 
         .scroll-btn.next {
-            right: 10px;
+            right: 15px; /* Tăng khoảng cách */
         }
 
         /* Modal Styles */
@@ -234,11 +241,11 @@
         .modal-content {
             background-color: #fefefe;
             margin: auto;
-            padding: 30px;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 700px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            padding: 35px; /* Tăng padding */
+            border-radius: 15px; /* Tăng bo góc */
+            width: 85%; /* Tăng chiều rộng */
+            max-width: 800px; /* Tăng chiều rộng tối đa */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4); /* Tăng shadow */
             position: relative;
             animation-name: animatetop;
             animation-duration: 0.4s
@@ -269,45 +276,66 @@
         }
 
         .close-button {
-            color: #aaa;
+            color: #888; /* Màu xám đậm hơn */
             float: right;
-            font-size: 28px;
+            font-size: 32px; /* Tăng kích thước */
             font-weight: bold;
             position: absolute;
-            top: 10px;
-            right: 20px;
+            top: 15px; /* Điều chỉnh vị trí */
+            right: 25px; /* Điều chỉnh vị trí */
         }
 
         .close-button:hover,
         .close-button:focus {
-            color: black;
+            color: var(--primary-color); /* Đổi màu khi hover */
             text-decoration: none;
             cursor: pointer;
         }
 
         .modal-title {
             color: var(--primary-color);
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+            font-size: 2.2rem; /* Tăng kích thước chữ */
+            margin-bottom: 1.5rem; /* Tăng khoảng cách */
             text-align: center;
+            font-weight: 700;
         }
 
         .modal-body {
-            font-size: 1.1rem;
+            font-size: 1.2rem; /* Tăng kích thước chữ */
             line-height: 1.8;
-            color: #333;
+            color: #444; /* Màu chữ đậm hơn */
+        }
+
+        /* New: Styles for image in modal */
+        .modal-image-container {
+            text-align: center;
+            margin-bottom: 2rem; /* Tăng khoảng cách */
+            display: flex; /* Use flexbox for image layout */
+            flex-wrap: wrap; /* Allow images to wrap */
+            justify-content: center; /* Center images */
+            gap: 15px; /* Tăng khoảng cách giữa các ảnh */
+        }
+
+        .modal-image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px; /* Tăng bo góc */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Tăng shadow */
+            flex: 1 1 auto; /* Allow images to grow and shrink */
+            max-height: 250px; /* Tăng chiều cao tối đa */
+            object-fit: cover; /* Ensure images cover their area */
         }
 
         /* Masonry Grid for Attractions */
         .masonry-grid {
-            column-count: 4; /* Number of columns - Changed to 4 */
-            column-gap: 1.5rem; /* Gap between columns */
-            margin: 2rem 0 4rem;
+            column-count: 4; /* Giữ nguyên 4 cột */
+            column-gap: 2rem; /* Tăng khoảng cách giữa các cột */
+            margin: 3rem 0 5rem; /* Tăng khoảng cách */
         }
 
         .masonry-grid .card {
             width: 100%; /* Card takes full width of its column */
-            margin-bottom: 1.5rem; /* Space below each card */
+            margin-bottom: 2rem; /* Tăng khoảng cách dưới mỗi card */
             break-inside: avoid-column; /* Prevent card from breaking across columns */
             min-width: unset; /* Override min-width from card-wrapper */
             max-width: unset; /* Override max-width from card-wrapper */
@@ -316,16 +344,16 @@
 
         /* Define different heights for cards to create varied shapes */
         .masonry-grid .card.card-tall-1 .card-image {
-            height: 220px; /* Taller image */
+            height: 240px; /* Tăng chiều cao */
         }
         .masonry-grid .card.card-tall-2 .card-image {
-            height: 250px; /* Even taller image */
+            height: 280px; /* Tăng chiều cao */
         }
         .masonry-grid .card.card-tall-3 .card-image {
-            height: 150px; /* Shorter image */
+            height: 180px; /* Tăng chiều cao */
         }
         .masonry-grid .card.card-tall-4 .card-image {
-            height: 200px; /* Medium image */
+            height: 220px; /* Tăng chiều cao */
         }
         /* Add more as needed */
 
@@ -338,116 +366,6 @@
         /* Circular Gallery specific styles (mostly handled by JS, but good to have a class) */
         .circular-gallery-wrapper {
             /* No specific CSS changes needed here beyond existing card-wrapper styles */
-        }
-
-        /* New styles for centered card in scroll-container */
-        /* .card-wrapper.village-scroll {
-            scroll-snap-type: x mandatory;
-            justify-content: center;
-            padding: 1rem 50%; 
-        }
-        .card-wrapper.village-scroll .card {
-            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .card-wrapper.village-scroll .card.centered {
-            min-width: 350px; 
-            max-width: 350px;
-            transform: scale(1.15);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-            z-index: 2;
-        }
-
-        .card-wrapper.village-scroll .card.centered .card-image {
-            height: 240px;
-        }
-        
-        .card-wrapper.village-scroll .card:not(.centered) {
-            margin: 0 -40px;
-            transform: scale(0.9);
-            opacity: 0.8;
-            z-index: 1;
-        } */
-
-        @media (max-width: 1200px) { /* Adjust breakpoint for 3 columns */
-            .masonry-grid {
-                column-count: 3;
-            }
-        }
-
-        @media (max-width: 992px) { /* Adjust breakpoint for 2 columns */
-            .masonry-grid {
-                column-count: 2;
-            }
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5rem;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            nav ul li a {
-                font-size: 1rem;
-                padding: 0.3rem 0.5rem;
-            }
-
-            .card {
-                min-width: 220px;
-                max-width: 220px;
-            }
-            
-            .scroll-btn {
-                opacity: 1;
-            }
-
-            .modal-content {
-                width: 95%;
-                padding: 20px;
-            }
-
-            .modal-title {
-                font-size: 1.5rem;
-            }
-
-            .modal-body {
-                font-size: 1rem;
-            }
-
-            .masonry-grid {
-                column-count: 1;
-            }
-            .masonry-grid .card {
-                min-width: 280px; /* Re-apply min-width for mobile if desired */
-                max-width: 100%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            /* Reset specific card heights for single column on mobile */
-            .masonry-grid .card.card-tall-1 .card-image,
-            .masonry-grid .card.card-tall-2 .card-image,
-            .masonry-grid .card.card-tall-3 .card-image,
-            .masonry-grid .card.card-tall-4 .card-image {
-                height: 180px; /* Default height */
-            }
-
-            /* Responsive for schedule cards */
-            .schedule-card {
-                min-width: unset;
-                max-width: 100%;
-            }
-
-            /* .card-wrapper.village-scroll .card.centered {
-                min-width: 250px; 
-                max-width: 250px;
-            }
-            .card-wrapper.village-scroll .card.centered .card-image {
-                height: 180px; 
-            } */
         }
 
         /* New styles for the "Giới thiệu" section */
@@ -500,16 +418,34 @@
         .about-image {
             flex: 1;
             min-width: 300px;
-            max-width: 500px;
+            max-width: 600px;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
         }
 
         .about-image img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        @media (min-width: 1600px) {
+            .about-image {
+                max-width: 700px;
+            }
         }
 
         .about-text {
@@ -581,35 +517,10 @@
             font-size: 1rem;
         }
 
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .hero p {
-                font-size: 1rem;
-            }
-            .about-content {
-                flex-direction: column;
-                align-items: center;
-            }
-            .about-image {
-                min-width: unset;
-                width: 100%;
-            }
-            .about-text {
-                min-width: unset;
-                width: 100%;
-            }
-            .card-container .card {
-                min-width: unset;
-                width: 100%;
-            }
-        }
-
         /* New styles for Schedule Section */
         .schedule-card .card-image {
             position: relative; /* Để overlay có thể định vị tương đối */
-            height: 200px; /* Chiều cao cố định cho ảnh lịch trình */
+            height: 220px; /* Tăng chiều cao ảnh lịch trình */
         }
 
         .schedule-card .card-image img {
@@ -635,28 +546,29 @@
         }
 
         .card-overlay h3 {
-            border: 3px solid var(--light-text); /* Viền trắng */
-            padding: 0.5rem 1rem; /* Khoảng đệm bên trong viền */
-            background-color: rgba(0, 0, 0, 0.4); /* Nền đen mờ cho chữ */
-            border-radius: 5px; /* Bo góc nhẹ cho ô vuông */
+            border: 4px solid var(--accent-color); /* Viền vàng gold */
+            padding: 0.7rem 1.5rem; /* Tăng padding */
+            background-color: rgba(106, 5, 127, 0.6); /* Nền tím đậm mờ */
+            border-radius: 8px; /* Tăng bo góc nhẹ cho ô vuông */
             transition: background-color 0.3s ease, transform 0.3s ease;
+            font-size: 2rem; /* Tăng kích thước chữ */
         }
 
         .schedule-card:hover .card-overlay {
-            background-color: rgba(0, 0, 0, 0.2); /* Lớp phủ nhẹ hơn khi hover */
+            background-color: rgba(0, 0, 0, 0.3); /* Lớp phủ nhẹ hơn khi hover */
         }
 
         .schedule-card:hover .card-overlay h3 {
-            background-color: rgba(0, 0, 0, 0.6); /* Nền đen mờ đậm hơn khi hover */
-            transform: scale(1.05); /* Phóng to chữ nhẹ khi hover */
+            background-color: rgba(106, 5, 127, 0.8); /* Nền tím đậm hơn khi hover */
+            transform: scale(1.1); /* Phóng to chữ nhẹ khi hover */
         }
 
         /* Village section layout */
         .village-layout-container {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem; /* Tăng khoảng cách */
             align-items: flex-start;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem; /* Tăng khoảng cách */
             /* Đảm bảo các cột nằm ngang hàng */
             flex-direction: row; 
         }
@@ -672,24 +584,25 @@
         .village-text-column {
             flex: 1; /* Cột chữ chiếm 1 phần */
             min-width: 30%; /* Đảm bảo cột chữ có đủ không gian */
-            padding: 1rem;
+            padding: 1.5rem; /* Tăng padding */
             background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Tăng shadow */
             /* Đặt cột văn bản ở bên trái */
             order: 1; 
         }
 
         .village-text-column .village-text-title {
             color: var(--primary-color);
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+            font-size: 2rem; /* Tăng kích thước chữ */
+            margin-bottom: 1.2rem; /* Tăng khoảng cách */
             text-align: center;
         }
 
         .village-text-column p {
             margin-bottom: 1rem;
-            line-height: 1.7;
+            line-height: 1.8; /* Tăng line-height */
+            font-size: 1.05rem; /* Tăng kích thước chữ */
         }
 
         .village-text-column ul {
@@ -721,61 +634,22 @@
         }
 
         .card-wrapper.village-scroll .card.centered {
-            min-width: 320px;
-            max-width: 320px;
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            min-width: 340px; /* Tăng kích thước card trung tâm */
+            max-width: 340px;
+            transform: scale(1.1); /* Tăng hiệu ứng phóng to */
+            box-shadow: 0 12px 25px rgba(0,0,0,0.3); /* Tăng shadow */
             z-index: 2;
         }
 
         .card-wrapper.village-scroll .card.centered .card-image {
-            height: 220px;
+            height: 240px; /* Tăng chiều cao ảnh */
         }
         
         .card-wrapper.village-scroll .card:not(.centered) {
-            min-width: 240px;
-            max-width: 240px;
-            transform: scale(0.9);
-            opacity: 0.85;
-        }
-
-        /* Responsive adjustments for the new layout */
-        @media (max-width: 992px) {
-            .village-layout-container {
-                flex-direction: column; /* Chuyển sang bố cục cột trên màn hình nhỏ hơn */
-                align-items: center;
-            }
-            .village-cards-column,
-            .village-text-column {
-                flex: none; /* Bỏ flex để chúng chiếm toàn bộ chiều rộng */
-                width: 100%;
-                min-width: unset;
-                /* Đặt lại order về mặc định để văn bản ở trên card trên mobile */
-                order: unset; 
-            }
-            .village-cards-column {
-                padding-bottom: 2rem; /* Thêm khoảng cách dưới cột card */
-            }
-            .card-wrapper.village-scroll {
-                padding: 1rem calc(50% - 125px); /* Điều chỉnh padding để căn giữa 3 card trên mobile */
-            }
-            .card-wrapper.village-scroll .card.centered {
-                min-width: 250px;
-                max-width: 250px;
-            }
-            .card-wrapper.village-scroll .card.centered .card-image {
-                height: 180px;
-            }
-            .card-wrapper.village-scroll .card:not(.centered) {
-                min-width: 220px;
-                max-width: 220px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .card-wrapper.village-scroll {
-                padding: 1rem calc(50% - 125px); /* Giữ nguyên padding cho mobile */
-            }
+            min-width: 260px; /* Tăng kích thước card không trung tâm */
+            max-width: 260px;
+            transform: scale(0.95); /* Giảm nhẹ hiệu ứng thu nhỏ */
+            opacity: 0.9; /* Tăng độ trong suốt */
         }
 
         /* Thêm scroll-margin-top cho tất cả các section có ID tương ứng với nav */
@@ -786,4 +660,252 @@
         #art-section,
         #schedule-section {
             scroll-margin-top: 80px; /* Điều chỉnh giá trị này tùy thuộc vào chiều cao của navbar */
+        }
+
+        /* Responsive Adjustments */
+
+        /* Small devices (phones, 768px and down) */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3rem;
+            }
+            header p {
+                font-size: 1.1rem;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 0.8rem; /* Điều chỉnh khoảng cách */
+            }
+            nav ul li a {
+                font-size: 1.05rem; /* Điều chỉnh kích thước chữ */
+                padding: 0.4rem 0.6rem; /* Điều chỉnh padding */
+            }
+            .container {
+                padding: 0 1.2rem; /* Adjust padding for phones */
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .scroll-btn {
+                opacity: 1; /* Always show scroll buttons on mobile */
+            }
+            .modal-content {
+                width: 98%; /* Tăng chiều rộng */
+                padding: 25px; /* Điều chỉnh padding */
+            }
+            .modal-title {
+                font-size: 1.8rem;
+            }
+            .modal-body {
+                font-size: 1.05rem;
+            }
+            .masonry-grid {
+                column-count: 1; /* Single column for phones */
+            }
+            .masonry-grid .card {
+                min-width: unset; /* Override min-width */
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            /* Reset specific card heights for single column on mobile */
+            .masonry-grid .card.card-tall-1 .card-image,
+            .masonry-grid .card.card-tall-2 .card-image,
+            .masonry-grid .card.card-tall-3 .card-image,
+            .masonry-grid .card.card-tall-4 .card-image {
+                height: 200px; /* Default height for all attraction cards on mobile */
+            }
+            .about-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .about-image {
+                min-width: unset;
+                width: 100%;
+            }
+            .about-text {
+                min-width: unset;
+                width: 100%;
+            }
+            .card-container .card {
+                min-width: unset;
+                width: 100%;
+            }
+            .card-wrapper.village-scroll {
+                padding: 1rem calc(50% - 140px); /* (280px / 2) - Adjust for centered card width */
+            }
+            .card-wrapper.village-scroll .card.centered {
+                min-width: 280px;
+                max-width: 280px;
+            }
+            .card-wrapper.village-scroll .card.centered .card-image {
+                height: 200px;
+            }
+            .card-wrapper.village-scroll .card:not(.centered) {
+                min-width: 240px;
+                max-width: 240px;
+            }
+            /* Responsive for schedule cards */
+            .schedule-card {
+                min-width: unset;
+                max-width: 100%;
+            }
+            .schedule-card .card-image {
+                height: 180px; /* Điều chỉnh chiều cao ảnh lịch trình */
+            }
+            .card-overlay h3 {
+                font-size: 1.6rem; /* Điều chỉnh kích thước chữ overlay */
+            }
+            .modal-image-container img {
+                max-height: 180px; /* Adjust height for smaller screens */
+            }
+        }
+
+        /* Medium devices (tablets, 992px and down) */
+        @media (max-width: 992px) {
+            header h1 {
+                font-size: 3.8rem;
+            }
+            header p {
+                font-size: 1.2rem;
+            }
+            nav ul {
+                gap: 2rem;
+            }
+            .container {
+                padding: 0 1.5rem; /* Adjust padding for tablets */
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .masonry-grid {
+                column-count: 2; /* 2 columns for tablets */
+            }
+            .village-layout-container {
+                flex-direction: column; /* Stack columns vertically */
+                align-items: center;
+            }
+            .village-cards-column,
+            .village-text-column {
+                flex: none;
+                width: 95%; /* Adjust width for better spacing */
+                min-width: unset;
+                order: unset; /* Reset order for mobile/tablet */
+            }
+            .village-cards-column {
+                padding-bottom: 2rem; /* Add space below card column */
+            }
+            .card-wrapper.village-scroll {
+                padding: 1rem calc(50% - 150px); /* (300px / 2) - Adjust for centered card width */
+            }
+            .card-wrapper.village-scroll .card.centered {
+                min-width: 300px;
+                max-width: 300px;
+            }
+            .card-wrapper.village-scroll .card.centered .card-image {
+                height: 220px;
+            }
+            .card-wrapper.village-scroll .card:not(.centered) {
+                min-width: 260px;
+                max-width: 260px;
+            }
+            .about-image {
+                min-width: unset;
+                width: 80%; /* Adjust width for tablet */
+            }
+            .about-text {
+                min-width: unset;
+                width: 100%;
+            }
+            .card-container .card {
+                min-width: 250px; /* Adjust min-width for cards in about section */
+                max-width: 300px;
+            }
+            .schedule-card .card-image {
+                height: 200px; /* Điều chỉnh chiều cao ảnh lịch trình */
+            }
+            .card-overlay h3 {
+                font-size: 1.8rem; /* Điều chỉnh kích thước chữ overlay */
+            }
+        }
+
+        /* Large devices (desktops, 1200px and up) */
+        @media (min-width: 993px) {
+            .container {
+                max-width: 1200px; /* Keep max-width for content */
+            }
+            .masonry-grid {
+                column-count: 3; /* 3 columns for larger desktops */
+            }
+            .village-layout-container {
+                flex-direction: row; /* Keep side-by-side for larger screens */
+            }
+            .village-cards-column {
+                flex: 2;
+                min-width: 60%;
+            }
+            .village-text-column {
+                flex: 1;
+                min-width: 30%;
+            }
+            .card-wrapper.village-scroll .card.centered {
+                min-width: 340px;
+                max-width: 340px;
+            }
+            .card-wrapper.village-scroll .card.centered .card-image {
+                height: 240px;
+            }
+            .card-wrapper.village-scroll .card:not(.centered) {
+                min-width: 260px;
+                max-width: 260px;
+            }
+        }
+
+        /* Extra large devices (2K, 4K monitors, 1600px and up) */
+        @media (min-width: 1600px) {
+            .container {
+                max-width: 1500px; /* Allow content to be wider on very large screens */
+            }
+            header h1 {
+                font-size: 5.5rem; /* Larger font for main title */
+            }
+            header p {
+                font-size: 1.6rem; /* Larger font for header paragraph */
+            }
+            .section-title {
+                font-size: 3rem; /* Larger section titles */
+            }
+            nav ul li a {
+                font-size: 1.3rem; /* Slightly larger nav links */
+            }
+            .masonry-grid {
+                column-count: 4; /* 4 columns for 2K/4K */
+            }
+            /* Adjust card sizes or image heights if needed for very high resolutions */
+            .card-wrapper.village-scroll .card.centered {
+                min-width: 380px;
+                max-width: 380px;
+            }
+            .card-wrapper.village-scroll .card.centered .card-image {
+                height: 260px;
+            }
+            .card-wrapper.village-scroll .card:not(.centered) {
+                min-width: 300px;
+                max-width: 300px;
+            }
+        }
+
+        /* Optional: Media query for specific aspect ratios (e.g., 16:9 TVs) */
+        /* This is more complex and usually not necessary unless content needs specific layout for TVs */
+        @media (min-aspect-ratio: 16/10) and (min-width: 1200px) {
+            .masonry-grid {
+                column-count: 4; /* 4 columns for wider screens (e.g., 16:10 or wider) */
+            }
+        }
+
+        /* Default for 16:10 or narrower, or smaller screens */
+        @media (max-aspect-ratio: 16/9) and (min-width: 993px) {
+            .masonry-grid {
+                column-count: 3; /* 3 columns for 16:9 or narrower, on larger desktops */
+            }
         }
