@@ -313,7 +313,7 @@
             display: flex; /* Use flexbox for image layout */
             flex-wrap: wrap; /* Allow images to wrap */
             justify-content: center; /* Center images */
-            gap: 15px; /* Tăng khoảng cách giữa các ảnh */
+            gap: 5px; /* Tăng khoảng cách giữa các ảnh */
         }
 
         .modal-image-container img {
