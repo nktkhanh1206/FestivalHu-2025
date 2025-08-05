@@ -67,7 +67,7 @@
             }
         }
 
-        // For "read-more" links (Giới thiệu, Làng nghề, Nghệ thuật, Ẩm thực)
+        // For "read-more" links (Giới thiệu, Làng nghề, Nghệ thuật) - Food section no longer uses this
         document.querySelectorAll(".read-more").forEach(button => {
             button.addEventListener("click", function(event) {
                 event.preventDefault(); // Prevent default link behavior
@@ -75,15 +75,14 @@
 
                 const title = this.getAttribute("data-title");
                 const content = this.getAttribute("data-content");
-                // Lấy thuộc tính data-images thay vì data-image
                 const imageUrls = this.getAttribute("data-images") || this.getAttribute("data-image"); 
 
                 modalTitle.textContent = title;
                 modalBody.textContent = content;
 
-                addImagesToModal(imageUrls, title); // Gọi hàm mới để thêm ảnh
+                addImagesToModal(imageUrls, title);
                 
-                modal.style.display = "flex"; // Use flex to center the modal
+                modal.style.display = "flex";
             });
         });
 
@@ -94,17 +93,34 @@
 
                 const title = this.getAttribute("data-title");
                 const content = this.getAttribute("data-content");
-                // Lấy thuộc tính data-images mới. Nếu không có, fallback về src của ảnh hiện tại.
                 const imageUrls = this.getAttribute("data-images") || this.querySelector('.card-image img').src; 
 
                 modalTitle.textContent = title;
                 modalBody.textContent = content;
 
-                addImagesToModal(imageUrls, title); // Gọi hàm mới để thêm ảnh
+                addImagesToModal(imageUrls, title);
 
                 modal.style.display = "flex";
             });
         });
+
+        // New: For Food Items (Ẩm thực) - Clickable food items to open modal
+        document.querySelectorAll(".food-item").forEach(item => {
+            item.addEventListener("click", function() {
+                resetModalContent();
+
+                const title = this.getAttribute("data-title");
+                const content = this.getAttribute("data-content");
+                const imageUrls = this.getAttribute("data-images");
+
+                modalTitle.textContent = title;
+                modalBody.textContent = content;
+                addImagesToModal(imageUrls, title);
+
+                modal.style.display = "flex";
+            });
+        });
+
 
         closeButton.addEventListener("click", function() {
             modal.style.display = "none";
@@ -144,35 +160,23 @@
             }
         });
 
-        // Scroll buttons functionality for Circular Gallery (Ẩm thực)
+        // Scroll buttons functionality for Food Slides (Ẩm thực)
         document.querySelectorAll('.circular-gallery-container').forEach(container => {
             const prevBtn = container.querySelector('.scroll-btn.prev');
             const nextBtn = container.querySelector('.scroll-btn.next');
-            const cardWrapper = container.querySelector('.circular-gallery-wrapper');
-            
-            // Function to get current card width + gap dynamically
-            const getCardScrollAmount = () => {
-                const firstCard = cardWrapper.querySelector('.card');
-                if (firstCard) {
-                    const cardStyle = window.getComputedStyle(firstCard);
-                    const cardWidth = firstCard.offsetWidth;
-                    const gap = parseFloat(cardStyle.marginRight) || parseFloat(window.getComputedStyle(cardWrapper).gap);
-                    return cardWidth + gap;
-                }
-                return 300; // Fallback value
-            };
+            const foodSlidesWrapper = container.querySelector('.food-slides'); // Target the new wrapper
 
             if (prevBtn) {
                 prevBtn.addEventListener('click', () => {
-                    const scrollAmount = getCardScrollAmount();
-                    cardWrapper.scrollBy({
-                        left: -scrollAmount,
+                    const slideWidth = foodSlidesWrapper.clientWidth; // Get the width of one slide
+                    foodSlidesWrapper.scrollBy({
+                        left: -slideWidth,
                         behavior: 'smooth'
                     });
                     // Circular logic for previous button
-                    if (cardWrapper.scrollLeft <= 0) {
+                    if (foodSlidesWrapper.scrollLeft <= 0) {
                         setTimeout(() => {
-                            cardWrapper.scrollLeft = cardWrapper.scrollWidth - cardWrapper.clientWidth;
+                            foodSlidesWrapper.scrollLeft = foodSlidesWrapper.scrollWidth - foodSlidesWrapper.clientWidth;
                         }, 300);
                     }
                 });
@@ -180,15 +184,15 @@
 
             if (nextBtn) {
                 nextBtn.addEventListener('click', () => {
-                    const scrollAmount = getCardScrollAmount();
-                    cardWrapper.scrollBy({
-                        left: scrollAmount,
+                    const slideWidth = foodSlidesWrapper.clientWidth; // Get the width of one slide
+                    foodSlidesWrapper.scrollBy({
+                        left: slideWidth,
                         behavior: 'smooth'
                     });
                     // Circular logic for next button
-                    if (cardWrapper.scrollLeft + cardWrapper.clientWidth >= cardWrapper.scrollWidth) {
+                    if (foodSlidesWrapper.scrollLeft + foodSlidesWrapper.clientWidth >= foodSlidesWrapper.scrollWidth) {
                         setTimeout(() => {
-                            cardWrapper.scrollLeft = 0;
+                            foodSlidesWrapper.scrollLeft = 0;
                         }, 300);
                     }
                 });
@@ -331,4 +335,23 @@
                     });
                 });
             }
+        }
+
+        // Hamburger menu functionality
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const navUl = document.querySelector('nav ul');
+
+        if (hamburgerMenu && navUl) {
+            hamburgerMenu.addEventListener('click', () => {
+                hamburgerMenu.classList.toggle('active');
+                navUl.classList.toggle('active');
+            });
+
+            // Close menu when a link is clicked (for smooth scrolling)
+            navUl.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburgerMenu.classList.remove('active');
+                    navUl.classList.remove('active');
+                });
+            });
         }
