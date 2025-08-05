@@ -8,6 +8,11 @@
 </head>
 <body>
     <nav>
+        <div class="hamburger-menu" id="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
         <ul>
             <li><a href="#about">Giới thiệu</a></li>
             <li><a href="#attraction-section">Điểm tham quan</a></li>
@@ -20,7 +25,7 @@
     
     <header>
         <h1>Festival Huế 2025</h1>
-        <p>"Huế - Kinh đô xưa, Vận hội mới"</p>
+        <p>Kế thừa và phát huy giá trị di sản văn hóa cung đình Huế - Nơi hội tụ tinh hoa văn hóa Việt Nam</p>
     </header>
 
     <div class="container">
@@ -85,7 +90,7 @@
         </section>
 
         <section id="attraction-section">
-            <h2 class="section-title">Điểm tham quan nổi bật</h2>
+            <h2 class="section-title" style="font-family: 'Playfair Display', serif;">ĐIỂM THAM QUAN NỔI BẬT</h2>
             <div class="masonry-grid" id="attraction-cards">
                 <div class="card attraction-card card-tall-1" data-title="Đại Nội Huế" data-content="Đại Nội Huế là quần thể di tích lịch sử văn hóa được UNESCO công nhận là Di sản Thế giới. Đây là nơi ở và làm việc của 13 đời vua triều Nguyễn, với các công trình kiến trúc độc đáo như Ngọ Môn, Điện Thái Hòa, Tử Cấm Thành. Du khách có thể khám phá lịch sử, kiến trúc và văn hóa cung đình qua các tour tham quan và các buổi biểu diễn nghệ thuật truyền thống." data-images="img/ngo-mon-hue-1.jpg, img/ngo-mon-hue-3-0343.jpg, img/NgoMon.jpg">
                     <div class="card-image">
@@ -201,7 +206,7 @@
         </section>
 
         <section id="village-section">
-            <h2 class="section-title">Làng nghề truyền thống</h2>
+            <h2 class="section-title" style="font-family: 'Playfair Display', serif;">LÀNG NGHỀ TRUYỀN THỐNG</h2>
             <div class="village-layout-container">
                 <!-- Cột chứa văn bản (sẽ nằm bên trái) -->
                 <div class="village-text-column">
@@ -304,15 +309,15 @@
                                 </div>
                             </div>
 
-                            <!-- Add more cards as needed -->
+                            <!-- Thêm làng nghề mới -->
                             <div class="card">
                                 <div class="card-image">
-                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/44e6ea05-aa26-4382-b413-92e8a6f4e603.png" alt="Additional village card">
+                                    <img src="img/lang-sinh-hue-6.jpg" alt="Làng nghề đan lát truyền thống">
                                 </div>
                                 <div class="card-content">
-                                    <h3>Làng nghề mới</h3>
-                                    <p>Mô tả làng nghề mới</p>
-                                    <a href="#" class="read-more" data-target="modal-village" data-title="Làng nghề mới" data-content="Chi tiết về làng nghề mới" data-images="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/44e6ea05-aa26-4382-b413-92e8a6f4e603.png, https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/44e6ea05-aa26-4382-b413-92e8a6f4e603.png">Xem thêm</a>
+                                    <h3>Làng nghề đan lát Bao La</h3>
+                                    <p>Khám phá nghề đan lát truyền thống với các sản phẩm thủ công mỹ nghệ từ tre, mây</p>
+                                    <a href="#" class="read-more" data-target="modal-village" data-title="Làng nghề đan lát Bao La" data-content="Làng nghề đan lát Bao La ở huyện Quảng Điền, Thừa Thiên Huế là một trong những làng nghề truyền thống lâu đời, nổi tiếng với các sản phẩm đan lát từ tre, mây, cói có độ bền cao và mẫu mã đẹp. Các sản phẩm đa dạng từ đồ gia dụng như rổ, rá, thúng, mẹt đến các sản phẩm trang trí nội thất, quà lưu niệm. Đến đây, du khách có thể tham quan quy trình sản xuất thủ công và thậm chí thử tay nghề đan lát của mình dưới sự hướng dẫn của các nghệ nhân." data-images="img/lang-sinh-hue-6.jpg, img/LangGom01.jpg">Xem thêm</a>
                                 </div>
                             </div>
                         </div>
@@ -323,84 +328,167 @@
         </section>
 
         <section id="food-section">
-            <h2 class="section-title">Ẩm thực cố đô</h2>
+            <h2 class="section-title" style="font-family: 'Playfair Display', serif;">ẨM THỰC CỐ ĐÔ</h2>
             <div class="scroll-container circular-gallery-container">
                 <div class="scroll-btn prev">&larr;</div>
-                <div class="card-wrapper circular-gallery-wrapper" id="food-cards">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="img/BunBo00.jpg" alt="Tô bún bò Huế đầy đặn với thịt bò, giò heo và chả cua" />
+                <div class="card-wrapper circular-gallery-wrapper food-slides" id="food-slides-wrapper">
+                    <!-- Slide 1: Bún bò Huế & Bánh bèo -->
+                    <div class="food-slide">
+                        <div class="food-item top-left" data-title="Bún bò Huế" data-content="Bún bò Huế là món ăn trứ danh của Cố đô, nổi tiếng với nước dùng đậm đà từ xương bò và giò heo, vị cay nồng của ớt, mùi thơm của sả và mắm ruốc. Tô bún thường có thịt bò thái mỏng, chả cua, giò heo, và ăn kèm với rau sống tươi ngon. Đây là món ăn nhất định phải thử khi đến Huế." data-images="img/BunBo04.jpg, img/BunBo02.jpg">
+                            <img src="img/BunBo00.jpg" alt="Tô bún bò Huế đầy đặn" />
+                            <div class="food-item-content">
+                                <h4>Bún bò Huế</h4>
+                                <p>Món ăn đặc sản nổi tiếng với hương vị đậm đà và nước dùng thơm ngon.</p>
+                            </div>
                         </div>
-                        <div class="card-content">
-                            <h3>Bún bò Huế</h3>
-                            <p>Món ăn đặc sản nổi tiếng với hương vị đậm đà và nước dùng thơm ngon</p>
-                            <a href="#" class="read-more" data-target="modal-food" data-title="Bún bò Huế" data-content="Bún bò Huế là món ăn trứ danh của Cố đô, nổi tiếng với nước dùng đậm đà từ xương bò và giò heo, vị cay nồng của ớt, mùi thơm của sả và mắm ruốc. Tô bún thường có thịt bò thái mỏng, chả cua, giò heo, và ăn kèm với rau sống tươi ngon. Đây là món ăn nhất định phải thử khi đến Huế." data-images="img/BunBo04.jpg, img/BunBo02.jpg">Xem thêm</a>
+                        <div class="food-item top-right" data-title="Bánh bèo" data-content="Bánh bèo là món ăn vặt đặc trưng của Huế, được làm từ bột gạo hấp trong những chén nhỏ. Bánh thường được rắc tôm cháy, tóp mỡ, hành phi và ăn kèm với nước mắm chua ngọt đặc trưng. Vị mềm mại của bánh, giòn tan của tóp mỡ và vị đậm đà của tôm cháy tạo nên một hương vị khó quên." data-images="img/BanhBeo01.webp">
+                            <div class="food-item-content">
+                                <h4>Bánh bèo</h4>
+                                <p>Món ăn nhẹ nhàng, được làm từ bột gạo, ăn kèm với tôm và hành phi.</p>
+                            </div>
+                            <img src="img/BanhBeo00.png" alt="Đĩa bánh bèo chén nhỏ" />
                         </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="img/BanhBeo00.png" alt="Đĩa bánh bèo chén nhỏ với tôm cháy và tóp mỡ" />
+                        <div class="food-item bottom-left" data-title="Bánh lọc" data-content="Bánh lọc Huế có hai loại: bánh lọc trần và bánh lọc gói lá. Cả hai đều có vỏ bánh trong suốt làm từ bột năng, nhân tôm và thịt ba chỉ ướp đậm đà. Bánh lọc thường được hấp chín và ăn kèm với nước mắm ớt tỏi chua ngọt. Đây là món ăn được nhiều du khách yêu thích bởi hương vị độc đáo và sự dai ngon của vỏ bánh." data-images="img/BanhLoc03.jpg, img/BanhLoc02.jpg">
+                            <div class="food-item-content">
+                                <h4>Bánh lọc</h4>
+                                <p>Bánh trong, nhân tôm thịt, thường được ăn kèm với nước mắm chua ngọt.</p>
+                            </div>
+                            <img src="img/BanhLoc01.jpg" alt="Bánh lọc trần và bánh lọc gói lá chuối" />
                         </div>
-                        <div class="card-content">
-                            <h3>Bánh bèo</h3>
-                            <p>Món ăn nhẹ nhàng, được làm từ bột gạo, ăn kèm với tôm và hành phi</p>
-                            <a href="#" class="read-more" data-target="modal-food" data-title="Bánh bèo" data-content="Bánh bèo là món ăn vặt đặc trưng của Huế, được làm từ bột gạo hấp trong những chén nhỏ. Bánh thường được rắc tôm cháy, tóp mỡ, hành phi và ăn kèm với nước mắm chua ngọt đặc trưng. Vị mềm mại của bánh, giòn tan của tóp mỡ và vị đậm đà của tôm cháy tạo nên một hương vị khó quên." data-images="img/BanhBeo01.webp">Xem thêm</a>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="img/BanhLoc01.jpg" alt="Bánh lọc trần và bánh lọc gói lá chuối với nhân tôm thịt" />
-                        </div>
-                        <div class="card-content">
-                            <h3>Bánh lọc</h3>
-                            <p>Bánh trong, nhân tôm thịt, thường được ăn kèm với nước mắm chua ngọt</p>
-                            <a href="#" class="read-more" data-target="modal-food" data-title="Bánh lọc" data-content="Bánh lọc Huế có hai loại: bánh lọc trần và bánh lọc gói lá. Cả hai đều có vỏ bánh trong suốt làm từ bột năng, nhân tôm và thịt ba chỉ ướp đậm đà. Bánh lọc thường được hấp chín và ăn kèm với nước mắm ớt tỏi chua ngọt. Đây là món ăn được nhiều du khách yêu thích bởi hương vị độc đáo và sự dai ngon của vỏ bánh." data-images="img/BanhLoc03.jpg, img/BanhLoc02.jpg">Xem thêm</a>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="img/ComHen00.jpg" alt="Tô cơm hến đầy màu sắc với hến, rau sống, tóp mỡ và đậu phộng" />
-                        </div>
-                        <div class="card-content">
-                            <h3>Cơm hến</h3>
-                            <p>Món ăn dân dã, được làm từ cơm và hến, thường ăn kèm với rau sống</p>
-                            <a href="#" class="read-more" data-target="modal-food" data-title="Cơm hến" data-content="Cơm hến là món ăn dân dã nhưng lại rất nổi tiếng của Huế, đặc biệt vào những ngày hè nóng bức. Món ăn này bao gồm cơm nguội, hến xào, tóp mỡ, đậu phộng rang, rau sống thái nhỏ, bắp chuối, khế, và một chút mắm ruốc. Tất cả được trộn đều và chan thêm nước hến nóng hổi, tạo nên hương vị cay, mặn, ngọt, bùi rất đặc trưng." data-images="img/ComHen01.jpg, img/ComHen02.png">Xem thêm</a>
+                        <div class="food-item bottom-right" data-title="Cơm hến" data-content="Cơm hến là món ăn dân dã nhưng lại rất nổi tiếng của Huế, đặc biệt vào những ngày hè nóng bức. Món ăn này bao gồm cơm nguội, hến xào, tóp mỡ, đậu phộng rang, rau sống thái nhỏ, bắp chuối, khế, và một chút mắm ruốc. Tất cả được trộn đều và chan thêm nước hến nóng hổi, tạo nên hương vị cay, mặn, ngọt, bùi rất đặc trưng." data-images="img/ComHen01.jpg, img/ComHen02.png">
+                            <img src="img/ComHen00.jpg" alt="Tô cơm hến đầy màu sắc" />
+                            <div class="food-item-content">
+                                <h4>Cơm hến</h4>
+                                <p>Món ăn dân dã, được làm từ cơm và hến, thường ăn kèm với rau sống.</p>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="img/NemLui00.jpg" alt="Những xiên nem lụi nướng vàng ươm trên bếp than" />
+
+                    <!-- Slide 2: Nem lụi & Chè Huế -->
+                    <div class="food-slide">
+                        <div class="food-item top-left" data-title="Nem lụi" data-content="Nem lụi là món ăn vặt được nhiều người yêu thích ở Huế. Nem được làm từ thịt heo xay nhuyễn, trộn với gia vị và quấn quanh cây sả hoặc tre, sau đó nướng trên bếp than hồng cho đến khi vàng ươm, thơm lừng. Nem lụi thường được ăn kèm với bánh tráng cuốn, rau sống, dưa chuột, và đặc biệt là nước chấm đậu phộng béo ngậy, đậm đà." data-images="img/NemLui01.jpg, img/NemLui03.jpg">
+                            <img src="img/NemLui00.jpg" alt="Những xiên nem lụi nướng vàng ươm" />
+                            <div class="food-item-content">
+                                <h4>Nem lụi</h4>
+                                <p>Món nem nướng thơm lừng, ăn kèm với bánh tráng, rau sống và nước chấm đặc biệt.</p>
+                            </div>
                         </div>
-                        <div class="card-content">
-                            <h3>Nem lụi</h3>
-                            <p>Món nem nướng thơm lừng, ăn kèm với bánh tráng, rau sống và nước chấm đặc biệt</p>
-                            <a href="#" class="read-more" data-target="modal-food" data-title="Nem lụi" data-content="Nem lụi là món ăn vặt được nhiều người yêu thích ở Huế. Nem được làm từ thịt heo xay nhuyễn, trộn với gia vị và quấn quanh cây sả hoặc tre, sau đó nướng trên bếp than hồng cho đến khi vàng ươm, thơm lừng. Nem lụi thường được ăn kèm với bánh tráng cuốn, rau sống, dưa chuột, và đặc biệt là nước chấm đậu phộng béo ngậy, đậm đà." data-images="img/NemLui01.jpg, img/NemLui03.jpg">Xem thêm</a>
+                        <div class="food-item top-right" data-title="Chè Huế" data-content="Chè Huế nổi tiếng với sự đa dạng và tinh tế, từ các loại chè cung đình sang trọng đến chè dân gian bình dị. Một số loại chè phổ biến bao gồm chè hạt sen, chè khoai môn, chè đậu xanh, chè bắp, và đặc biệt là chè bột lọc heo quay độc đáo. Mỗi loại chè đều mang một hương vị riêng, ngọt ngào và thanh mát, rất thích hợp để thưởng thức sau bữa ăn." data-images="img/CheHue01.jpg, img/CheHue02.jpg">
+                            <div class="food-item-content">
+                                <h4>Chè Huế</h4>
+                                <p>Đa dạng các loại chè từ chè cung đình đến chè dân gian, ngọt ngào và thanh mát.</p>
+                            </div>
+                            <img src="img/CheHue00.jpg" alt="Các loại chè Huế đa dạng màu sắc" />
+                        </div>
+                        <div class="food-item bottom-left" data-title="Bánh khoái" data-content="Bánh khoái là một loại bánh xèo đặc trưng của Huế, được chiên giòn rụm với lớp vỏ vàng ươm. Nhân bánh thường gồm tôm tươi, thịt ba chỉ, giá đỗ, và trứng. Bánh khoái được ăn kèm với nhiều loại rau sống như xà lách, rau thơm, chuối chát, khế chua, và đặc biệt là nước lèo (nước chấm) được chế biến công phu từ gan heo, thịt nạc, đậu phộng." data-images="img/BanhKhoai03.jpg, img/BanhKhoai02.jpg">
+                            <div class="food-item-content">
+                                <h4>Bánh khoái</h4>
+                                <p>Bánh xèo phiên bản Huế, giòn rụm, nhân tôm thịt, ăn kèm rau sống và nước lèo.</p>
+                            </div>
+                            <img src="img/BanhKhoai00.jpg" alt="Bánh khoái vàng giòn" />
+                        </div>
+                        <div class="food-item bottom-right" data-title="Bánh ướt thịt nướng" data-content="Bánh ướt thịt nướng là món ăn hấp dẫn với thịt heo nướng than hoa thơm lừng, được cuốn trong lớp bánh ướt mềm mỏng, ăn kèm với rau sống tươi ngon và nước chấm đậu phộng đặc trưng. Hương vị đậm đà của thịt nướng hòa quyện với vị thanh mát của rau và vị béo ngậy của nước chấm tạo nên một trải nghiệm ẩm thực khó quên." data-images="img/BanhUotThitNuong01.jpg, img/BanhUotThitNuong02.jpg">
+                            <img src="img/BanhUotThitNuong.jpg" alt="Bánh ướt thịt nướng" />
+                            <div class="food-item-content">
+                                <h4>Bánh ướt thịt nướng</h4>
+                                <p>Thịt nướng thơm lừng cuốn trong bánh ướt mềm mại, ăn kèm rau sống và nước chấm đặc trưng.</p>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="img/CheHue00.jpg" alt="Các loại chè Huế đa dạng màu sắc trong chén nhỏ" />
+
+                    <!-- Slide 3: Vả trộn & Bánh ram ít -->
+                    <div class="food-slide">
+                        <div class="food-item top-left" data-title="Vả trộn" data-content="Vả trộn là món ăn đặc trưng của Huế, được chế biến từ quả vả non luộc chín, thái lát mỏng, trộn với tôm, thịt ba chỉ luộc, các loại rau thơm, đậu phộng rang, và nước mắm chua ngọt. Món ăn có vị thanh mát, giòn sần sần của vả, vị ngọt của tôm thịt, và hương thơm của rau, rất thích hợp để khai vị." data-images="img/VaTron01.jpg, img/VaTron02.jpg">
+                            <img src="img/VaTron.jpg" alt="Đĩa vả trộn tôm thịt" />
+                            <div class="food-item-content">
+                                <h4>Vả trộn</h4>
+                                <p>Món gỏi thanh mát từ quả vả non, tôm, thịt, và các loại rau thơm, đậm đà hương vị Huế.</p>
+                            </div>
                         </div>
-                        <div class="card-content">
-                            <h3>Chè Huế</h3>
-                            <p>Đa dạng các loại chè từ chè cung đình đến chè dân gian, ngọt ngào và thanh mát</p>
-                            <a href="#" class="read-more" data-target="modal-food" data-title="Chè Huế" data-content="Chè Huế nổi tiếng với sự đa dạng và tinh tế, từ các loại chè cung đình sang trọng đến chè dân gian bình dị. Một số loại chè phổ biến bao gồm chè hạt sen, chè khoai môn, chè đậu xanh, chè bắp, và đặc biệt là chè bột lọc heo quay độc đáo. Mỗi loại chè đều mang một hương vị riêng, ngọt ngào và thanh mát, rất thích hợp để thưởng thức sau bữa ăn." data-images="img/CheHue01.jpg, img/CheHue02.jpg">Xem thêm</a>
+                        <div class="food-item top-right" data-title="Bánh ram ít" data-content="Bánh ram ít là món ăn vặt độc đáo của Huế, gồm hai phần: bánh ít (bánh nếp hấp mềm dẻo với nhân tôm thịt) và bánh ram (bánh gạo chiên giòn). Hai phần này được đặt chồng lên nhau, tạo nên sự đối lập thú vị về kết cấu và hương vị. Bánh ram ít thường được ăn kèm với nước mắm chua ngọt." data-images="img/BanhRamIt01.jpg, img/BanhRamIt02.jpg">
+                            <div class="food-item-content">
+                                <h4>Bánh ram ít</h4>
+                                <p>Sự kết hợp độc đáo giữa bánh ít mềm dẻo và bánh ram giòn rụm, nhân tôm thịt.</p>
+                            </div>
+                            <img src="img/BanhRamIt.jpg" alt="Bánh ram ít" />
+                        </div>
+                        <div class="food-item bottom-left" data-title="Bánh nậm" data-content="Bánh nậm là một loại bánh truyền thống của Huế, được làm từ bột gạo, nhân tôm thịt băm nhuyễn, gói trong lá dong hoặc lá chuối và hấp chín. Bánh có vị mềm mịn của bột, vị ngọt đậm đà của nhân, và hương thơm đặc trưng của lá. Bánh nậm thường được ăn kèm với nước mắm chua ngọt." data-images="img/BanhNam01.jpg, img/BanhNam02.jpg">
+                            <div class="food-item-content">
+                                <h4>Bánh nậm</h4>
+                                <p>Bánh bột gạo mềm mịn, nhân tôm thịt, gói trong lá dong, hấp chín.</p>
+                            </div>
+                            <img src="img/BanhNam.jpg" alt="Bánh nậm" />
+                        </div>
+                        <div class="food-item bottom-right" data-title="Bánh bột lọc trần" data-content="Bánh bột lọc trần là một biến thể của bánh lọc, không được gói trong lá mà được luộc trực tiếp. Vỏ bánh trong suốt, dai ngon, nhân tôm thịt đậm đà. Món ăn này thường được rắc thêm hành phi, tóp mỡ và ăn kèm với nước mắm chua ngọt." data-images="img/BanhBotLocTran01.jpg, img/BanhBotLocTran02.jpg">
+                            <img src="img/BanhBotLocTran.jpg" alt="Bánh bột lọc trần" />
+                            <div class="food-item-content">
+                                <h4>Bánh bột lọc trần</h4>
+                                <p>Phiên bản bánh lọc không gói lá, vỏ trong suốt, nhân tôm thịt, dai ngon.</p>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="img/BanhKhoai00.jpg" alt="Bánh khoái vàng giòn với nhân tôm thịt và giá đỗ" />
+
+                    <!-- Slide 4: Thêm 4 món mới -->
+                    <div class="food-slide">
+                        <div class="food-item top-left" data-title="Bún thịt nướng" data-content="Bún thịt nướng là món ăn phổ biến với bún tươi, thịt heo nướng thơm lừng, rau sống, dưa chuột, và nước mắm chua ngọt. Thịt nướng được ướp đậm đà, nướng trên than hồng tạo mùi thơm hấp dẫn. Món ăn này mang đến sự kết hợp hài hòa giữa vị ngọt của thịt, vị thanh mát của rau và vị đậm đà của nước chấm." data-images="img/BunThitNuong01.jpg, img/BunThitNuong02.jpg">
+                            <img src="img/BunThitNuong.jpg" alt="Tô bún thịt nướng" />
+                            <div class="food-item-content">
+                                <h4>Bún thịt nướng</h4>
+                                <p>Bún tươi ăn kèm thịt nướng thơm lừng, rau sống và nước mắm đặc trưng.</p>
+                            </div>
                         </div>
-                        <div class="card-content">
-                            <h3>Bánh khoái</h3>
-                            <p>Bánh xèo phiên bản Huế, giòn rụm, nhân tôm thịt, ăn kèm rau sống và nước lèo</p>
-                            <a href="#" class="read-more" data-target="modal-food" data-title="Bánh khoái" data-content="Bánh khoái là một loại bánh xèo đặc trưng của Huế, được chiên giòn rụm với lớp vỏ vàng ươm. Nhân bánh thường gồm tôm tươi, thịt ba chỉ, giá đỗ, và trứng. Bánh khoái được ăn kèm với nhiều loại rau sống như xà lách, rau thơm, chuối chát, khế chua, và đặc biệt là nước lèo (nước chấm) được chế biến công phu từ gan heo, thịt nạc, đậu phộng." data-images="img/BanhKhoai03.jpg, img/BanhKhoai02.jpg">Xem thêm</a>
+                        <div class="food-item top-right" data-title="Bánh canh Nam Phổ" data-content="Bánh canh Nam Phổ là món ăn đặc sản của làng Nam Phổ, Huế. Nước dùng được nấu từ tôm, cua, thịt heo, có màu đỏ cam hấp dẫn và vị ngọt thanh. Sợi bánh canh làm từ bột gạo và bột lọc, dai mềm. Món ăn này thường được ăn kèm với chả cua, tôm tươi và hành lá." data-images="img/BanhCanhNamPho01.jpg, img/BanhCanhNamPho02.jpg">
+                            <div class="food-item-content">
+                                <h4>Bánh canh Nam Phổ</h4>
+                                <p>Món bánh canh đặc trưng với nước dùng sánh, đậm đà từ tôm, cua.</p>
+                            </div>
+                            <img src="img/BanhCanhNamPho.jpg" alt="Tô bánh canh Nam Phổ" />
+                        </div>
+                        <div class="food-item bottom-left" data-title="Cháo lòng" data-content="Cháo lòng Huế là món ăn sáng hoặc ăn đêm được nhiều người yêu thích. Cháo được nấu từ gạo rang, có vị thơm bùi, ăn kèm với các loại lòng heo như dồi, gan, tim, cật, dạ dày, được làm sạch và chế biến kỹ lưỡng. Món ăn thường được rắc thêm hành phi, tiêu và rau thơm." data-images="img/ChaoLong01.jpg, img/ChaoLong02.jpg">
+                            <div class="food-item-content">
+                                <h4>Cháo lòng</h4>
+                                <p>Cháo gạo rang thơm bùi, ăn kèm lòng heo đa dạng, đậm đà hương vị.</p>
+                            </div>
+                            <img src="img/ChaoLong.jpg" alt="Tô cháo lòng" />
+                        </div>
+                        <div class="food-item bottom-right" data-title="Bánh ép" data-content="Bánh ép là món ăn vặt độc đáo của Huế, được làm từ bột lọc, nhân tôm, thịt, trứng, sau đó ép mỏng trên bếp than nóng cho đến khi chín giòn. Bánh ép thường được ăn kèm với rau răm, dưa chuột, và nước mắm chua ngọt hoặc mắm nêm. Vị giòn tan của bánh, vị ngọt của nhân và vị cay nồng của nước chấm tạo nên sức hấp dẫn đặc biệt." data-images="img/BanhEp01.jpg, img/BanhEp02.jpg">
+                            <img src="img/BanhEp.jpg" alt="Bánh ép nóng hổi" />
+                            <div class="food-item-content">
+                                <h4>Bánh ép</h4>
+                                <p>Bánh bột lọc ép mỏng, nhân tôm thịt trứng, chiên giòn, ăn kèm rau sống.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 5: Thêm 4 món mới nữa -->
+                    <div class="food-slide">
+                        <div class="food-item top-left" data-title="Bún thịt nướng" data-content="Bún thịt nướng là món ăn phổ biến với bún tươi, thịt heo nướng thơm lừng, rau sống, dưa chuột, và nước mắm chua ngọt. Thịt nướng được ướp đậm đà, nướng trên than hồng tạo mùi thơm hấp dẫn. Món ăn này mang đến sự kết hợp hài hòa giữa vị ngọt của thịt, vị thanh mát của rau và vị đậm đà của nước chấm." data-images="img/BunThitNuong01.jpg, img/BunThitNuong02.jpg">
+                            <img src="img/BunThitNuong.jpg" alt="Tô bún thịt nướng" />
+                            <div class="food-item-content">
+                                <h4>Bún thịt nướng</h4>
+                                <p>Bún tươi ăn kèm thịt nướng thơm lừng, rau sống và nước mắm đặc trưng.</p>
+                            </div>
+                        </div>
+                        <div class="food-item top-right" data-title="Bánh canh Nam Phổ" data-content="Bánh canh Nam Phổ là món ăn đặc sản của làng Nam Phổ, Huế. Nước dùng được nấu từ tôm, cua, thịt heo, có màu đỏ cam hấp dẫn và vị ngọt thanh. Sợi bánh canh làm từ bột gạo và bột lọc, dai mềm. Món ăn này thường được ăn kèm với chả cua, tôm tươi và hành lá." data-images="img/BanhCanhNamPho01.jpg, img/BanhCanhNamPho02.jpg">
+                            <div class="food-item-content">
+                                <h4>Bánh canh Nam Phổ</h4>
+                                <p>Món bánh canh đặc trưng với nước dùng sánh, đậm đà từ tôm, cua.</p>
+                            </div>
+                            <img src="img/BanhCanhNamPho.jpg" alt="Tô bánh canh Nam Phổ" />
+                        </div>
+                        <div class="food-item bottom-left" data-title="Cháo lòng" data-content="Cháo lòng Huế là món ăn sáng hoặc ăn đêm được nhiều người yêu thích. Cháo được nấu từ gạo rang, có vị thơm bùi, ăn kèm với các loại lòng heo như dồi, gan, tim, cật, dạ dày, được làm sạch và chế biến kỹ lưỡng. Món ăn thường được rắc thêm hành phi, tiêu và rau thơm." data-images="img/ChaoLong01.jpg, img/ChaoLong02.jpg">
+                            <div class="food-item-content">
+                                <h4>Cháo lòng</h4>
+                                <p>Cháo gạo rang thơm bùi, ăn kèm lòng heo đa dạng, đậm đà hương vị.</p>
+                            </div>
+                            <img src="img/ChaoLong.jpg" alt="Tô cháo lòng" />
+                        </div>
+                        <div class="food-item bottom-right" data-title="Bánh ép" data-content="Bánh ép là món ăn vặt độc đáo của Huế, được làm từ bột lọc, nhân tôm, thịt, trứng, sau đó ép mỏng trên bếp than nóng cho đến khi chín giòn. Bánh ép thường được ăn kèm với rau răm, dưa chuột, và nước mắm chua ngọt hoặc mắm nêm. Vị giòn tan của bánh, vị ngọt của nhân và vị cay nồng của nước chấm tạo nên sức hấp dẫn đặc biệt." data-images="img/BanhEp01.jpg, img/BanhEp02.jpg">
+                            <img src="img/BanhEp.jpg" alt="Bánh ép nóng hổi" />
+                            <div class="food-item-content">
+                                <h4>Bánh ép</h4>
+                                <p>Bánh bột lọc ép mỏng, nhân tôm thịt trứng, chiên giòn, ăn kèm rau sống.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -409,7 +497,7 @@
         </section>
 
         <section id="art-section">
-            <h2 class="section-title">Nghệ thuật Huế</h2>
+            <h2 class="section-title" style="font-family: 'Playfair Display', serif;">NGHỆ THUẬT HUẾ</h2>
             <div class="scroll-container">
                 <div class="scroll-btn prev">&larr;</div>
                 <div class="card-wrapper" id="art-cards">
@@ -496,7 +584,7 @@
 
         <!-- NEW SCHEDULE SECTION -->
         <section id="schedule-section">
-            <h2 class="section-title">Lịch trình Festival Huế 2025</h2>
+            <h2 class="section-title" style="font-family: 'Playfair Display', serif;">LỊCH TRÌNH FESTIVAL HUẾ</h2>
             <div class="scroll-container">
                 <div class="scroll-btn prev">&larr;</div>
                 <div class="card-wrapper" id="schedule-cards">
@@ -689,8 +777,8 @@
 
     <footer>
         <div class="container">
-            <p>Festival Huế 2025 - Bảo tồn và phát huy di sản văn hóa cố đô</p>
-            <p>Thông tin liên hệ: festivalhue@dhs.thuathienhue.gov.vn</p>
+            <p>© 2024 Festival Huế 2025 - Bảo tồn và phát huy di sản văn hóa cố đô</p>
+            <p>Thông tin liên hệ: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c0a6a5b3b4a9b6a1aca8b5a580a4a8b3eeb4a8b5a1b4a8a9a5aea8b5a5eea7afb6eeb6ae">[email&#160;protected]</a></p>
         </div>
     </footer>
 
