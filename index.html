@@ -459,17 +459,18 @@
         }
 
         .about-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
+            display: flex; /* Kích hoạt Flexbox */
+            flex-wrap: wrap; /* Cho phép các mục xuống dòng khi không đủ không gian */
+            gap: 2rem; /* Tăng khoảng cách giữa ảnh và text */
             margin-bottom: 3rem;
-            align-items: flex-start;
+            align-items: flex-start; /* Căn chỉnh các mục theo phía trên */
+            justify-content: center; /* Căn giữa các mục khi chúng không chiếm hết chiều rộng */
         }
 
         .about-image {
-            flex: 1;
-            min-width: 300px;
-            max-width: 600px;
+            flex: 1; /* Cho phép ảnh co giãn */
+            min-width: 300px; /* Đảm bảo ảnh có kích thước tối thiểu */
+            max-width: 600px; /* Giới hạn kích thước tối đa của ảnh */
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -500,8 +501,8 @@
         }
 
         .about-text {
-            flex: 2;
-            min-width: 300px;
+            flex: 2; /* Cho phép phần text chiếm nhiều không gian hơn ảnh */
+            min-width: 300px; /* Đảm bảo text có kích thước tối thiểu */
         }
 
         .about-text h3 {
@@ -956,16 +957,16 @@
                 height: 200px; /* Default height for all attraction cards on mobile */
             }
             .about-content {
-                flex-direction: column;
-                align-items: center;
+                flex-direction: column; /* Xếp chồng ảnh và text theo chiều dọc trên màn hình nhỏ */
+                align-items: center; /* Căn giữa các mục khi xếp chồng */
             }
             .about-image {
-                min-width: unset;
-                width: 100%;
+                min-width: unset; /* Bỏ giới hạn min-width */
+                width: 100%; /* Ảnh chiếm toàn bộ chiều rộng */
             }
             .about-text {
-                min-width: unset;
-                width: 100%;
+                min-width: unset; /* Bỏ giới hạn min-width */
+                width: 100%; /* Text chiếm toàn bộ chiều rộng */
             }
             .card-container .card {
                 min-width: unset;
