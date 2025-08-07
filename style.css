@@ -4,7 +4,6 @@
             --accent-color: #FFD700; /* Vàng Gold */
             --text-color: #333;
             --light-text: #f8f9fa;
-            
         }
 
         * {
@@ -15,41 +14,41 @@
         }
 
         body {
-            background-color: var(--secondary-color); /* Sử dụng màu tím lavender nhạt làm nền */
+            background-color: var(--secondary-color);
             color: var(--text-color);
             line-height: 1.6;
         }
 
         header {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
                         url('img/MAIN.jpg') center/cover no-repeat;
             color: var(--light-text);
             text-align: center;
-            padding: 6rem 1rem; /* Tăng padding để tạo không gian */
+            padding: 6rem 1rem;
             margin-bottom: 3rem;
         }
 
         header h1 {
-            font-family: 'Dancing Script', cursive; /* Áp dụng font nghệ thuật */
-            font-size: 5.5rem; /* Tăng kích thước chữ */
-            margin-bottom: 1.5rem; /* Tăng khoảng cách dưới */
+            font-family: 'Dancing Script', cursive;
+            font-size: 5.5rem;
+            margin-bottom: 1.5rem;
             font-weight: 700;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8); /* Tăng độ nổi bật của shadow */
-            color: var(--accent-color); /* Đổi màu chữ để nổi bật hơn */
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+            color: var(--accent-color);
         }
 
         header p {
-            font-size: 1.6rem; /* Tăng từ 1.4rem lên 1.6rem */
-            max-width: 900px; /* Tăng chiều rộng tối đa */
+            font-size: 1.6rem;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         /* Navbar Styles */
         nav {
             background-color: var(--primary-color);
-            padding: 1.2rem 0; /* Tăng padding */
+            padding: 1.2rem 0;
             text-align: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Tăng shadow */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
             position: sticky;
             top: 0;
             z-index: 50;
@@ -59,22 +58,22 @@
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 2.5rem; /* Tăng khoảng cách giữa các mục */
+            gap: 2.5rem;
         }
 
         nav ul li a {
             color: var(--light-text);
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.3rem; /* Tăng từ 1.2rem lên 1.3rem */
-            padding: 0.6rem 1.2rem; /* Tăng padding */
+            font-size: 1.3rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.2s ease; /* Thêm transform */
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.3); /* Tăng độ trong suốt khi hover */
-            transform: translateY(-3px); /* Hiệu ứng nổi nhẹ */
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
         }
 
         .container {
@@ -85,29 +84,29 @@
 
         .section-title {
             text-align: center;
-            margin: 5rem 0 2.5rem; /* Tăng khoảng cách */
+            margin: 5rem 0 2.5rem;
             position: relative;
-            font-size: 2.5rem; /* Tăng kích thước chữ */
+            font-size: 2.5rem;
             color: var(--primary-color);
-            font-weight: 700; /* Làm đậm tiêu đề */
+            font-weight: 700;
         }
 
-        .section-title h2 { /* Áp dụng font cho tiêu đề section */
-            font-family: 'Playfair Display', serif; 
-            font-size: 3.5rem; /* Tăng kích thước */
-            text-transform: uppercase; /* Viết hoa */
-            letter-spacing: 2px; /* Khoảng cách chữ */
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             color: var(--primary-color);
         }
 
         .section-title:after {
             content: "";
             display: block;
-            width: 100px; /* Tăng chiều rộng đường kẻ */
-            height: 5px; /* Tăng chiều cao đường kẻ */
-            background-color: var(--accent-color); /* Màu vàng gold */
-            margin: 0.8rem auto; /* Tăng khoảng cách */
-            border-radius: 2px; /* Bo góc nhẹ */
+            width: 100px;
+            height: 5px;
+            background-color: var(--accent-color);
+            margin: 0.8rem auto;
+            border-radius: 2px;
         }
 
         /* Chữ nghệ thuật cho các tiêu đề phần */
@@ -116,13 +115,13 @@
         #food-section .section-title h2,
         #art-section .section-title h2,
         #schedule-section .section-title h2 {
-            font-family: 'Playfair Display', serif; /* Áp dụng font Playfair Display */
-            font-size: 3.5rem; /* Giữ kích thước tương tự "Về Festival Huế" */
-            color: var(--primary-color); /* Giữ màu tím chủ đạo */
-            text-shadow: none; /* Loại bỏ đổ bóng nếu không muốn */
-            letter-spacing: 2px; /* Giữ khoảng cách chữ tương tự "Về Festival Huế" */
-            text-transform: uppercase; /* Chuyển thành chữ hoa */
-            font-weight: 700; /* Đảm bảo độ đậm */
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            text-shadow: none;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
         }
 
         /* Điều chỉnh đường kẻ dưới tiêu đề cho phù hợp với font mới */
@@ -131,10 +130,10 @@
         #food-section .section-title:after,
         #art-section .section-title:after,
         #schedule-section .section-title:after {
-            width: 150px; /* Tăng chiều rộng đường kẻ */
-            height: 6px; /* Tăng chiều cao đường kẻ */
-            background-color: var(--accent-color); /* Giữ màu vàng gold */
-            margin: 1rem auto; /* Tăng khoảng cách */
+            width: 150px;
+            height: 6px;
+            background-color: var(--accent-color);
+            margin: 1rem auto;
         }
 
         .scroll-container {
@@ -145,7 +144,7 @@
 
         .card-wrapper {
             display: flex;
-            gap: 2rem; /* Tăng khoảng cách giữa các card */
+            gap: 2rem;
             padding: 1rem 0;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
@@ -158,23 +157,23 @@
         }
 
         .card {
-            min-width: 300px; /* Tăng kích thước card */
+            min-width: 300px;
             max-width: 300px;
             background: white;
-            border-radius: 12px; /* Tăng bo góc */
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Tăng shadow */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
             scroll-snap-align: start;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Thêm transition cho shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-8px); /* Tăng hiệu ứng nổi */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* Tăng shadow khi hover */
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
         }
 
         .card-image {
-            height: 200px; /* Tăng chiều cao ảnh */
+            height: 200px;
             overflow: hidden;
         }
 
@@ -186,93 +185,93 @@
         }
 
         .card:hover .card-image img {
-            transform: scale(1.08); /* Tăng hiệu ứng zoom ảnh */
+            transform: scale(1.08);
         }
 
         .card-content {
-            padding: 1.8rem; /* Tăng padding */
+            padding: 1.8rem;
         }
 
         .card-content h3 {
-            font-family: 'Playfair Display', serif; /* Áp dụng font cho tiêu đề card */
+            font-family: 'Playfair Display', serif;
             color: var(--primary-color);
-            margin-bottom: 0.8rem; /* Tăng khoảng cách */
-            font-size: 1.4rem; /* Tăng kích thước chữ */
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
         }
 
         .card-content p {
             color: #555;
-            font-size: 1.1rem; /* Tăng từ 1rem lên 1.1rem */
+            font-size: 1.1rem;
             margin-bottom: 1.2rem;
         }
 
         .read-more {
             display: inline-block;
-            color: var(--primary-color); /* Đổi màu thành màu chính */
-            font-weight: 700; /* Làm đậm hơn */
+            color: var(--primary-color);
+            font-weight: 700;
             text-decoration: none;
-            font-size: 1rem; /* Tăng kích thước chữ */
+            font-size: 1rem;
             cursor: pointer;
             transition: color 0.3s ease;
         }
 
         .read-more:hover {
             text-decoration: underline;
-            color: var(--accent-color); /* Đổi màu khi hover */
+            color: var(--accent-color);
         }
 
         footer {
             background-color: var(--primary-color);
             color: var(--light-text);
             text-align: center;
-            padding: 2.5rem; /* Tăng padding */
-            margin-top: 4rem; /* Tăng khoảng cách trên */
+            padding: 2.5rem;
+            margin-top: 4rem;
         }
 
         .scroll-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 45px; /* Tăng kích thước nút */
+            width: 45px;
             height: 45px;
-            background-color: rgba(255, 255, 255, 0.9); /* Tăng độ trong suốt */
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25); /* Tăng shadow */
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
             z-index: 10;
             opacity: 0;
-            transition: opacity 0.3s, transform 0.2s ease; /* Thêm transform */
-            font-size: 1.8rem; /* Tăng kích thước mũi tên */
+            transition: opacity 0.3s, transform 0.2s ease;
+            font-size: 1.8rem;
             color: var(--primary-color);
         }
 
         .scroll-container:hover .scroll-btn {
             opacity: 1;
-            transform: translateY(-50%) scale(1.05); /* Hiệu ứng phóng to nhẹ */
+            transform: translateY(-50%) scale(1.05);
         }
 
         .scroll-btn.prev {
-            left: 15px; /* Tăng khoảng cách */
+            left: 15px;
         }
 
         .scroll-btn.next {
-            right: 15px; /* Tăng khoảng cách */
+            right: 15px;
         }
 
         /* Modal Styles */
         .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 100; /* Sit on top */
+            display: none;
+            position: fixed;
+            z-index: 100;
             left: 0;
             top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
             justify-content: center;
             align-items: center;
         }
@@ -280,11 +279,11 @@
         .modal-content {
             background-color: #fefefe;
             margin: auto;
-            padding: 35px; /* Tăng padding */
-            border-radius: 15px; /* Tăng bo góc */
-            width: 85%; /* Tăng chiều rộng */
-            max-width: 800px; /* Tăng chiều rộng tối đa */
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4); /* Tăng shadow */
+            padding: 35px;
+            border-radius: 15px;
+            width: 85%;
+            max-width: 800px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
             position: relative;
             animation-name: animatetop;
             animation-duration: 0.4s
@@ -309,105 +308,102 @@
         }
 
         .fade-in-up {
-            opacity: 0; /* Start hidden */
-            transform: translateY(20px); /* Start slightly below */
-            animation: fadeInUp 1.6s ease-out forwards; /* Apply animation - Changed from 0.6s to 1.6s */
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1.6s ease-out forwards;
         }
 
         .close-button {
-            color: #888; /* Màu xám đậm hơn */
+            color: #888;
             float: right;
-            font-size: 32px; /* Tăng kích thước */
+            font-size: 32px;
             font-weight: bold;
             position: absolute;
-            top: 15px; /* Điều chỉnh vị trí */
-            right: 25px; /* Điều chỉnh vị trí */
+            top: 15px;
+            right: 25px;
         }
 
         .close-button:hover,
         .close-button:focus {
-            color: var(--primary-color); /* Đổi màu khi hover */
+            color: var(--primary-color);
             text-decoration: none;
             cursor: pointer;
         }
 
         .modal-title {
-            font-family: 'Playfair Display', serif; /* Áp dụng font cho tiêu đề modal */
+            font-family: 'Playfair Display', serif;
             color: var(--primary-color);
-            font-size: 2.2rem; /* Tăng kích thước chữ */
-            margin-bottom: 1.5rem; /* Tăng khoảng cách */
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
             text-align: center;
             font-weight: 700;
         }
 
         .modal-body {
-            font-size: 1.3rem; /* Tăng từ 1.2rem lên 1.3rem */
+            font-size: 1.3rem;
             line-height: 1.8;
-            color: #444; /* Màu chữ đậm hơn */
+            color: #444;
         }
 
         /* New: Styles for image in modal */
         .modal-image-container {
             text-align: center;
-            margin-bottom: 2rem; /* Tăng khoảng cách */
-            display: flex; /* Use flexbox for image layout */
-            flex-wrap: wrap; /* Allow images to wrap */
-            justify-content: center; /* Center images */
-            gap: 5px; /* Tăng khoảng cách giữa các ảnh */
+            margin-bottom: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
         }
 
         .modal-image-container img {
             max-width: 100%;
             height: auto;
-            border-radius: 10px; /* Tăng bo góc */
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Tăng shadow */
-            flex: 1 1 auto; /* Allow images to grow and shrink */
-            max-height: 250px; /* Tăng chiều cao tối đa */
-            object-fit: cover; /* Ensure images cover their area */
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            flex: 1 1 auto;
+            max-height: 250px;
+            object-fit: cover;
         }
 
         /* Masonry Grid for Attractions */
         .masonry-grid {
-            column-count: 4; /* Giữ nguyên 4 cột */
-            column-gap: 2rem; /* Tăng khoảng cách giữa các cột */
-            margin: 3rem 0 5rem; /* Tăng khoảng cách */
+            column-count: 4;
+            column-gap: 2rem;
+            margin: 3rem 0 5rem;
         }
 
         .masonry-grid .card {
-            width: 100%; /* Card takes full width of its column */
-            margin-bottom: 2rem; /* Tăng khoảng cách dưới mỗi card */
-            break-inside: avoid-column; /* Prevent card from breaking across columns */
-            min-width: unset; /* Override min-width from card-wrapper */
-            max-width: unset; /* Override max-width from card-wrapper */
-            cursor: pointer; /* Indicate clickable */
+            width: 100%;
+            margin-bottom: 2rem;
+            break-inside: avoid-column;
+            min-width: unset;
+            max-width: unset;
+            cursor: pointer;
         }
 
         /* Define different heights for cards to create varied shapes */
         .masonry-grid .card.card-tall-1 .card-image {
-            height: 240px; /* Tăng chiều cao */
+            height: 240px;
         }
         .masonry-grid .card.card-tall-2 .card-image {
-            height: 280px; /* Tăng chiều cao */
+            height: 280px;
         }
         .masonry-grid .card.card-tall-3 .card-image {
-            height: 180px; /* Tăng chiều cao */
+            height: 180px;
         }
         .masonry-grid .card.card-tall-4 .card-image {
-            height: 220px; /* Tăng chiều cao */
+            height: 220px;
         }
-        /* Add more as needed */
-
 
         /* Hide card-content for attraction cards */
         #attraction-section .card-content {
-            display: none; /* Hide the text content */
+            display: none;
         }
-
 
         /* New styles for the "Giới thiệu" section */
         .hero {
             position: relative;
-            height: 400px; /* Adjust as needed */
+            height: 400px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -426,7 +422,7 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Parallax effect */
+            background-attachment: fixed;
             z-index: -1;
         }
 
@@ -444,18 +440,18 @@
         }
 
         .about-content {
-            display: flex; /* Kích hoạt Flexbox */
-            flex-wrap: wrap; /* Cho phép các mục xuống dòng khi không đủ không gian */
-            gap: 2rem; /* Tăng khoảng cách giữa ảnh và text */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
             margin-bottom: 3rem;
-            align-items: flex-start; /* Căn chỉnh các mục theo phía trên */
-            justify-content: center; /* Căn giữa các mục khi chúng không chiếm hết chiều rộng */
+            align-items: flex-start;
+            justify-content: center;
         }
 
         .about-image {
-            flex: 1; /* Cho phép ảnh co giãn */
-            min-width: 300px; /* Đảm bảo ảnh có kích thước tối thiểu */
-            max-width: 600px; /* Giới hạn kích thước tối đa của ảnh */
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -486,12 +482,12 @@
         }
 
         .about-text {
-            flex: 2; /* Cho phép phần text chiếm nhiều không gian hơn ảnh */
-            min-width: 300px; /* Đảm bảo text có kích thước tối thiểu */
+            flex: 2;
+            min-width: 300px;
         }
 
         .about-text h3 {
-            font-family: 'Playfair Display', serif; /* Áp dụng font cho tiêu đề nhỏ trong about */
+            font-family: 'Playfair Display', serif;
             color: var(--primary-color);
             margin-top: 1.5rem;
             margin-bottom: 0.8rem;
@@ -499,7 +495,7 @@
         }
 
         .about-text p {
-            font-size: 1.1rem; /* Tăng từ 1rem lên 1.1rem */
+            font-size: 1.1rem;
             margin-bottom: 1rem;
         }
 
@@ -509,7 +505,7 @@
         }
 
         .about-text ul li {
-            font-size: 1.1rem; /* Thêm font-size */
+            font-size: 1.1rem;
             margin-bottom: 0.5rem;
         }
 
@@ -537,7 +533,7 @@
         }
 
         .card-container .card-image {
-            height: 200px; /* Adjust image height for these cards */
+            height: 200px;
         }
 
         .card-container .card-image img {
@@ -551,7 +547,7 @@
         }
 
         .card-container .card-content h3 {
-            font-family: 'Playfair Display', serif; /* Áp dụng font cho tiêu đề card */
+            font-family: 'Playfair Display', serif;
             color: var(--primary-color);
             margin-bottom: 0.5rem;
             font-size: 1.3rem;
@@ -559,17 +555,17 @@
 
         .card-container .card-content p {
             color: #555;
-            font-size: 1.1rem; /* Tăng từ 1rem lên 1.1rem */
+            font-size: 1.1rem;
         }
 
         /* New styles for Schedule Section */
         .schedule-card .card-image {
-            position: relative; /* Để overlay có thể định vị tương đối */
-            height: 220px; /* Tăng chiều cao ảnh lịch trình */
+            position: relative;
+            height: 220px;
         }
 
         .schedule-card .card-image img {
-            filter: brightness(0.7); /* Làm tối ảnh để chữ dễ đọc hơn */
+            filter: brightness(0.7);
         }
 
         .card-overlay {
@@ -581,42 +577,41 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: transparent; /* Đặt trong suốt ban đầu */
+            background-color: transparent;
             color: var(--light-text);
             font-size: 1.8rem;
             font-weight: 700;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-            pointer-events: none; /* Đảm bảo click xuyên qua overlay đến card */
-            transition: background-color 0.3s ease, border 0.3s ease; /* Thêm transition cho border */
+            pointer-events: none;
+            transition: background-color 0.3s ease, border 0.3s ease;
         }
 
         .card-overlay h3 {
-            font-family: 'Playfair Display', serif; /* Áp dụng font cho tiêu đề overlay */
-            border: 4px solid var(--accent-color); /* Viền vàng gold */
-            padding: 0.7rem 1.5rem; /* Tăng padding */
-            background-color: rgba(106, 5, 127, 0.6); /* Nền tím đậm mờ */
-            border-radius: 8px; /* Tăng bo góc nhẹ cho ô vuông */
+            font-family: 'Playfair Display', serif;
+            border: 4px solid var(--accent-color);
+            padding: 0.7rem 1.5rem;
+            background-color: rgba(106, 5, 127, 0.6);
+            border-radius: 8px;
             transition: background-color 0.3s ease, transform 0.3s ease;
-            font-size: 2rem; /* Tăng kích thước chữ */
+            font-size: 2rem;
         }
 
         .schedule-card:hover .card-overlay {
-            background-color: rgba(0, 0, 0, 0.3); /* Lớp phủ nhẹ hơn khi hover */
+            background-color: rgba(0, 0, 0, 0.3);
         }
 
         .schedule-card:hover .card-overlay h3 {
-            background-color: rgba(106, 5, 127, 0.8); /* Nền tím đậm hơn khi hover */
-            transform: scale(1.1); /* Phóng to chữ nhẹ khi hover */
+            background-color: rgba(106, 5, 127, 0.8);
+            transform: scale(1.1);
         }
 
         /* Village section layout */
         .village-layout-container {
             display: flex;
-            gap: 2.5rem; /* Tăng khoảng cách */
+            gap: 2.5rem;
             align-items: flex-start;
-            margin-bottom: 5rem; /* Tăng khoảng cách */
-            /* Đảm bảo các cột nằm ngang hàng */
-            flex-direction: row; 
+            margin-bottom: 5rem;
+            flex-direction: row;
         }
 
         .village-cards-column {
@@ -628,28 +623,27 @@
         }
 
         .village-text-column {
-            flex: 1; /* Cột chữ chiếm 1 phần */
-            min-width: 30%; /* Đảm bảo cột chữ có đủ không gian */
-            padding: 1.5rem; /* Tăng padding */
+            flex: 1;
+            min-width: 30%;
+            padding: 1.5rem;
             background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Tăng shadow */
-            /* Đặt cột văn bản ở bên trái */
-            order: 1; 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            order: 1;
         }
 
         .village-text-column .village-text-title {
-            font-family: 'Playfair Display', serif; /* Áp dụng font cho tiêu đề làng nghề */
+            font-family: 'Playfair Display', serif;
             color: var(--primary-color);
-            font-size: 2rem; /* Tăng kích thước chữ */
-            margin-bottom: 1.2rem; /* Tăng khoảng cách */
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
             text-align: center;
         }
 
         .village-text-column p {
             margin-bottom: 1rem;
-            line-height: 1.8; /* Tăng line-height */
-            font-size: 1.15rem; /* Tăng từ 1.05rem lên 1.15rem */
+            line-height: 1.8;
+            font-size: 1.15rem;
         }
 
         .village-text-column ul {
@@ -659,7 +653,7 @@
         }
 
         .village-text-column ul li {
-            font-size: 1.1rem; /* Thêm font-size */
+            font-size: 1.1rem;
             margin-bottom: 0.5rem;
         }
 
@@ -682,22 +676,22 @@
         }
 
         .card-wrapper.village-scroll .card.centered {
-            min-width: 340px; /* Tăng kích thước card trung tâm */
+            min-width: 340px;
             max-width: 340px;
-            transform: scale(1.1); /* Tăng hiệu ứng phóng to */
-            box-shadow: 0 12px 25px rgba(0,0,0,0.3); /* Tăng shadow */
+            transform: scale(1.1);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.3);
             z-index: 2;
         }
 
         .card-wrapper.village-scroll .card.centered .card-image {
-            height: 240px; /* Tăng chiều cao ảnh */
+            height: 240px;
         }
-        
+
         .card-wrapper.village-scroll .card:not(.centered) {
-            min-width: 260px; /* Tăng kích thước card không trung tâm */
+            min-width: 260px;
             max-width: 260px;
-            transform: scale(0.95); /* Giảm nhẹ hiệu ứng thu nhỏ */
-            opacity: 0.9; /* Tăng độ trong suốt */
+            transform: scale(0.95);
+            opacity: 0.9;
         }
 
         /* Thêm scroll-margin-top cho tất cả các section có ID tương ứng với nav */
@@ -707,37 +701,37 @@
         #food-section,
         #art-section,
         #schedule-section {
-            scroll-margin-top: 80px; /* Điều chỉnh giá trị này tùy thuộc vào chiều cao của navbar */
+            scroll-margin-top: 80px;
         }
 
         /* New Food Section Layout */
         .circular-gallery-wrapper.food-slides {
             display: flex;
-            flex-wrap: nowrap; /* Ensure slides stay in one row */
+            flex-wrap: nowrap;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
-            gap: 2rem; /* Khoảng cách giữa các slide */
-            padding-bottom: 1rem; /* Để tránh scrollbar che mất nội dung */
+            gap: 2rem;
+            padding-bottom: 1rem;
         }
 
         .circular-gallery-wrapper.food-slides::-webkit-scrollbar {
-            display: none; /* Hide scrollbar for a cleaner look */
+            display: none;
         }
 
         .food-slide {
-            flex: 0 0 100%; /* Each slide takes full width of its container */
-            min-width: 100%; /* Ensure it takes full width */
+            flex: 0 0 100%;
+            min-width: 100%;
             scroll-snap-align: start;
             display: grid;
-            grid-template-columns: 1fr 1fr; /* 2 columns */
-            grid-template-rows: 1fr 1fr; /* 2 rows */
-            gap: 1rem; /* Khoảng cách giữa các ô trong slide */
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 1rem;
             background-color: white;
             border-radius: 12px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-            padding: 1.5rem; /* Padding cho toàn bộ slide */
+            padding: 1.5rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -749,28 +743,28 @@
         .food-item {
             display: flex;
             align-items: center;
-            background-color: #f8f8f8; /* Nền nhẹ cho mỗi ô */
+            background-color: #f8f8f8;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
             padding: 0.8rem;
-            cursor: pointer; /* Add cursor pointer to indicate clickability */
+            cursor: pointer;
         }
 
         .food-item.top-left, .food-item.bottom-right {
-            flex-direction: row; /* Image left, text right */
+            flex-direction: row;
         }
 
         .food-item.top-right, .food-item.bottom-left {
-            flex-direction: row-reverse; /* Text left, image right */
+            flex-direction: row-reverse;
         }
 
         .food-item img {
-            width: 45%; /* Chiếm 45% chiều rộng của ô */
-            height: 120px; /* Chiều cao cố định cho ảnh */
+            width: 45%;
+            height: 120px;
             object-fit: cover;
             border-radius: 6px;
-            margin: 0 0.8rem; /* Khoảng cách xung quanh ảnh */
+            margin: 0 0.8rem;
             transition: transform 0.3s ease;
         }
 
@@ -779,32 +773,26 @@
         }
 
         .food-item-content {
-            flex: 1; /* Chiếm phần còn lại của ô */
+            flex: 1;
             padding: 0.5rem;
         }
 
         .food-item-content h4 {
-            font-family: 'Playfair Display', serif; /* Áp dụng font cho tiêu đề món ăn */
+            font-family: 'Playfair Display', serif;
             color: var(--primary-color);
             font-size: 1.1rem;
             margin-bottom: 0.3rem;
         }
 
         .food-item-content p {
-            font-size: 1rem; /* Tăng từ 0.9rem lên 1rem */
+            font-size: 1rem;
             color: #555;
             line-height: 1.4;
         }
 
-        /* Removed .read-more styles as they are no longer needed for food items */
-        /* .food-item .read-more {
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        } */
-
         /* Hamburger menu styles */
         .hamburger-menu {
-            display: none; /* Hidden by default */
+            display: none;
             flex-direction: column;
             justify-content: space-around;
             width: 30px;
@@ -814,7 +802,7 @@
             right: 20px;
             top: 50%;
             transform: translateY(-50%);
-            z-index: 60; /* Ensure it's above the nav links */
+            z-index: 60;
         }
 
         .hamburger-menu .bar {
@@ -849,20 +837,20 @@
                 font-size: 1.1rem;
             }
             nav {
-                padding: 1rem 0; /* Adjust padding for smaller nav */
+                padding: 1rem 0;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                position: relative; /* Allow absolute positioning of hamburger */
+                position: relative;
             }
             nav ul {
                 flex-direction: column;
                 width: 100%;
                 background-color: var(--primary-color);
                 position: absolute;
-                top: 100%; /* Position below the nav bar */
+                top: 100%;
                 left: 0;
-                display: none; /* Hidden by default */
+                display: none;
                 padding: 1rem 0;
                 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
                 transition: all 0.3s ease-in-out;
@@ -871,7 +859,7 @@
             }
 
             nav ul.active {
-                display: flex; /* Show when active */
+                display: flex;
                 opacity: 1;
                 transform: translateY(0);
             }
@@ -884,11 +872,11 @@
 
             nav ul li a {
                 display: block;
-                padding: 0.8rem 1rem; /* Larger clickable area */
-                font-size: 1.1rem; /* Adjust font size for mobile nav */
+                padding: 0.8rem 1rem;
+                font-size: 1.1rem;
             }
             .container {
-                padding: 0 1.2rem; /* Adjust padding for phones */
+                padding: 0 1.2rem;
             }
             .section-title h2 {
                 font-size: 1.8rem;
@@ -899,7 +887,7 @@
             #food-section .section-title h2,
             #art-section .section-title h2,
             #schedule-section .section-title h2 {
-                font-size: 2.5rem; /* Giảm kích thước trên điện thoại */
+                font-size: 2.5rem;
                 letter-spacing: 1px;
             }
             #attraction-section .section-title:after,
@@ -913,11 +901,11 @@
             }
 
             .scroll-btn {
-                opacity: 1; /* Always show scroll buttons on mobile */
+                opacity: 1;
             }
             .modal-content {
-                width: 98%; /* Tăng chiều rộng */
-                padding: 25px; /* Điều chỉnh padding */
+                width: 98%;
+                padding: 25px;
             }
             .modal-title {
                 font-size: 1.8rem;
@@ -926,10 +914,10 @@
                 font-size: 1.05rem;
             }
             .masonry-grid {
-                column-count: 1; /* Single column for phones */
+                column-count: 1;
             }
             .masonry-grid .card {
-                min-width: unset; /* Override min-width */
+                min-width: unset;
                 max-width: 100%;
                 margin-left: auto;
                 margin-right: auto;
@@ -939,26 +927,26 @@
             .masonry-grid .card.card-tall-2 .card-image,
             .masonry-grid .card.card-tall-3 .card-image,
             .masonry-grid .card.card-tall-4 .card-image {
-                height: 200px; /* Default height for all attraction cards on mobile */
+                height: 200px;
             }
             .about-content {
-                flex-direction: column; /* Xếp chồng ảnh và text theo chiều dọc trên màn hình nhỏ */
-                align-items: center; /* Căn giữa các mục khi xếp chồng */
+                flex-direction: column;
+                align-items: center;
             }
             .about-image {
-                min-width: unset; /* Bỏ giới hạn min-width */
-                width: 100%; /* Ảnh chiếm toàn bộ chiều rộng */
+                min-width: unset;
+                width: 100%;
             }
             .about-text {
-                min-width: unset; /* Bỏ giới hạn min-width */
-                width: 100%; /* Text chiếm toàn bộ chiều rộng */
+                min-width: unset;
+                width: 100%;
             }
             .card-container .card {
                 min-width: unset;
                 width: 100%;
             }
             .card-wrapper.village-scroll {
-                padding: 1rem calc(50% - 140px); /* (280px / 2) - Adjust for centered card width */
+                padding: 1rem calc(50% - 140px);
             }
             .card-wrapper.village-scroll .card.centered {
                 min-width: 280px;
@@ -977,29 +965,29 @@
                 max-width: 100%;
             }
             .schedule-card .card-image {
-                height: 180px; /* Điều chỉnh chiều cao ảnh lịch trình */
+                height: 180px;
             }
             .card-overlay h3 {
-                font-size: 1.6rem; /* Điều chỉnh kích thước chữ overlay */
+                font-size: 1.6rem;
             }
             .modal-image-container img {
-                max-height: 180px; /* Adjust height for smaller screens */
+                max-height: 180px;
             }
 
             /* Responsive adjustments for food section */
             .food-slide {
-                grid-template-columns: 1fr; /* Single column on small screens */
-                grid-template-rows: auto; /* Auto rows */
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
                 padding: 1rem;
                 gap: 0.8rem;
             }
             .food-item {
-                flex-direction: column !important; /* Stack image and text vertically */
+                flex-direction: column !important;
                 text-align: center;
                 padding: 0.5rem;
             }
             .food-item img {
-                width: 80%; /* Larger image on single column */
+                width: 80%;
                 height: 150px;
                 margin: 0.5rem auto;
             }
@@ -1014,7 +1002,7 @@
             }
 
             .hamburger-menu {
-                display: flex; /* Show hamburger on small screens */
+                display: flex;
             }
         }
 
@@ -1030,7 +1018,7 @@
                 gap: 2rem;
             }
             .container {
-                padding: 0 1.5rem; /* Adjust padding for tablets */
+                padding: 0 1.5rem;
             }
             .section-title h2 {
                 font-size: 2.2rem;
@@ -1041,7 +1029,7 @@
             #food-section .section-title h2,
             #art-section .section-title h2,
             #schedule-section .section-title h2 {
-                font-size: 3.5rem; /* Giảm kích thước trên máy tính bảng */
+                font-size: 3.5rem;
                 letter-spacing: 2px;
             }
             #attraction-section .section-title:after,
@@ -1055,24 +1043,24 @@
             }
 
             .masonry-grid {
-                column-count: 2; /* 2 columns for tablets */
+                column-count: 2;
             }
             .village-layout-container {
-                flex-direction: column; /* Stack columns vertically */
+                flex-direction: column;
                 align-items: center;
             }
             .village-cards-column,
             .village-text-column {
                 flex: none;
-                width: 95%; /* Adjust width for better spacing */
+                width: 95%;
                 min-width: unset;
-                order: unset; /* Reset order for mobile/tablet */
+                order: unset;
             }
             .village-cards-column {
-                padding-bottom: 2rem; /* Add space below card column */
+                padding-bottom: 2rem;
             }
             .card-wrapper.village-scroll {
-                padding: 1rem calc(50% - 150px); /* (300px / 2) - Adjust for centered card width */
+                padding: 1rem calc(50% - 150px);
             }
             .card-wrapper.village-scroll .card.centered {
                 min-width: 300px;
@@ -1087,28 +1075,28 @@
             }
             .about-image {
                 min-width: unset;
-                width: 80%; /* Adjust width for tablet */
+                width: 80%;
             }
             .about-text {
                 min-width: unset;
                 width: 100%;
             }
             .card-container .card {
-                min-width: 250px; /* Adjust min-width for cards in about section */
+                min-width: 250px;
                 max-width: 300px;
             }
             .schedule-card .card-image {
-                height: 200px; /* Điều chỉnh chiều cao ảnh lịch trình */
+                height: 200px;
             }
             .card-overlay h3 {
-                font-size: 1.8rem; /* Điều chỉnh kích thước chữ overlay */
+                font-size: 1.8rem;
             }
             .food-slide {
                 gap: 0.8rem;
                 padding: 1.2rem;
             }
             .food-item img {
-                height: 100px; /* Adjust image height for tablets */
+                height: 100px;
             }
             .food-item-content h4 {
                 font-size: 1rem;
@@ -1121,13 +1109,13 @@
         /* Large devices (desktops, 1200px and up) */
         @media (min-width: 993px) {
             .container {
-                max-width: 1200px; /* Keep max-width for content */
+                max-width: 1200px;
             }
             .masonry-grid {
-                column-count: 3; /* 3 columns for larger desktops */
+                column-count: 3;
             }
             .village-layout-container {
-                flex-direction: row; /* Keep side-by-side for larger screens */
+                flex-direction: row;
             }
             .village-cards-column {
                 flex: 2;
@@ -1153,22 +1141,22 @@
         /* Extra large devices (2K, 4K monitors, 1600px and up) */
         @media (min-width: 1600px) {
             .container {
-                max-width: 1500px; /* Allow content to be wider on very large screens */
+                max-width: 1500px;
             }
             header h1 {
-                font-size: 5.5rem; /* Larger font for main title */
+                font-size: 5.5rem;
             }
             header p {
-                font-size: 1.6rem; /* Larger font for header paragraph */
+                font-size: 1.6rem;
             }
             .section-title h2 {
-                font-size: 3rem; /* Larger section titles */
+                font-size: 3rem;
             }
             nav ul li a {
-                font-size: 1.3rem; /* Slightly larger nav links */
+                font-size: 1.3rem;
             }
             .masonry-grid {
-                column-count: 4; /* 4 columns for 2K/4K */
+                column-count: 4;
             }
             /* Adjust card sizes or image heights if needed for very high resolutions */
             .card-wrapper.village-scroll .card.centered {
@@ -1185,17 +1173,16 @@
         }
 
         /* Optional: Media query for specific aspect ratios (e.g., 16:9 TVs) */
-        /* This is more complex and usually not necessary unless content needs specific layout for TVs */
         @media (min-aspect-ratio: 16/10) and (min-width: 1200px) {
             .masonry-grid {
-                column-count: 4; /* 4 columns for wider screens (e.g., 16:10 or wider) */
+                column-count: 4;
             }
         }
 
         /* Default for 16:10 or narrower, or smaller screens */
         @media (max-aspect-ratio: 16/9) and (min-width: 993px) {
             .masonry-grid {
-                column-count: 3; /* 3 columns for 16:9 or narrower, on larger desktops */
+                column-count: 3;
             }
         }
         footer {
@@ -1249,7 +1236,7 @@
             color: white;
             padding-left: 5px;
         }
-.social-links {
+        .social-links {
             display: flex;
             gap: 1rem;
             margin-top: 1rem;
