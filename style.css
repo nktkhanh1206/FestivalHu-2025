@@ -1198,24 +1198,6 @@
                 column-count: 3; /* 3 columns for 16:9 or narrower, on larger desktops */
             }
         }
-.form-btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .form-btn:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
         footer {
             background-color: var(--dark-color);
             color: white;
