@@ -1199,10 +1199,10 @@
             }
         }
         footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 3rem 0 1.5rem;
+            background-color: var(--primary-color);
+            color: var(--light-text);
             text-align: center;
+            padding: 3rem 0 1.5rem;
         }
 
         .footer-content {
