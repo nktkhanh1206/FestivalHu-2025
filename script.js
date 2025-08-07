@@ -75,13 +75,13 @@
 
                 const title = this.getAttribute("data-title");
                 const content = this.getAttribute("data-content");
-                const imageUrls = this.getAttribute("data-images") || this.getAttribute("data-image"); 
+                const imageUrls = this.getAttribute("data-images") || this.getAttribute("data-image");
 
                 modalTitle.textContent = title;
                 modalBody.textContent = content;
 
                 addImagesToModal(imageUrls, title);
-                
+
                 modal.style.display = "flex";
             });
         });
@@ -93,7 +93,7 @@
 
                 const title = this.getAttribute("data-title");
                 const content = this.getAttribute("data-content");
-                const imageUrls = this.getAttribute("data-images") || this.querySelector('.card-image img').src; 
+                const imageUrls = this.getAttribute("data-images") || this.querySelector('.card-image img').src;
 
                 modalTitle.textContent = title;
                 modalBody.textContent = content;
@@ -229,7 +229,7 @@
                 const month = this.getAttribute("data-month");
                 const scheduleContent = this.getAttribute("data-schedule");
                 // Lấy thuộc tính data-images mới. Nếu không có, fallback về src của ảnh hiện tại.
-                const imageUrls = this.getAttribute("data-images") || this.querySelector('.card-image img').src; 
+                const imageUrls = this.getAttribute("data-images") || this.querySelector('.card-image img').src;
 
                 modalTitle.textContent = "Lịch trình " + month;
                 modalBody.innerHTML = scheduleContent; // Sử dụng innerHTML vì nội dung có thẻ HTML
@@ -245,7 +245,7 @@
             const cards = wrapper.querySelectorAll('.card');
             const scrollLeft = wrapper.scrollLeft;
             const wrapperWidth = wrapper.clientWidth;
-            
+
             let targetIndex = 0;
             let minDistance = Infinity;
 
@@ -263,7 +263,7 @@
             cards.forEach((card, index) => {
                 card.classList.toggle('centered', index === targetIndex);
             });
-            
+
             if (!wrapper.isDragging) {
                 const targetCard = cards[targetIndex];
                 if (targetCard) {
@@ -275,23 +275,23 @@
                 }
             }
         }
-        
+
         // Apply centered card effect to "Làng nghề truyền thống" section
         const villageWrapper = document.querySelector('#village-cards');
         const villageScrollContainer = document.querySelector('.village-scroll-container');
 
         if (villageWrapper && villageScrollContainer) {
             villageWrapper.isDragging = false;
-            
+
             villageWrapper.addEventListener('mousedown', () => {
                 villageWrapper.isDragging = true;
             });
-            
+
             villageWrapper.addEventListener('mouseup', () => {
                 villageWrapper.isDragging = false;
                 updateCenteredVillageCard(villageWrapper);
             });
-            
+
             villageWrapper.addEventListener('scroll', debounce(() => {
                 if (!villageWrapper.isDragging) {
                     updateCenteredVillageCard(villageWrapper);
